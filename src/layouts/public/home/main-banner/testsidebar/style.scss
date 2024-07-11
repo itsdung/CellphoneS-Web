@@ -59,7 +59,7 @@
           display: flex;
           position: absolute;
           top: 0;
-          right: 31.5%;
+          right: 32%;
           background-color: #fff;
           border: 1px solid #ccc;
           padding: 10px;
@@ -89,6 +89,7 @@
             li {
               margin-bottom: 5px;
               cursor: pointer;
+              font-size: 14px;
             }
           }
         }

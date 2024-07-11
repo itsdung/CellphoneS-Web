@@ -32,6 +32,16 @@ export const serviceMenuData: ServiceMenuItem[] = [
           { title: 'Samsung' },
           { title: 'Xiaomi' },
           { title: 'OPPO' },
+          { title: 'realme' },
+          { title: 'vivo' },
+          { title: 'ASUS' },
+          { title: 'Nokia' },
+          { title: 'TECHNO' },
+          { title: 'Nubia' },
+          { title: 'OnePlus' },
+          { title: 'Masstel' },
+          { title: 'Sony' },
+          { title: 'Điện thoại phổ thông' },
         ]
       },
       {
