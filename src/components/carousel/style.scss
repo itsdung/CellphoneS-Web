@@ -1,0 +1,73 @@
+.slider-container {
+    .slick-arrow {
+      &::before {
+        display: none;
+      }
+    }
+  
+    @media screen and (max-width: 768px) {
+      .slick-prev,
+      .slick-next {
+        top: 36% !important;
+      }
+    }
+  
+    @media screen and (max-width: 425px) {
+      .slick-prev,
+      .slick-next {
+        top: 30% !important;
+      }
+    }
+  
+    .custom-next-arrow,
+    .custom-prev-arrow {
+      z-index: 1;
+  
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  
+    // Điều chỉnh vị trí của arrow nếu cần
+    .custom-next-arrow {
+      right: -20px;
+    }
+  
+    .custom-prev-arrow {
+      left: -40px;
+    }
+  }
+  
+  
+  
+  
+  .slider-contain {
+    .slick-arrow {
+      &::before {
+        display: none;
+      }
+    }
+  
+    .custom-next-arrow,
+    .custom-prev-arrow {
+      z-index: 1;
+  
+      svg {
+        width: 40px;
+        height: 40px;
+      }
+    }
+  
+    // Điều chỉnh vị trí của arrow nếu cần
+    .custom-next-arrow {
+        right: 200px !important;
+        top: 4px !important;
+      }
+    
+      .custom-prev-arrow {
+        left: 200px !important;
+        top: 4px !important;
+      }
+}
+  
