@@ -1,8 +1,11 @@
 .slider-container {
     width: 1160px;
+    padding: 0.5rem;
+    position: relative;
     .card-item {
-        width: 224px;
+        width: auto !important;
         padding: 10px;
+        margin: 0 0.5rem;
         border-radius: 8px;
         background: var(--color-white);
         
@@ -38,6 +41,8 @@
         }
 
         &-image {
+            display: flex;
+            justify-content: center;
             img{
                 width: 160px;
                 height: auto;
@@ -95,7 +100,7 @@
         }
 
         &-feedback {
-            padding: 1rem 1rem 0 1rem;
+            padding: 1rem 0 0 0;
             display: flex;
             justify-content: space-between;
 
@@ -109,6 +114,7 @@
                 display: flex;
                 align-items: center;
                 gap: 4px;
+                cursor: pointer;
                 p{
                     font-size: 12px;
                     color: var(--color-grey-400);
@@ -119,5 +125,31 @@
                 }
             }
         }
+    }
+}
+
+.slider-contain .custom-next-arrow {
+    right: 4px !important;
+    top: 50% !important;
+    cursor: pointer;
+    svg {
+        color: var(--color-grey-500) !important;
+        background: rgba($color: #fff, $alpha: 0.5);
+        border-radius: 100px 0 0 100px;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+        height: 50px !important;
+    }
+}
+
+.slider-contain .custom-prev-arrow {
+    left: -15px !important;
+    top: 50% !important;
+    cursor: pointer;
+    svg {
+        color: var(--color-grey-500) !important;
+        background: rgba($color: #fff, $alpha: 0.5);
+        border-radius: 0 100px 100px 0;
+        box-shadow: 0 0 4px 0 rgba(0,0,0,.2);
+        height: 50px !important;
     }
 }

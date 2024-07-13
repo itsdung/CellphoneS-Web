@@ -1,0 +1,36 @@
+.wrapper-phone {
+    margin-bottom: 10px;
+    min-height: 250px;
+    display: flex;
+    justify-content: center;
+    width: 1160px;
+    margin: 1rem auto;
+
+    .phone-header {
+        display: flex;
+        gap: 3rem;
+        h2{
+            font-size: 2.2rem;
+            font-weight: 700;
+            color: #444;
+            text-transform: uppercase;
+        }
+
+        .phone-list {
+            display: flex;
+            gap: 6px;
+            cursor: pointer;
+            &-item {
+                background-color: #f3f4f6;
+                border: 1px solid #e5e7eb;
+                border-radius: 10px;
+                color: #444;
+                float: right;
+                font-size: 13px;
+                height: 34px;
+                padding: 5px 10px;
+                white-space: nowrap;
+            }
+        }
+    }
+}

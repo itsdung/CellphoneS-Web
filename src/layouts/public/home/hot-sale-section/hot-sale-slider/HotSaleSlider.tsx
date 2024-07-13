@@ -1,25 +1,15 @@
 'use client'
 import React from 'react'
 import Image from 'next/image';
-import 'react-responsive-carousel/lib/styles/carousel.min.css';
 import { HotSaleSliderData } from '@/constants/HotSaleSliderConstants'
 import './style.scss'
-import { Carousel } from 'react-responsive-carousel';
 import ribbon from '@/assets/icons/wrap.png'
+import { Carousel } from '@/components/carousel/CarouselHotSale';
 
 export default function HotSaleSlider() {
   return (
     <div className='slider-container'>
-      <Carousel
-          showThumbs={false}
-          // autoPlay={true}
-          showArrows={true}
-          showStatus={false}
-          showIndicators={false}
-          infiniteLoop={true}
-          // centerMode={true}
-          // centerSlidePercentage={50}
-        >
+      <Carousel>
           {HotSaleSliderData.map((item, index) => (
           <div key={index} className='card-item'>
             <div className='card-item-discount'>
