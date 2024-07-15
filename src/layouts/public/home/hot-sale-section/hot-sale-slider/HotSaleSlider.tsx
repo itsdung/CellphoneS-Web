@@ -3,7 +3,7 @@ import React from 'react'
 import Image from 'next/image';
 import { HotSaleSliderData } from '@/constants/HotSaleSliderConstants'
 import './style.scss'
-import { Carousel } from '@/components/carousel/CarouselHotSale';
+import { Carousel } from '@/components/carousel/Carousel';
 import CardItem from '@/components/Card/Card';
 
 

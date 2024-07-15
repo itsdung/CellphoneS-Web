@@ -2,9 +2,11 @@
     box-sizing: border-box;
     background-color: var(--color-primary);
     display: block;
-    height: 100%;
     margin: 0 auto;
-    position: relative;
+    position: fixed;
+    top: 0;
+    width: 100%;
+    z-index: 1000;
 
     .header-content {
         align-items: center;

@@ -6,6 +6,10 @@ import SaleBanner from './sale-banner/SaleBanner'
 import HotSaleSection from './hot-sale-section/HotSaleSection'
 import PhoneSection from './phone-section/PhoneSection'
 import './style.scss'
+import LaptopSection from './laptop-section/LaptopSection'
+import ScreenSection from './screen-section/ScreenSection'
+import TabletSection from './tablet-section/TabletSection'
+import SoundSection from './sound-section/SoundSection'
 
 export default function HomeLayout() {
   return (
@@ -16,6 +20,10 @@ export default function HomeLayout() {
         <SaleBanner/>
         <HotSaleSection/>
         <PhoneSection/>
+        <LaptopSection/>
+        <ScreenSection/>
+        <TabletSection/>
+        <SoundSection/>
     </div>
   )
 }

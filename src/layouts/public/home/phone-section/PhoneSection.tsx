@@ -1,10 +1,10 @@
-import { phoneSectionListData } from '@/constants/PhoneSectionListConstants'
+import { phoneSectionListData } from '@/constants/phone/PhoneSectionListConstants'
 import Link from 'next/link'
 import React from 'react'
 import './style.scss'
-import { TwoRowsCarousel } from '@/components/carousel/TwoRowsCarousel'
+import { Carousel } from '@/components/carousel/TwoRowsCarousel'
 import CardItem from '@/components/Card/Card'
-import { PhoneCarouselData } from '@/constants/PhoneCarouselConstants'
+import { PhoneCarouselData } from '@/constants/phone/PhoneCarouselConstants'
 
 export default function PhoneSection() {
   return (
@@ -25,11 +25,11 @@ export default function PhoneSection() {
         </div>
 
         <div className='phone-slider'>
-            <TwoRowsCarousel>
+            <Carousel>
                 {PhoneCarouselData.map((item, index) => (
                 <CardItem key={index} item={item} />
                 ))}
-            </TwoRowsCarousel>
+            </Carousel>
         </div>
     </div>
   )

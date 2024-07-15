@@ -1,17 +1,18 @@
 import Image, { StaticImageData } from 'next/image';
 import './style.scss'
+import Link from 'next/link';
 
 interface Item {
     img: StaticImageData;
     name: string;
-    ribbon: StaticImageData;
+    ribbon: StaticImageData | null;
     newpri: string;
     oldpri: string;
     payway: string;
-    discount: string;
+    discount: string | null;
     desc: string;
     loveIc: JSX.Element;
-    stars: JSX.Element;
+    stars: JSX.Element | null;
 }
 
 const CardItem = ({ item }: { item: Item }) => {
@@ -23,17 +24,25 @@ const CardItem = ({ item }: { item: Item }) => {
         <span className='payway'>{item.payway}</span>
       </div>
       <div className='card-item-image'>
-        <Image src={item.img} alt='picture'/>
+        <Link href='/'>
+          <Image src={item.img} alt='picture'/>
+        </Link>
       </div>
       <div className='card-item-name'>
-        <p>{item.name}</p>
+        <Link href='/'>
+          <p>{item.name}</p>
+        </Link>
       </div>
       <div className='card-item-price'>
-        <p className='item-newprice'>{item.newpri}</p>
-        <p className='item-oldprice'>{item.oldpri}</p>
+        <Link className='price-link' href='/'>
+          <p className='item-newprice'>{item.newpri}</p>
+          <p className='item-oldprice'>{item.oldpri}</p>
+        </Link>
       </div>
       <div className='card-item-desc'>
-        <p>{item.desc}</p>
+        <Link href='/'>
+          <p>{item.desc}</p>
+        </Link>
       </div>
       <div className='card-item-feedback'>
         <div className='item-star'>

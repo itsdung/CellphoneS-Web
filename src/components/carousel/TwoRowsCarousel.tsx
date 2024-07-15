@@ -30,15 +30,16 @@ function CustomNextArrow(props: any) {
     );
   }
 
-export function TwoRowsCarousel({ children }: any) {
+export function Carousel({ children }: any) {
   const settings = {
     className: "center tworow",
-    centerMode: true,
+    dots: false,
     infinite: true,
-    centerPadding: "60px",
-    slidesToShow: 5,
+    // centerMode: true,
     speed: 500,
-    // rows: 2,
+    slidesToShow: 5,
+    slidesToScroll: 1,
+    rows: 1,
     slidesPerRow: 2,
     nextArrow: <CustomNextArrow />,
     prevArrow: <CustomPrevArrow />,

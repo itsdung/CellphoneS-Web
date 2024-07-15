@@ -1,5 +1,4 @@
 .wrapper-phone {
-    margin-bottom: 10px;
     min-height: 250px;
     display: flex;
     flex-direction: column;
@@ -34,4 +33,17 @@
             }
         }
     }
+
+    .phone-slider {
+        padding-top: 1.5rem;
+        .card-item{
+            .card-item-name{
+                text-transform: capitalize;
+            }
+        }
+    }
 }
+
+// .slick-initialized .slick-slide{
+//     width: none !important;
+// }
