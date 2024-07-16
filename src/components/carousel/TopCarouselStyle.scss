@@ -1,0 +1,30 @@
+.top-carousel .custom-next-arrow {
+    right: 4px !important;
+    top: 47% !important;
+    cursor: pointer;
+    svg {
+        color: #030c65 !important;
+        height: 50px !important;
+        background: none !important;
+        border-radius: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.top-carousel .custom-prev-arrow {
+    left: -15px !important;
+    top: 47% !important;
+    cursor: pointer;
+    svg {
+        color: #030c65 !important;
+        height: 50px !important;
+        background: none !important;
+        border-radius: none !important;
+        box-shadow: none !important;
+    }
+}
+
+.slick-list{
+    padding-bottom: 0 !important;
+    padding-top: 8px !important;
+}

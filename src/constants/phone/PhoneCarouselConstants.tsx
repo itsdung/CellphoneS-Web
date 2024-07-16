@@ -21,14 +21,14 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 interface PhoneCarousel {
     img: StaticImageData;
     name: string;
-    ribbon: StaticImageData;
+    ribbon: StaticImageData | null;
     newpri: string;
     oldpri: string;
     payway: string;
-    discount: string;
+    discount: string | null;
     desc: string;
     loveIc: JSX.Element;
-    stars: JSX.Element;
+    stars: JSX.Element | null;
   }
   
   export const PhoneCarouselData: PhoneCarousel[] = [
@@ -62,15 +62,7 @@ interface PhoneCarousel {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
+      stars: null,
     },
     {
       img: phone3,
@@ -135,11 +127,11 @@ interface PhoneCarousel {
     {
       img: phone6,
       name: 'Tecno Spark 20 Pro Plus',
-      ribbon: ribbon,
+      ribbon: null,
       newpri: '9,000,000 đ',
       oldpri: '11,000,000 đ',
       payway: 'Trả góp 0%',
-      discount: '18% OFF',
+      discount: null,
       desc: 'Stylish design and reliable performance.',
       loveIc: <IoMdHeartEmpty />,
       stars: (
@@ -242,15 +234,7 @@ interface PhoneCarousel {
         discount: '16% OFF',
         desc: 'Perfect for both work and entertainment.',
         loveIc: <IoMdHeartEmpty />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
+        stars: null,
       },
       {
         img: phone9,
@@ -295,11 +279,11 @@ interface PhoneCarousel {
       {
         img: phone5,
         name: 'Tecno Camon 30',
-        ribbon: ribbon,
+        ribbon: null,
         newpri: '8,000,000 đ',
         oldpri: '10,000,000 đ',
         payway: 'Trả góp 0%',
-        discount: '20% OFF',
+        discount: null,
         desc: 'Affordable phone with good performance.',
         loveIc: <IoMdHeartEmpty />,
         stars: (

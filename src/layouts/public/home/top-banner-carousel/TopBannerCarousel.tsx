@@ -2,8 +2,8 @@
 import React from 'react'
 import "./style.scss";
 import Image from 'next/image';
-import { Carousel } from '@/components/carousel/Carousel';
 import { topCarouselData } from '@/constants/TopSliderConstants';
+import { Carousel } from '@/components/carousel/TopCarousel';
 
 
 export function TopBannerCarousel() {

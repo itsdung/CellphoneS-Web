@@ -24,7 +24,7 @@ const renderer = ({ days, hours, minutes, seconds }: CountdownRenderProps) => {
 };
 
 export default function HotSaleSection() {
-  const targetDate = new Date('2024-07-18T23:59:59');
+  const targetDate = new Date('2024-07-15T23:59:59');
 
   return (
     <div className='hotsale'>

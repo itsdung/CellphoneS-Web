@@ -1,17 +1,8 @@
 .top-banner-carousel{
     background-color: var(--color-slider-gray);
+    z-index: 1000;
+    display: flex;
     
-    &-item{
-        display: flex;
-        align-items: center;
-        &-img{
-            // height: 40px;
-            // width: auto !important;
-            // border-radius: 50px;
-            // display: block;
-            // margin: auto;
-        }
-    }
 
         
     

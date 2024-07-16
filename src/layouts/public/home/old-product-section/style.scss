@@ -1,0 +1,42 @@
+.oldproduct-wrapper {
+    width: 1160px;
+    margin: 0 auto;
+    display: flex;
+    flex-direction: column;
+
+    .oldproduct-header {
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+
+        &-title {
+            color: #444;
+            font-size: 22px;
+            font-weight: 600;
+            text-transform: uppercase;
+            cursor: pointer;
+        }
+
+        .read-more-text{
+            color: #111;
+            font-size: 13px;
+            font-weight: 400;
+            cursor: pointer;
+            &:hover{
+                text-decoration: underline;
+            }
+        }
+    }
+
+    .oldproduct-list {
+        display: grid;
+        grid-template-columns: repeat(9,1fr);
+        gap: 1rem;
+        padding: 1rem 0;
+
+        .block-category-item-image img{
+            background: var(--color-dark-red);
+            padding-top: 3rem;
+        }
+    }
+}

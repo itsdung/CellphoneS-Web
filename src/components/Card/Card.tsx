@@ -3,7 +3,7 @@ import './style.scss'
 import Link from 'next/link';
 
 interface Item {
-    img: StaticImageData;
+    img: StaticImageData | string;
     name: string;
     ribbon: StaticImageData | null;
     newpri: string;
@@ -18,14 +18,16 @@ interface Item {
 const CardItem = ({ item }: { item: Item }) => {
   return (
     <div className='card-item'>
-      <div className='card-item-discount'>
-        <Image src={item.ribbon} alt='ribbon'/>
-        <span className='discount-text'>{item.discount}</span>
-        <span className='payway'>{item.payway}</span>
-      </div>
+      {item.ribbon && (
+        <div className='card-item-discount'>
+          <Image src={item.ribbon} alt='ribbon'/>
+          <span className='discount-text'>{item.discount}</span>
+          <span className='payway'>{item.payway}</span>
+        </div>
+      )}
       <div className='card-item-image'>
         <Link href='/'>
-          <Image src={item.img} alt='picture'/>
+          <Image src={item.img} alt='picture' width={160} height={160}/>
         </Link>
       </div>
       <div className='card-item-name'>

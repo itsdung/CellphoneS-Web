@@ -21,11 +21,11 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 interface LaptopCarousel {
     img: StaticImageData;
     name: string;
-    ribbon: StaticImageData;
+    ribbon: StaticImageData | null;
     newpri: string;
     oldpri: string;
     payway: string;
-    discount: string;
+    discount: string | null;
     desc: string;
     loveIc: JSX.Element;
     stars: JSX.Element | null;
@@ -87,11 +87,11 @@ export const LaptopCarouselData: LaptopCarousel[] = [
     {
       img: laptop4,
       name: 'Laptop Lenovo LOQ 151AX9',
-      ribbon: ribbon,
+      ribbon: null,
       newpri: '25,000,000 đ',
       oldpri: '30,000,000 đ',
       payway: 'Trả góp 0%',
-      discount: '20% OFF',
+      discount: null,
       desc: 'Top-tier laptop with premium features.',
       loveIc: <IoMdHeartEmpty />,
       stars: null
