@@ -18,6 +18,11 @@ import AccessoryBanner from './accessory-banner/AccessoryBanner'
 import PCSection from './pc-section/PCSection'
 import OldProductBanner from './old-product-section/OldProductSection'
 import { GoChevronUp } from 'react-icons/go'
+import UpsaleSection from './upsale-section/UpsaleSection'
+import UpsalePaySection from './upsale-pay-section/UpsalePaySection'
+import BrandSection from './brand-section/BrandSection'
+import NewsSection from './news-section/NewsSection'
+import FooterForm from '../footer/footer-form/FooterForm'
 
 export default function HomeLayout() {
   const [isVisible, setIsVisible] = useState(false);
@@ -47,6 +52,7 @@ export default function HomeLayout() {
     <div className='home-layout'>
         <div className={`to-top-btn ${isVisible ? 'visible' : ''}`} onClick={scrollToTop}>
           <GoChevronUp className='to-top-btn-icon' />
+          <p className='to-top-text'>Lên đầu</p>
         </div>
         {/* <TopBannerCarousel/> */}
         <Header/>
@@ -64,6 +70,11 @@ export default function HomeLayout() {
         <AccessoryBanner/>
         <PCSection/>
         <OldProductBanner/>
+        <UpsaleSection/>
+        <UpsalePaySection/>
+        <BrandSection/>
+        <NewsSection/>
+        <FooterForm/>
     </div>
   )
 }

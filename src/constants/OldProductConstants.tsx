@@ -23,17 +23,17 @@ interface OldProduct {
 }
 
 export const oldproductData: OldProduct[] = [
-    { image: img1, altText: 'PC', name: 'iPhone 14' , link: '/' },
-    { image: img2, altText: 'CPU', name: 'iPad' , link: '/' },
-    { image: img3, altText: 'Mainboard', name: 'MacBook' , link: '/' },
-    { image: img4, altText: 'RAM', name: 'Laptop' , link: '/' },
-    { image: img5, altText: 'SSD', name: 'Tai nghe' , link: '/' },
-    { image: img6, altText: 'VGA', name: 'Loa' , link: '/' },
-    { image: img7, altText: 'PSU', name: 'Phụ kiện' , link: '/' },
-    { image: img8, altText: 'Cooling', name: 'Smarthome' , link: '/' },
-    { image: img9, altText: 'Case', name: 'Sạc' , link: '/' },
-    { image: img10, altText: 'Case', name: 'Sạc' , link: '/' },
-    { image: img11, altText: 'Case', name: 'Sạc' , link: '/' },
-    { image: img12, altText: 'Case', name: 'Sạc' , link: '/' },
-    { image: img13, altText: 'Case', name: 'Sạc' , link: '/' }
+    { image: img1, altText: 'PC', name: 'Điện thoại cũ' , link: '/' },
+    { image: img2, altText: 'CPU', name: 'Máy tính bảng cũ' , link: '/' },
+    { image: img3, altText: 'Mainboard', name: 'Mac cũ' , link: '/' },
+    { image: img4, altText: 'RAM', name: 'Laptop cũ' , link: '/' },
+    { image: img5, altText: 'SSD', name: 'Tai nghe cũ' , link: '/' },
+    { image: img6, altText: 'VGA', name: 'Loa cũ' , link: '/' },
+    { image: img7, altText: 'PSU', name: 'Đồng hồ thông minh cũ' , link: '/' },
+    { image: img8, altText: 'Cooling', name: 'Nhà thông minh cũ' , link: '/' },
+    { image: img9, altText: 'Case', name: 'Phụ kiện cũ' , link: '/' },
+    { image: img10, altText: 'Case', name: 'Màn hình cũ' , link: '/' },
+    { image: img11, altText: 'Case', name: 'TV cũ' , link: '/' },
+    { image: img12, altText: 'Case', name: 'Cáp sạc cũ' , link: '/' },
+    { image: img13, altText: 'Case', name: 'Pin dự phòng cũ' , link: '/' }
 ];

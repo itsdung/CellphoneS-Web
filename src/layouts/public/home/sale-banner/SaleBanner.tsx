@@ -7,7 +7,7 @@ import Link from 'next/link'
 export default function SaleBanner() {
   return (
     <div className='sale-banner'>
-        <Link href='/'>
+        <Link href='https://www.youtube.com/'>
           <Image src={verticalBanner} alt='verticalBanner'/>
         </Link>
     </div>
