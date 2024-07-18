@@ -48,7 +48,7 @@
 
                 .news-image{
                     border-radius: 10px 10px 0 0;
-                    max-height: 143px;
+                    max-height: 142px;
                 }
             }
 
@@ -57,6 +57,7 @@
                 -webkit-box-orient: vertical;
                 -webkit-line-clamp: 2;
                 overflow: hidden;
+                margin-bottom: 0.5rem;
                 text-overflow: ellipsis;
                 color: #444;
                 font-size: 16px;

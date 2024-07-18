@@ -8,6 +8,7 @@ import screen7 from '@/assets/images/screen/man-hinh-xiaomi-a27i-ela5345eu-27-in
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart } from "react-icons/io";
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -25,6 +26,7 @@ interface ScreenCarousel {
     discount: string;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element | null;
   }
   
@@ -39,6 +41,7 @@ interface ScreenCarousel {
       discount: '16% OFF',
       desc: 'High performance and great camera quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: (
         <>
           <TwemojiStar />
@@ -59,6 +62,7 @@ interface ScreenCarousel {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: (
         <>
           <TwemojiStar />
@@ -79,6 +83,7 @@ interface ScreenCarousel {
       discount: '16% OFF',
       desc: 'Perfect for both work and entertainment.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: (
         <>
           <TwemojiStar />
@@ -99,6 +104,7 @@ interface ScreenCarousel {
       discount: '20% OFF',
       desc: 'Top-tier laptop with premium features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: null,
     },
     {
@@ -111,6 +117,7 @@ interface ScreenCarousel {
       discount: '20% OFF',
       desc: 'Affordable laptop with good performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: null,
     },
     {
@@ -123,6 +130,7 @@ interface ScreenCarousel {
       discount: '16% OFF',
       desc: 'High performance and great camera quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: (
         <>
           <TwemojiStar />
@@ -143,6 +151,7 @@ interface ScreenCarousel {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: (
         <>
           <TwemojiStar />

@@ -26,6 +26,7 @@ interface WatchCarousel {
     discount: string | null;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element | null;
   }
   
@@ -78,7 +79,7 @@ interface WatchCarousel {
       oldpri: '18,000,000 đ',
       payway: 'Trả góp 0%',
       discount: '16% OFF',
-      desc: 'Perfect for both work and entertainment.',
+      desc: 'Perfect for both work and entertainment. Top-tier watch with premium features.',
       loveIc: <IoMdHeartEmpty />,
       stars: (
         <>

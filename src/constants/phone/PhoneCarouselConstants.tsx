@@ -1,4 +1,5 @@
 import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart } from "react-icons/io";
 import phone1 from '@/assets/images/phones/oppoX5.png'
 import phone2 from '@/assets/images/phones/samsung-galaxy-s24-plus.png'
 import phone3 from '@/assets/images/phones/samsungtabs9fe.png'
@@ -28,6 +29,7 @@ interface PhoneCarousel {
     discount: string | null;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element | null;
   }
   
@@ -42,6 +44,7 @@ interface PhoneCarousel {
       discount: '16% OFF',
       desc: 'High performance and great camera quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart/>,
       stars: (
         <>
           <TwemojiStar />
@@ -62,6 +65,7 @@ interface PhoneCarousel {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: null,
     },
     {
@@ -74,6 +78,7 @@ interface PhoneCarousel {
       discount: '16% OFF',
       desc: 'Perfect for both work and entertainment.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -94,6 +99,7 @@ interface PhoneCarousel {
       discount: '20% OFF',
       desc: 'Top-tier smartphone with premium features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -114,6 +120,7 @@ interface PhoneCarousel {
       discount: '20% OFF',
       desc: 'Affordable phone with good performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -134,6 +141,7 @@ interface PhoneCarousel {
       discount: null,
       desc: 'Stylish design and reliable performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -154,6 +162,7 @@ interface PhoneCarousel {
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -174,6 +183,7 @@ interface PhoneCarousel {
         discount: '16% OFF',
         desc: 'Perfect for both work and entertainment.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -194,6 +204,7 @@ interface PhoneCarousel {
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -214,6 +225,7 @@ interface PhoneCarousel {
         discount: '18% OFF',
         desc: 'Stylish design and reliable performance.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -234,6 +246,7 @@ interface PhoneCarousel {
         discount: '16% OFF',
         desc: 'Perfect for both work and entertainment.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: null,
       },
       {
@@ -246,6 +259,7 @@ interface PhoneCarousel {
         discount: '20% OFF',
         desc: 'Top-tier smartphone with premium features.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -266,6 +280,7 @@ interface PhoneCarousel {
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -286,6 +301,7 @@ interface PhoneCarousel {
         discount: null,
         desc: 'Affordable phone with good performance.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />

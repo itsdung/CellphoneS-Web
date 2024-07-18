@@ -1,4 +1,4 @@
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import phone1 from '@/assets/images/phones/oppoX5.png'
 import phone2 from '@/assets/images/phones/samsung-galaxy-s24-plus.png'
 import phone3 from '@/assets/images/phones/samsungtabs9fe.png'
@@ -26,6 +26,7 @@ interface HotSaleItem {
     discount: string;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element;
   }
   
@@ -40,6 +41,7 @@ interface HotSaleItem {
       discount: '16% OFF',
       desc: 'High performance and great camera quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -60,6 +62,7 @@ interface HotSaleItem {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -80,6 +83,7 @@ interface HotSaleItem {
       discount: '16% OFF',
       desc: 'Perfect for both work and entertainment.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -100,6 +104,7 @@ interface HotSaleItem {
       discount: '20% OFF',
       desc: 'Top-tier smartphone with premium features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -120,6 +125,7 @@ interface HotSaleItem {
       discount: '20% OFF',
       desc: 'Affordable phone with good performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -140,6 +146,7 @@ interface HotSaleItem {
       discount: '18% OFF',
       desc: 'Stylish design and reliable performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />

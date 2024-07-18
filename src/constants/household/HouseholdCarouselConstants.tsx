@@ -7,7 +7,7 @@ import img6 from '@/assets/images/household/quat-dung-gaabor-gfh-n240a-1.png'
 import img7 from '@/assets/images/household/xiaomi_mi_smart_tower_fan_-1.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -25,6 +25,7 @@ interface HouseholdCarousel {
     discount: string | null;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element | null;
   }
   
@@ -39,6 +40,7 @@ interface HouseholdCarousel {
       discount: '16% OFF',
       desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -59,6 +61,7 @@ interface HouseholdCarousel {
       discount: null,
       desc: 'Mẫu mới nhất với các tính năng vượt trội.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -79,6 +82,7 @@ interface HouseholdCarousel {
       discount: '16% OFF',
       desc: 'Hoàn hảo cho cả công việc và giải trí.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -99,6 +103,7 @@ interface HouseholdCarousel {
       discount: '16% OFF',
       desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: null,
     },
     {
@@ -111,6 +116,7 @@ interface HouseholdCarousel {
       discount: '14% OFF',
       desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -131,6 +137,7 @@ interface HouseholdCarousel {
       discount: null,
       desc: 'Mẫu mới nhất với các tính năng vượt trội.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -151,6 +158,7 @@ interface HouseholdCarousel {
       discount: '20% OFF',
       desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: null,
     }
   ];

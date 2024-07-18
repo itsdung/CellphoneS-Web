@@ -1,0 +1,20 @@
+.footer-wrapper{
+    display: flex;
+    flex-direction: column;
+    border-top: 1px solid var(--color-grey-200);
+    padding: 2rem;
+
+    .info-section{
+        display: flex;
+        justify-content: center;
+        max-width: 1190px;
+        margin: 0 auto;
+    }
+
+    .company-section{
+        display: flex;
+        justify-content: center;
+        max-width: 1160px;
+        margin: 0 auto;
+    }
+}

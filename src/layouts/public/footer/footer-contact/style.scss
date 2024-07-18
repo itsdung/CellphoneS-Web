@@ -1,0 +1,32 @@
+.footer-contact-wrapper{
+    width: 25%;
+    padding: 0.75rem;
+    display: flex;
+    flex-direction: column;
+    justify-content: start;
+    gap: 0.5rem;
+
+    .contact-title{
+        font-size: 16px;
+        font-weight: 500;
+        line-height: 1.125;
+        color: var(--color-black-light);
+        margin-bottom: 0.75rem;
+        word-break: break-word;
+    }
+
+    .contact-icon-list{
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+
+        &-item{
+            max-width: 44px;
+        }
+    }
+
+    .service-maintain{
+        color: #111;
+        font-size: 12px;
+    }
+}

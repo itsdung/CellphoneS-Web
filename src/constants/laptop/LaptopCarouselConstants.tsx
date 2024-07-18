@@ -10,7 +10,7 @@ import laptop9 from '@/assets/images/laptop/text_ng_n_19__50.png'
 import laptop10 from '@/assets/images/laptop/text_ng_n_8__1_115.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -28,6 +28,7 @@ interface LaptopCarousel {
     discount: string | null;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element | null;
 }
 
@@ -42,6 +43,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       discount: '16% OFF',
       desc: 'High performance and great camera quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -62,6 +64,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: null
     },
     {
@@ -74,6 +77,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       discount: '16% OFF',
       desc: 'Perfect for both work and entertainment.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -94,6 +98,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       discount: null,
       desc: 'Top-tier laptop with premium features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: null
     },
     {
@@ -106,6 +111,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       discount: '20% OFF',
       desc: 'Affordable laptop with good performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -126,6 +132,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -146,6 +153,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
         discount: '16% OFF',
         desc: 'Latest model with exceptional features.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -166,6 +174,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
         discount: '16% OFF',
         desc: 'Perfect for both work and entertainment.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -186,6 +195,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
         discount: '20% OFF',
         desc: 'Top-tier laptop with premium features.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />
@@ -206,6 +216,7 @@ export const LaptopCarouselData: LaptopCarousel[] = [
         discount: '20% OFF',
         desc: 'Affordable laptop with good performance.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
         stars: (
           <>
             <TwemojiStar />

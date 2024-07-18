@@ -1,6 +1,8 @@
+'use client'
 import Image, { StaticImageData } from 'next/image';
 import './style.scss'
 import Link from 'next/link';
+import { useState } from 'react';
 
 interface Item {
     img: StaticImageData | string;
@@ -12,10 +14,17 @@ interface Item {
     discount: string | null;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element | null;
 }
 
 const CardItem = ({ item }: { item: Item }) => {
+  const [isHovered, setIsHovered] = useState(false);
+  const [showLoveIcFull, setShowLoveIcFull] = useState(false);
+
+  const toggleLoveIcon = () => {
+      setShowLoveIcFull(!showLoveIcFull);
+  };
   return (
     <div className='card-item'>
       {item.ribbon && (
@@ -52,7 +61,12 @@ const CardItem = ({ item }: { item: Item }) => {
         </div>
         <div className='item-love'>
           <p>Yêu thích</p>
-          <div className='love-icon'>{item.loveIc}</div>
+          <div className='love-icon'
+              onMouseEnter={() => setIsHovered(true)}
+              onMouseLeave={() => setIsHovered(false)}
+          >
+              {isHovered && item.loveIcFull ? item.loveIcFull : item.loveIc}
+          </div>
         </div>
       </div>
     </div>

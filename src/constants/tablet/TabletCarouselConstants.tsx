@@ -26,6 +26,7 @@ interface TabletCarousel {
     discount: string;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element;
 }
 

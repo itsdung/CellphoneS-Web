@@ -6,7 +6,6 @@ import MainBannerSection from './main-banner/MainBannerSection'
 import SaleBanner from './sale-banner/SaleBanner'
 import HotSaleSection from './hot-sale-section/HotSaleSection'
 import PhoneSection from './phone-section/PhoneSection'
-import './style.scss'
 import LaptopSection from './laptop-section/LaptopSection'
 import ScreenSection from './screen-section/ScreenSection'
 import TabletSection from './tablet-section/TabletSection'
@@ -17,12 +16,15 @@ import TVSection from './tv-section/TVSection'
 import AccessoryBanner from './accessory-banner/AccessoryBanner'
 import PCSection from './pc-section/PCSection'
 import OldProductBanner from './old-product-section/OldProductSection'
-import { GoChevronUp } from 'react-icons/go'
 import UpsaleSection from './upsale-section/UpsaleSection'
 import UpsalePaySection from './upsale-pay-section/UpsalePaySection'
 import BrandSection from './brand-section/BrandSection'
 import NewsSection from './news-section/NewsSection'
-import FooterForm from '../footer/footer-form/FooterForm'
+import Footer from '../footer/Footer'
+import dynamic from 'next/dynamic';
+import { GoChevronUp } from 'react-icons/go'
+import './style.scss'
+
 
 export default function HomeLayout() {
   const [isVisible, setIsVisible] = useState(false);
@@ -74,7 +76,7 @@ export default function HomeLayout() {
         <UpsalePaySection/>
         <BrandSection/>
         <NewsSection/>
-        <FooterForm/>
+        <Footer/>
     </div>
   )
 }

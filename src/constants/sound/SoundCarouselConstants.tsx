@@ -8,7 +8,7 @@ import sound7 from '@/assets/images/sounds/tai-nghe-khong-day-huawei-freeclip-00
 import sound8 from '@/assets/images/sounds/tai-nghe-samsung-galaxy-buds-3-pro-spa.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -26,6 +26,7 @@ interface SoundCarousel {
     discount: string;
     desc: string;
     loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
     stars: JSX.Element;
   }
   
@@ -40,6 +41,7 @@ interface SoundCarousel {
       discount: '16% OFF',
       desc: 'High performance and great sound quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -60,6 +62,7 @@ interface SoundCarousel {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -80,6 +83,7 @@ interface SoundCarousel {
       discount: '16% OFF',
       desc: 'Perfect for both work and entertainment.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -100,6 +104,7 @@ interface SoundCarousel {
       discount: '20% OFF',
       desc: 'Top-tier headphones with premium features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -120,6 +125,7 @@ interface SoundCarousel {
       discount: '20% OFF',
       desc: 'Affordable headphones with good performance.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -140,6 +146,7 @@ interface SoundCarousel {
       discount: '16% OFF',
       desc: 'High performance and great sound quality.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -160,6 +167,7 @@ interface SoundCarousel {
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -180,6 +188,7 @@ interface SoundCarousel {
       discount: '14% OFF',
       desc: 'Excellent sound quality and battery life.',
       loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
       stars: (
         <>
           <TwemojiStar />
@@ -190,5 +199,4 @@ interface SoundCarousel {
         </>
       )
     },
-    // Bạn có thể tiếp tục thêm các sản phẩm khác vào đây
   ];
