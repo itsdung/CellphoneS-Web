@@ -117,12 +117,12 @@ export default function Header() {
             </div>
 
             <div className='header-user' onClick={openModal}>
-                <Link className='user-link' href={'/'}>
+                <div className='user-link'>
                     <FaRegCircleUser className='user-icon' />
                     <div className='user-content'>
                         <p className='user-text'>Đăng nhập</p>
                     </div>
-                </Link>
+                </div>
             </div>
         </div>
     </header>
