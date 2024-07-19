@@ -2,7 +2,7 @@ import Header from '@/layouts/public/header/Header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
-  title: 'cellphones.com.vn',
+  title: 'CellphoneS - Điện thoại, laptop, tablet, phụ kiện chính hãng',
   description: 'cellphones',
 };
 

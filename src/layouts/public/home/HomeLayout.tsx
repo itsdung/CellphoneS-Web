@@ -23,7 +23,7 @@ import NewsSection from './news-section/NewsSection'
 import Footer from '../footer/Footer'
 import dynamic from 'next/dynamic';
 import { GoChevronUp } from 'react-icons/go'
-import './style.scss'
+import './style.scss';
 
 
 export default function HomeLayout() {
@@ -56,7 +56,6 @@ export default function HomeLayout() {
           <GoChevronUp className='to-top-btn-icon' />
           <p className='to-top-text'>Lên đầu</p>
         </div>
-        {/* <TopBannerCarousel/> */}
         <Header/>
         <MainBannerSection/>
         <SaleBanner/>

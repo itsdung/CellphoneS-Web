@@ -1,9 +1,9 @@
+'use client'
 import Link from 'next/link';
 import Image from 'next/image';
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import logoText from '@/assets/logos/cellphones.png';
 import cateLogo from '@/assets/logos/category.png'
-import './style.scss';
 import { CiLocationOn } from 'react-icons/ci';
 import { GoChevronDown } from 'react-icons/go';
 import { FaSearch } from 'react-icons/fa';
@@ -11,9 +11,30 @@ import { FiPhone } from 'react-icons/fi';
 import { LiaShippingFastSolid } from 'react-icons/lia';
 import { PiHandbag } from 'react-icons/pi';
 import { FaRegCircleUser } from 'react-icons/fa6';
+import './style.scss';
+import Modal from '../home/modal-login/ModalLogin';
+
 
 export default function Header() {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+
+  const openModal = () => setIsModalOpen(true);
+  const closeModal = () => setIsModalOpen(false);
+
+  useEffect(() => {
+    if (isModalOpen) {
+      document.body.style.overflow = 'hidden';
+    } else {
+      document.body.style.overflow = '';
+    }
+
+    return () => {
+      document.body.style.overflow = '';
+    };
+  }, [isModalOpen]);
+  
   return (
+    <>
     <header className='header-container'>
         <div className='header-content'>
             <div className='header-logo'>
@@ -95,7 +116,7 @@ export default function Header() {
                 </Link>
             </div>
 
-            <div className='header-user'>
+            <div className='header-user' onClick={openModal}>
                 <Link className='user-link' href={'/'}>
                     <FaRegCircleUser className='user-icon' />
                     <div className='user-content'>
@@ -105,5 +126,7 @@ export default function Header() {
             </div>
         </div>
     </header>
+    {isModalOpen && <Modal onClose={closeModal} />}
+    </>
   )
 }

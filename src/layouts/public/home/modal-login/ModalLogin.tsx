@@ -22,7 +22,7 @@ export default function Modal({ onClose }: ModalProps) {
           <Link href='/'>
             <button className='register-btn'>Đăng kí</button>
           </Link>
-          <Link href='/'>
+          <Link href='/login'>
             <button className='login-btn'>Đăng nhập</button>
           </Link>
         </div>

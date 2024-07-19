@@ -7,7 +7,7 @@ import tab6 from '@/assets/images/tablet/ipad-mini-6_1_.png'
 import tab7 from '@/assets/images/tablet/mi-pad-6-cps-doc-quyen.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
-import { IoMdHeartEmpty } from "react-icons/io";
+import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -41,6 +41,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />
@@ -61,6 +62,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '16% OFF',
         desc: 'Latest model with exceptional features.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />
@@ -81,6 +83,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '16% OFF',
         desc: 'Perfect for both work and entertainment.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />
@@ -101,6 +104,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '20% OFF',
         desc: 'Top-tier laptop with premium features.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />
@@ -121,6 +125,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '20% OFF',
         desc: 'Affordable laptop with good performance.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />
@@ -141,6 +146,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />
@@ -161,6 +167,7 @@ export const TabletCarouselData: TabletCarousel[] = [
         discount: '16% OFF',
         desc: 'Latest model with exceptional features.',
         loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart/>,
         stars: (
             <>
                 <TwemojiStar />

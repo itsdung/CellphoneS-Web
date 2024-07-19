@@ -5,8 +5,8 @@ import "./globals.scss";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
-  title: "cellphones.com.vn",
-  description: "cellphones.com.vn",
+  title: "CellphoneS - Điện thoại, laptop, tablet, phụ kiện chính hãng",
+  description: "CellphoneS - Điện thoại, laptop, tablet, phụ kiện chính hãng",
 };
 
 export default function RootLayout({
