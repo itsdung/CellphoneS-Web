@@ -1,0 +1,81 @@
+.search-trending{
+    width: 100vw;
+    height: 100vh;
+    margin-top: 64px;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1001;
+
+
+    .search-trending-wrapper{
+        background: #fff;
+        border-radius: 8px;
+        left: 38%;
+        max-width: 500px;
+        position: relative;
+        top: 1px;
+        width: 100vw;
+        animation: fadeIn 0.1s ease-in forwards;
+        z-index: 1001;
+
+        &::after{
+            border: 16px solid transparent;
+            border-bottom-color: #fff;
+            content: "";
+            left: 15%;
+            position: absolute;
+            top: -32px;
+        }
+
+        .search-trending-banner{
+            padding: 5px;
+        }
+
+        .trending-title{
+            display: flex;
+            align-items: center;
+
+            &-text{
+                padding: 10px 0 5px 10px;
+            }
+        }
+
+        .trending-list{
+            display: grid;
+            grid-template-columns: repeat(2,1fr);
+            row-gap: 2rem;
+            padding: 1rem;
+
+            &-item{
+                display: flex;
+                align-items: center;
+                gap: 5px;
+
+                &-link{
+                    display: flex;
+                    align-items: center;
+                    gap: 2px;
+
+                    img{
+                        max-width: 40px;
+                        max-height: 40px;
+                    }
+    
+                    p{
+                        color: #0c011c;
+                        font-size: 14px;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@keyframes fadeIn {
+    from {
+      opacity: 0;
+    }
+    to {
+      opacity: 1;
+    }
+  }

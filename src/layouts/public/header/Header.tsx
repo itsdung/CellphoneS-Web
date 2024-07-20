@@ -12,26 +12,32 @@ import { LiaShippingFastSolid } from 'react-icons/lia';
 import { PiHandbag } from 'react-icons/pi';
 import { FaRegCircleUser } from 'react-icons/fa6';
 import './style.scss';
-import Modal from '../home/modal-login/ModalLogin';
+import Modal from '../../../components/modal/modal-login/ModalLogin';
+import SearchBar from '@/components/search-bar/SearchBar';
+import ModalSearchTrending from '@/components/modal/modal-search-trending/ModalSearchTrending';
 
 
 export default function Header() {
-  const [isModalOpen, setIsModalOpen] = useState(false);
-
-  const openModal = () => setIsModalOpen(true);
-  const closeModal = () => setIsModalOpen(false);
-
-  useEffect(() => {
-    if (isModalOpen) {
-      document.body.style.overflow = 'hidden';
-    } else {
-      document.body.style.overflow = '';
-    }
-
-    return () => {
-      document.body.style.overflow = '';
-    };
-  }, [isModalOpen]);
+    const [isModalOpen, setIsModalOpen] = useState(false);
+    const [isSearchTrendingOpen, setIsSearchTrendingOpen] = useState(false);
+  
+    const openModal = () => setIsModalOpen(true);
+    const closeModal = () => setIsModalOpen(false);
+  
+    const openSearchTrendingModal = () => setIsSearchTrendingOpen(true);
+    const closeSearchTrendingModal = () => setIsSearchTrendingOpen(false);
+  
+    useEffect(() => {
+      if (isModalOpen || isSearchTrendingOpen) {
+        document.body.style.overflow = 'hidden';
+      } else {
+        document.body.style.overflow = '';
+      }
+  
+      return () => {
+        document.body.style.overflow = '';
+      };
+    }, [isModalOpen, isSearchTrendingOpen]);
   
   return (
     <>
@@ -71,14 +77,7 @@ export default function Header() {
                 </div>
             </div>
 
-            <div className='header-search'>
-                <form>
-                    <div className='search-container'>
-                        <FaSearch className='search-icon'/>
-                        <input className='search-input' type="text" placeholder="Bạn cần tìm gì?"></input>
-                    </div>
-                </form>
-            </div>
+            <SearchBar onClick={openSearchTrendingModal} />
 
             <div className='header-contact'>
                 <Link className='contact-link' href="tel:19006969">
@@ -127,6 +126,7 @@ export default function Header() {
         </div>
     </header>
     {isModalOpen && <Modal onClose={closeModal} />}
+    {isSearchTrendingOpen && <ModalSearchTrending onClose={closeSearchTrendingModal} />}
     </>
   )
 }

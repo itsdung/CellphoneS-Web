@@ -1,0 +1,33 @@
+.header-search {
+    float: left;
+    margin: 0 10px 0 0;
+    width: 300px;
+    
+    .search-container{
+        background-color: var(--color-white);
+        border-radius: 10px;
+        display: flex;
+        align-items: center;
+
+        .search-icon{
+            background-color: var(--color-white);
+            border: 0;
+            border-radius: 10px 0 0 10px;
+            box-sizing: border-box;
+            color: #707070;
+            height: 34px;
+            margin-left: 1rem;
+            cursor: pointer;
+        }
+
+        .search-input{
+            border: 0;
+            border-radius: 0 10px 10px 0;
+            font-size: 16px;
+            height: 34px;
+            outline: none;
+            padding: .5rem 2rem .5rem .6rem;
+            width: 100%;
+        }
+    }
+}

@@ -13,6 +13,8 @@
         display: flex;
         height: 64px;
         justify-content: center;
+        align-items: center;
+        gap: 2px;
         margin: 0 auto;
         padding: 0;
         width: 100%;
@@ -161,6 +163,10 @@
             -webkit-text-decoration: none!important;
             text-decoration: none!important;
 
+            &:hover{
+                background: hsla(0,0%,100%,.2);
+            }
+
             .contact-link {
                 display: flex;
                 align-items: center;
@@ -197,6 +203,10 @@
             position: relative;
             -webkit-text-decoration: none!important;
             text-decoration: none!important;
+
+            &:hover{
+                background: hsla(0,0%,100%,.2);
+            }
 
             .store-link {
                 display: flex;
@@ -235,6 +245,10 @@
             -webkit-text-decoration: none!important;
             text-decoration: none!important;
 
+            &:hover{
+                background: hsla(0,0%,100%,.2);
+            }
+
             .order-link {
                 display: flex;
                 align-items: center;
@@ -272,6 +286,10 @@
             position: relative;
             -webkit-text-decoration: none!important;
             text-decoration: none!important;
+
+            &:hover{
+                background: hsla(0,0%,100%,.2);
+            }
 
             .cart-link {
                 display: flex;
