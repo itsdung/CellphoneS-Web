@@ -17,8 +17,8 @@ export default function SearchModal({searchTerm, onClose} : SearchModalProps) {
     ).slice(0, 5);
 
     const suggestedItems = allProductData.filter(item =>
-        item.suggest === true
-    ).slice(0, 5);
+        item.suggest === true && item.name.toLowerCase().includes(lowerCaseSearchTerm)
+    ).slice(0, 10);
 
     return (
         <div className='search-modal' onClick={onClose}>
