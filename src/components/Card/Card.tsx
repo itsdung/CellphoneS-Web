@@ -8,15 +8,20 @@ interface Item {
     img: StaticImageData | string;
     name: string;
     ribbon: StaticImageData | null;
-    newpri: string;
-    oldpri: string;
+    newpri: number;
+    oldpri: number;
     payway: string;
     discount: string | null;
     desc: string;
     loveIc: JSX.Element;
     loveIcFull?: JSX.Element;
+    suggest?: boolean;
     stars: JSX.Element | null;
 }
+
+const PriceDisplay = ({ price }: { price: number }) => {
+  return <>{price.toLocaleString('vi-VN')} đ</>;
+};
 
 const CardItem = ({ item }: { item: Item }) => {
   const [isHovered, setIsHovered] = useState(false);
@@ -46,8 +51,8 @@ const CardItem = ({ item }: { item: Item }) => {
       </div>
       <div className='card-item-price'>
         <Link className='price-link' href='/'>
-          <p className='item-newprice'>{item.newpri}</p>
-          <p className='item-oldprice'>{item.oldpri}</p>
+          <p className='item-newprice'><PriceDisplay price={item.newpri} /></p>
+          <p className='item-oldprice'><PriceDisplay price={item.oldpri} /></p>
         </Link>
       </div>
       <div className='card-item-desc'>

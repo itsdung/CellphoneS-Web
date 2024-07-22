@@ -9,6 +9,7 @@ import watch8 from '@/assets/images/watch/xiaomiii.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -17,154 +18,167 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface WatchCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    stars: JSX.Element | null;
+  id: string;  // Trường id mới
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;  // Thay đổi kiểu thành number
+  oldpri: number;  // Thay đổi kiểu thành number
+  payway: string;
+  discount: string | null;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars: JSX.Element | null;
+}
+
+// Dữ liệu WatchCarouselData với trường id mới và giá đã được chuyển đổi
+export const WatchCarouselData: WatchCarousel[] = [
+  {
+    id: uuidv4(), 
+    img: watch1,
+    name: 'Apple Watch SE 2023 40mm',
+    ribbon: null,
+    newpri: 10000000,  // Giá đã chuyển đổi thành số
+    oldpri: 12000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: null,
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch2,
+    name: 'Apple Watch LTE 3',
+    ribbon: ribbon,
+    newpri: 15000000,  // Giá đã chuyển đổi thành số
+    oldpri: 18000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch3,
+    name: 'Xiaomi Band 8 Active',
+    ribbon: ribbon,
+    newpri: 15000000,  // Giá đã chuyển đổi thành số
+    oldpri: 18000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Perfect for both work and entertainment. Top-tier watch with premium features.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch4,
+    name: 'Huawei Watch Green',
+    ribbon: ribbon,
+    newpri: 25000000,  // Giá đã chuyển đổi thành số
+    oldpri: 30000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Top-tier watch with premium features.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch5,
+    name: 'Huawei Watch 1',
+    ribbon: ribbon,
+    newpri: 8000000,  // Giá đã chuyển đổi thành số
+    oldpri: 10000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Affordable watch with good performance.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch6,
+    name: 'Huawei Watch 3',
+    ribbon: ribbon,
+    newpri: 10000000,  // Giá đã chuyển đổi thành số
+    oldpri: 12000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch7,
+    name: 'Xiaomi Watch 2',
+    ribbon: ribbon,
+    newpri: 15000000,  // Giá đã chuyển đổi thành số
+    oldpri: 18000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: watch8,
+    name: 'Xiaomi Watch 3',
+    ribbon: ribbon,
+    newpri: 10000000,  
+    oldpri: 12000000,  
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
   }
-  
-  export const WatchCarouselData: WatchCarousel[] = [
-    {
-      img: watch1,
-      name: 'Apple Watch SE 2023 40mm',
-      ribbon: null,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: null,
-      desc: 'High performance and great camera quality.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: watch2,
-      name: 'Apple Watch LTE 3',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: watch3,
-      name: 'Xiaomi Band 8 Active',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Perfect for both work and entertainment. Top-tier watch with premium features.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: watch4,
-      name: 'Huawei Watch Green',
-      ribbon: ribbon,
-      newpri: '25,000,000 đ',
-      oldpri: '30,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Top-tier watch with premium features.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: null,
-    },
-    {
-      img: watch5,
-      name: 'Huawei Watch 1',
-      ribbon: ribbon,
-      newpri: '8,000,000 đ',
-      oldpri: '10,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Affordable watch with good performance.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: null,
-    },
-    {
-      img: watch6,
-      name: 'Huawei Watch 3',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great camera quality.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: watch7,
-      name: 'Xiaomi Watch 2',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: null,
-    },
-    {
-      img: watch8,
-      name: 'Xiaomi Watch 3',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great camera quality.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    }
-  ];
+];

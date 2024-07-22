@@ -38,9 +38,4 @@ export  const bannerSlideData: Slide[] = [
       alt: 'Hình ảnh 3',
       description: 'HUAWEI WATCH GT4<br/>Giá chỉ 4.49 triệu',
     },
-    {
-      src: banner6,
-      alt: 'Hình ảnh 6',
-      description: 'IPHONE 15 PROMAX<br/>Nâng cấp ngay',
-    },
   ];

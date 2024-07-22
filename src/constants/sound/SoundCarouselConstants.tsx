@@ -9,6 +9,7 @@ import sound8 from '@/assets/images/sounds/tai-nghe-samsung-galaxy-buds-3-pro-sp
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -17,186 +18,199 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface SoundCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    stars: JSX.Element;
-  }
-  
-  export const SoundCarouselData: SoundCarousel[] = [
-    {
-      img: sound1,
-      name: 'Tai nghe Apple AirPods Pro 2 USB-C',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great sound quality.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound2,
-      name: 'Tai nghe Group 170',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound3,
-      name: 'Tai nghe Samsung Galaxy Buds 2 Pro',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Perfect for both work and entertainment.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound4,
-      name: 'Tai nghe Samsung Galaxy Buds 3',
-      ribbon: ribbon,
-      newpri: '25,000,000 đ',
-      oldpri: '30,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Top-tier headphones with premium features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound5,
-      name: 'Tai nghe Sony',
-      ribbon: ribbon,
-      newpri: '8,000,000 đ',
-      oldpri: '10,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Affordable headphones with good performance.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound6,
-      name: 'Tai nghe không dây Anker Soundcore R50i',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great sound quality.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound7,
-      name: 'Tai nghe không dây Huawei Freeclip',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: sound8,
-      name: 'Tai nghe Samsung Galaxy Buds 3 Pro',
-      ribbon: ribbon,
-      newpri: '12,000,000 đ',
-      oldpri: '14,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '14% OFF',
-      desc: 'Excellent sound quality and battery life.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-  ];
+  id: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData;
+  newpri: number;
+  oldpri: number;
+  payway: string;
+  discount: string;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars: JSX.Element;
+}
+
+export const SoundCarouselData: SoundCarousel[] = [
+  {
+    id: uuidv4(),
+    img: sound1,
+    name: 'Tai nghe Apple AirPods Pro 2 USB-C',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great sound quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound2,
+    name: 'Tai nghe Group 170',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound3,
+    name: 'Tai nghe Samsung Galaxy Buds 2 Pro',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Perfect for both work and entertainment.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound4,
+    name: 'Tai nghe Samsung Galaxy Buds 3',
+    ribbon: ribbon,
+    newpri: 25000000,
+    oldpri: 30000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Top-tier headphones with premium features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound5,
+    name: 'Tai nghe Sony',
+    ribbon: ribbon,
+    newpri: 8000000,
+    oldpri: 10000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Affordable headphones with good performance.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound6,
+    name: 'Tai nghe không dây Anker Soundcore R50i',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great sound quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound7,
+    name: 'Tai nghe không dây Huawei Freeclip',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: sound8,
+    name: 'Tai nghe Samsung Galaxy Buds 3 Pro',
+    ribbon: ribbon,
+    newpri: 12000000,
+    oldpri: 14000000,
+    payway: 'Trả góp 0%',
+    discount: '14% OFF',
+    desc: 'Excellent sound quality and battery life.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+];

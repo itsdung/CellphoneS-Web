@@ -1,4 +1,4 @@
-'use client'
+'use client';
 import banner from '@/assets/images/banner/b2s-update-19-06 (1).png';
 import { trendingBoxData } from '@/constants/search-trending/SearchTrendingConstants';
 import Image from 'next/image';

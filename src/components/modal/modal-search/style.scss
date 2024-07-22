@@ -1,0 +1,102 @@
+@use '@/app/globals.scss' as *;
+.search-modal{
+    width: 100vw;
+    height: 100vh;
+    margin-top: 64px;
+    position: absolute;
+    background-color: rgba(0,0,0,0.5);
+    z-index: 1001;
+
+    .search-modal-wrapper{
+        background: #fff;
+        border-radius: 8px;
+        left: 38%;
+        max-width: 500px;
+        position: relative;
+        top: 1px;
+        width: 100vw;
+        animation: fadeIn 0.1s ease-in forwards;
+        z-index: 1001;
+
+        .search-modal-title {
+            background-color: #f3f3f3;
+            padding: 5px 10px;
+            border-radius: 8px 8px 0 0;
+        }
+
+        .search-modal-content {
+
+            .search-modal-item {
+                color: #7d7d7d;
+                padding: 5px 10px;
+
+                &:hover{
+                    background-color: #f0f0f0;
+
+                }
+            }
+
+            .no-product-text{
+                padding: 1rem;
+                color: #7d7d7d;
+            }
+        }
+
+        .search-modal-suggestions {
+            display: flex;
+            flex-direction: column;
+
+            &-title{
+                background-color: #f3f3f3;
+                padding: 5px 10px;
+                border-radius: 8px 8px 0 0;
+            }
+
+            &-content{
+                padding: 1rem;
+
+                .search-modal-suggestion-item{
+                    display: flex;
+                    gap: 1rem;
+
+                    img{
+                        width: 50px;
+                        height: 50px;
+                    }
+
+                    .search-modal-suggestion-details{
+
+                        .suggestion-name{
+                            font-size: 12px;
+                            font-weight: 600;
+                        }
+                        .suggestion-price{
+                            display: flex;
+                            gap: 5px;
+
+                            .suggestion-newprice{
+                                color: #db003b;
+                                font-size: 14px;
+                                font-weight: 600;
+                            }
+                            .suggestion-oldprice{
+                                color: #777;
+                                font-size: 12px;
+                                text-decoration: line-through;
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include resBLAP{
+    .search-modal{
+
+        .search-modal-wrapper{
+            left: 34%;
+        }
+    }
+}

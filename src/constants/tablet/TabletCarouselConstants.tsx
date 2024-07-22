@@ -8,6 +8,7 @@ import tab7 from '@/assets/images/tablet/mi-pad-6-cps-doc-quyen.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -17,31 +18,35 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 
 
 interface TabletCarousel {
+    id: string;
     img: StaticImageData;
     name: string;
     ribbon: StaticImageData;
-    newpri: string;
-    oldpri: string;
+    newpri: number;
+    oldpri: number;
     payway: string;
     discount: string;
     desc: string;
     loveIc: JSX.Element;
     loveIcFull?: JSX.Element;
+    suggest?: true;
     stars: JSX.Element;
 }
 
 export const TabletCarouselData: TabletCarousel[] = [
     {
+        id: uuidv4(),
         img: tab1,
         name: 'Samsung Galaxy Tab S9 FE 5G',
         ribbon: ribbon,
-        newpri: '10,000,000 đ',
-        oldpri: '12,000,000 đ',
+        newpri: 10000000,
+        oldpri: 12000000,
         payway: 'Trả góp 0%',
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
+        suggest: true,
         stars: (
             <>
                 <TwemojiStar />
@@ -53,16 +58,17 @@ export const TabletCarouselData: TabletCarousel[] = [
         )
     },
     {
+        id: uuidv4(),
         img: tab2,
         name: 'iPad Air 6 M2 11 inch Wifi',
         ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
+        newpri: 15000000,
+        oldpri: 18000000,
         payway: 'Trả góp 0%',
         discount: '16% OFF',
         desc: 'Latest model with exceptional features.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
         stars: (
             <>
                 <TwemojiStar />
@@ -74,16 +80,18 @@ export const TabletCarouselData: TabletCarousel[] = [
         )
     },
     {
+        id: uuidv4(),
         img: tab3,
         name: 'iPad Air 5 10.9 inch (2022)',
         ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
+        newpri: 15000000,
+        oldpri: 18000000,
         payway: 'Trả góp 0%',
         discount: '16% OFF',
         desc: 'Perfect for both work and entertainment.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
+        suggest: true,
         stars: (
             <>
                 <TwemojiStar />
@@ -95,16 +103,17 @@ export const TabletCarouselData: TabletCarousel[] = [
         )
     },
     {
+        id: uuidv4(),
         img: tab4,
         name: 'iPad Pro 11 2021 M1 WiFi',
         ribbon: ribbon,
-        newpri: '25,000,000 đ',
-        oldpri: '30,000,000 đ',
+        newpri: 25000000,
+        oldpri: 30000000,
         payway: 'Trả góp 0%',
         discount: '20% OFF',
         desc: 'Top-tier laptop with premium features.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
         stars: (
             <>
                 <TwemojiStar />
@@ -116,16 +125,18 @@ export const TabletCarouselData: TabletCarousel[] = [
         )
     },
     {
+        id: uuidv4(),
         img: tab5,
         name: 'iPad Pro M4 11 inch Wifi',
         ribbon: ribbon,
-        newpri: '8,000,000 đ',
-        oldpri: '10,000,000 đ',
+        newpri: 8000000,
+        oldpri: 10000000,
         payway: 'Trả góp 0%',
         discount: '20% OFF',
         desc: 'Affordable laptop with good performance.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
+        suggest: true,
         stars: (
             <>
                 <TwemojiStar />
@@ -137,16 +148,17 @@ export const TabletCarouselData: TabletCarousel[] = [
         )
     },
     {
+        id: uuidv4(),
         img: tab6,
         name: 'iPad Air 5 10.9 inch (2022)',
         ribbon: ribbon,
-        newpri: '10,000,000 đ',
-        oldpri: '12,000,000 đ',
+        newpri: 10000000,
+        oldpri: 12000000,
         payway: 'Trả góp 0%',
         discount: '16% OFF',
         desc: 'High performance and great camera quality.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
         stars: (
             <>
                 <TwemojiStar />
@@ -158,16 +170,17 @@ export const TabletCarouselData: TabletCarousel[] = [
         )
     },
     {
+        id: uuidv4(),
         img: tab7,
         name: 'Xiaomi Redmi Pad SE 6GB 128GB',
         ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
+        newpri: 15000000,
+        oldpri: 18000000,
         payway: 'Trả góp 0%',
         discount: '16% OFF',
         desc: 'Latest model with exceptional features.',
         loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart/>,
+        loveIcFull: <IoMdHeart />,
         stars: (
             <>
                 <TwemojiStar />

@@ -9,6 +9,7 @@ import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeartEmpty } from "react-icons/io";
 import { IoMdHeart } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -17,149 +18,160 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface ScreenCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    stars: JSX.Element | null;
-  }
-  
-  export const ScreenCarouselData: ScreenCarousel[] = [
-    {
-      img: screen1,
-      name: 'Màn hình Xiaomi Mi 27 inch A271 ELA5345EU',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great camera quality.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: screen2,
-      name: 'Màn hình LG UltraWide 29WQ600 29 inch',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: screen3,
-      name: 'Màn hình MSI Pro MP223 22 inch',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Perfect for both work and entertainment.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: screen4,
-      name: 'Màn hình LG 27 inch 27UP600',
-      ribbon: ribbon,
-      newpri: '25,000,000 đ',
-      oldpri: '30,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Top-tier laptop with premium features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: null,
-    },
-    {
-      img: screen5,
-      name: 'Màn hình Gaming E-DRA EGM27F100 27 inch',
-      ribbon: ribbon,
-      newpri: '8,000,000 đ',
-      oldpri: '10,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Affordable laptop with good performance.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: null,
-    },
-    {
-      img: screen6,
-      name: 'Acer Predator XB253Q FHD 25 inch 360Hz',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great camera quality.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: screen7,
-      name: 'MSI Optix G241VC 24 inch 165Hz',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-  ];
+  id: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData;
+  newpri: number;
+  oldpri: number;
+  payway: string;
+  discount: string;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars: JSX.Element | null;
+}
+
+export const ScreenCarouselData: ScreenCarousel[] = [
+  {
+    id: uuidv4(),
+    img: screen1,
+    name: 'Màn hình Xiaomi Mi 27 inch A271 ELA5345EU',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: screen2,
+    name: 'Màn hình LG UltraWide 29WQ600 29 inch',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: screen3,
+    name: 'Màn hình MSI Pro MP223 22 inch',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Perfect for both work and entertainment.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: screen4,
+    name: 'Màn hình LG 27 inch 27UP600',
+    ribbon: ribbon,
+    newpri: 25000000,
+    oldpri: 30000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Top-tier laptop with premium features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),
+    img: screen5,
+    name: 'Màn hình Gaming E-DRA EGM27F100 27 inch',
+    ribbon: ribbon,
+    newpri: 8000000,
+    oldpri: 10000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Affordable laptop with good performance.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),
+    img: screen6,
+    name: 'Acer Predator XB253Q FHD 25 inch 360Hz',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: screen7,
+    name: 'MSI Optix G241VC 24 inch 165Hz',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+];

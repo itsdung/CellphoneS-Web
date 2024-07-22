@@ -8,6 +8,7 @@ import tv7 from '@/assets/images/TV/xiaomi-55.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeartEmpty } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -16,133 +17,144 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface TVCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    stars: JSX.Element | null;
+  id: string;  // Trường id mới
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;  // Thay đổi kiểu thành number
+  oldpri: number;  // Thay đổi kiểu thành number
+  payway: string;
+  discount: string | null;
+  desc: string;
+  loveIc: JSX.Element;
+  suggest?: boolean; 
+  stars: JSX.Element | null;
+}
+
+// Dữ liệu TVCarouselData với trường id mới và giá đã được chuyển đổi
+export const TVCarouselData: TVCarousel[] = [
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: tv1,
+    name: 'Tivi Coocaa',
+    ribbon: ribbon,
+    newpri: 8000000,  // Giá đã chuyển đổi thành số
+    oldpri: 10000000, // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Smart TV với chất lượng hình ảnh tuyệt vời.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: tv2,
+    name: 'Samsung UA55AU7002',
+    ribbon: ribbon,
+    newpri: 12000000,  // Giá đã chuyển đổi thành số
+    oldpri: 14000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '14% OFF',
+    desc: 'TV UHD 4K với độ phân giải cao, hình ảnh tuyệt vời.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),  // Thêm trường id
+    img: tv3,
+    name: 'Samsung UA55AU7700KXXV',
+    ribbon: ribbon,
+    newpri: 15000000,  // Giá đã chuyển đổi thành số
+    oldpri: 18000000,  // Giá đã chuyển đổi thành số
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'TV thông minh với nhiều tính năng cao cấp.',
+    loveIc: <IoMdHeartEmpty />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  
+    img: tv4,
+    name: 'Samsung UHD 4K 43 inch UA43AU7002',
+    ribbon: ribbon,
+    newpri: 10000000,  
+    oldpri: 12000000,  
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'TV 4K với chất lượng hình ảnh xuất sắc.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),  
+    img: tv5,
+    name: 'Smart Tivi Coocaa FHD 43 inch WiFi 43S3U',
+    ribbon: null,
+    newpri: 7000000,  
+    oldpri: 9000000,  
+    payway: 'Trả góp 0%',
+    discount: null,
+    desc: 'TV FHD với khả năng kết nối WiFi.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  
+    img: tv6,
+    name: 'Xiaomi TV 55 inch Model 2',
+    ribbon: ribbon,
+    newpri: 11000000,  
+    oldpri: 13000000,  
+    payway: 'Trả góp 0%',
+    discount: '15% OFF',
+    desc: 'TV thông minh với màn hình lớn và sắc nét.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),  
+    img: tv7,
+    name: 'Xiaomi TV 55 inch Model 1',
+    ribbon: ribbon,
+    newpri: 10500000,  
+    oldpri: 12500000,  
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'TV thông minh với nhiều tính năng hiện đại.',
+    loveIc: <IoMdHeartEmpty />,
+    stars: null,
   }
-  
-  export const TVCarouselData: TVCarousel[] = [
-    {
-      img: tv1,
-      name: 'Tivi Coocaa',
-      ribbon: ribbon,
-      newpri: '8,000,000 đ',
-      oldpri: '10,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Smart TV với chất lượng hình ảnh tuyệt vời.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: tv2,
-      name: 'Samsung UA55AU7002',
-      ribbon: ribbon,
-      newpri: '12,000,000 đ',
-      oldpri: '14,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '14% OFF',
-      desc: 'TV UHD 4K với độ phân giải cao, hình ảnh tuyệt vời.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: null,
-    },
-    {
-      img: tv3,
-      name: 'Samsung UA55AU7700KXXV',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'TV thông minh với nhiều tính năng cao cấp.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: tv4,
-      name: 'Samsung UHD 4K 43 inch UA43AU7002',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'TV 4K với chất lượng hình ảnh xuất sắc.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: null,
-    },
-    {
-      img: tv5,
-      name: 'Smart Tivi Coocaa FHD 43 inch WiFi 43S3U',
-      ribbon: null,
-      newpri: '7,000,000 đ',
-      oldpri: '9,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: null,
-      desc: 'TV FHD với khả năng kết nối WiFi.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: tv6,
-      name: 'Xiaomi TV 55 inch Model 2',
-      ribbon: ribbon,
-      newpri: '11,000,000 đ',
-      oldpri: '13,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '15% OFF',
-      desc: 'TV thông minh với màn hình lớn và sắc nét.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: tv7,
-      name: 'Xiaomi TV 55 inch Model 1',
-      ribbon: ribbon,
-      newpri: '10,500,000 đ',
-      oldpri: '12,500,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'TV thông minh với nhiều tính năng hiện đại.',
-      loveIc: <IoMdHeartEmpty />,
-      stars: null,
-    }
-  ];
+];

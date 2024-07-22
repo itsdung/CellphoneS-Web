@@ -4,6 +4,7 @@ import React, { useState } from 'react';
 import './style.scss';
 import { IoChevronForwardOutline } from 'react-icons/io5';
 
+
 export default function ServicesMenu() {
   const [hoveredItem, setHoveredItem] = useState<string | null>(null);
 
@@ -16,7 +17,8 @@ export default function ServicesMenu() {
   };
 
   return (
-    <div className='services-menu'>
+    <div className="container-service-menu">
+      <div className='services-menu'>
       <div className='menu-wrapper'>
         {serviceMenuData.map((item, index) => (
           <div key={index} className='menu-item' onMouseEnter={() => handleMouseEnter(item.title)} onMouseLeave={handleMouseLeave}>
@@ -38,11 +40,12 @@ export default function ServicesMenu() {
                       </ul>
                     )}
                   </div>
-                ))}
-              </div>
-            )}
-          </div>
-        ))}
+                  ))}
+                </div>
+              )}
+            </div>
+          ))}
+        </div>
       </div>
     </div>
   );

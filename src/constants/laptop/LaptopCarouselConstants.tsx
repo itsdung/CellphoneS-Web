@@ -11,6 +11,7 @@ import laptop10 from '@/assets/images/laptop/text_ng_n_8__1_115.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
+import { v4 as uuidv4 } from 'uuid';
 import React from 'react';
 import type { SVGProps } from 'react';
 
@@ -19,212 +20,227 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface LaptopCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    stars: JSX.Element | null;
+  id: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;
+  oldpri: number;
+  payway: string;
+  discount: string | null;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars: JSX.Element | null;
 }
 
 export const LaptopCarouselData: LaptopCarousel[] = [
-    {
+  {
+      id: uuidv4(),
       img: laptop1,
       name: 'Apple MacBook Air M1 256GB 2020 | Chính hãng Apple Việt Nam',
       ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
+      newpri: 10000000,
+      oldpri: 12000000,
       payway: 'Trả góp 0%',
       discount: '16% OFF',
       desc: 'High performance and great camera quality.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
       stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
+          <>
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+          </>
       )
-    },
-    {
+  },
+  {
+      id: uuidv4(),
       img: laptop2,
       name: 'Apple MacBook Air M2 2022 | Chính hãng Apple Việt Nam',
       ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
+      newpri: 15000000,
+      oldpri: 18000000,
       payway: 'Trả góp 0%',
       discount: '16% OFF',
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
       stars: null
-    },
-    {
+  },
+  {
+      id: uuidv4(),
       img: laptop3,
       name: 'MacBook Air M3 13 inch 2024 | Chính hãng Apple Việt Nam',
       ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
+      newpri: 15000000,
+      oldpri: 18000000,
       payway: 'Trả góp 0%',
       discount: '16% OFF',
       desc: 'Perfect for both work and entertainment.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
+      suggest: true,
       stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
+          <>
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+          </>
       )
-    },
-    {
+  },
+  {
+      id: uuidv4(),
       img: laptop4,
       name: 'Laptop Lenovo LOQ 151AX9',
       ribbon: null,
-      newpri: '25,000,000 đ',
-      oldpri: '30,000,000 đ',
+      newpri: 25000000,
+      oldpri: 30000000,
       payway: 'Trả góp 0%',
       discount: null,
       desc: 'Top-tier laptop with premium features.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
       stars: null
-    },
-    {
+  },
+  {
+      id: uuidv4(),
       img: laptop5,
       name: 'Laptop ASUS Vivobook 15 X1504ZA-NJ582W',
       ribbon: ribbon,
-      newpri: '8,000,000 đ',
-      oldpri: '10,000,000 đ',
+      newpri: 8000000,
+      oldpri: 10000000,
       payway: 'Trả góp 0%',
       discount: '20% OFF',
       desc: 'Affordable laptop with good performance.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
       stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
+          <>
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+          </>
       )
-    },
-    {
-        img: laptop6,
-        name: 'Laptop ASUS VivoBook Go 14 E1404FA-NK177W',
-        ribbon: ribbon,
-        newpri: '10,000,000 đ',
-        oldpri: '12,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'High performance and great camera quality.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
+  },
+  {
+      id: uuidv4(),
+      img: laptop6,
+      name: 'Laptop ASUS VivoBook Go 14 E1404FA-NK177W',
+      ribbon: ribbon,
+      newpri: 10000000,
+      oldpri: 12000000,
+      payway: 'Trả góp 0%',
+      discount: '16% OFF',
+      desc: 'High performance and great camera quality.',
+      loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
+      suggest: true,
+      stars: (
           <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
           </>
-        )
-      },
-      {
-        img: laptop7,
-        name: 'Laptop MSI Cyborg 15 A12VE-412VN',
-        ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'Latest model with exceptional features.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
+      )
+  },
+  {
+      id: uuidv4(),
+      img: laptop7,
+      name: 'Laptop MSI Cyborg 15 A12VE-412VN',
+      ribbon: ribbon,
+      newpri: 15000000,
+      oldpri: 18000000,
+      payway: 'Trả góp 0%',
+      discount: '16% OFF',
+      desc: 'Latest model with exceptional features.',
+      loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
+      stars: (
           <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
           </>
-        )
-      },
-      {
-        img: laptop8,
-        name: 'Laptop Gaming Acer Nitro 5 Tiger AN515 58 52SP',
-        ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'Perfect for both work and entertainment.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
+      )
+  },
+  {
+      id: uuidv4(),
+      img: laptop8,
+      name: 'Laptop Gaming Acer Nitro 5 Tiger AN515 58 52SP',
+      ribbon: ribbon,
+      newpri: 15000000,
+      oldpri: 18000000,
+      payway: 'Trả góp 0%',
+      discount: '16% OFF',
+      desc: 'Perfect for both work and entertainment.',
+      loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
+      stars: (
           <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
           </>
-        )
-      },
-      {
-        img: laptop9,
-        name: 'Laptop Acer Nitro 5 15-12450HX RTX 3050',
-        ribbon: ribbon,
-        newpri: '25,000,000 đ',
-        oldpri: '30,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '20% OFF',
-        desc: 'Top-tier laptop with premium features.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
+      )
+  },
+  {
+      id: uuidv4(),
+      img: laptop9,
+      name: 'Laptop Acer Nitro 5 15-12450HX RTX 3050',
+      ribbon: ribbon,
+      newpri: 25000000,
+      oldpri: 30000000,
+      payway: 'Trả góp 0%',
+      discount: '20% OFF',
+      desc: 'Top-tier laptop with premium features.',
+      loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
+      stars: (
           <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
           </>
-        )
-      },
-      {
-        img: laptop10,
-        name: 'MacBook Pro 14 M3 Pro 18GB | Chính hãng Apple Việt Nam',
-        ribbon: ribbon,
-        newpri: '8,000,000 đ',
-        oldpri: '10,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '20% OFF',
-        desc: 'Affordable laptop with good performance.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
+      )
+  },
+  {
+      id: uuidv4(),
+      img: laptop10,
+      name: 'MacBook Pro 14 M3 Pro 18GB | Chính hãng Apple Việt Nam',
+      ribbon: ribbon,
+      newpri: 8000000,
+      oldpri: 10000000,
+      payway: 'Trả góp 0%',
+      discount: '20% OFF',
+      desc: 'Affordable laptop with good performance.',
+      loveIc: <IoMdHeartEmpty />,
+      loveIcFull: <IoMdHeart />,
+      suggest: true,
+      stars: (
           <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
+              <TwemojiStar />
           </>
-        )
-      },
+      )
+  },
 ];

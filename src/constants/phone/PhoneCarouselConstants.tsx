@@ -11,6 +11,7 @@ import phone8 from '@/assets/images/phones/xiaomi-13-pro-thumb-xanh-la9.png'
 import phone9 from '@/assets/images/phones/nubia-neo-2_1_.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
+import { v4 as uuidv4 } from 'uuid';
 
 import React from 'react';
 import type { SVGProps } from 'react';
@@ -20,296 +21,316 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface PhoneCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    stars: JSX.Element | null;
-  }
-  
-  export const PhoneCarouselData: PhoneCarousel[] = [
-    {
-      img: phone1,
-      name: 'Oppo X5',
-      ribbon: ribbon,
-      newpri: '10,000,000 đ',
-      oldpri: '12,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'High performance and great camera quality.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart/>,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: phone2,
-      name: 'Samsung Galaxy S24 Plus',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Latest model with exceptional features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: null,
-    },
-    {
-      img: phone3,
-      name: 'Samsung Tab S9 FE',
-      ribbon: ribbon,
-      newpri: '15,000,000 đ',
-      oldpri: '18,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Perfect for both work and entertainment.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: phone4,
-      name: 'Samsung S24 Ultra',
-      ribbon: ribbon,
-      newpri: '25,000,000 đ',
-      oldpri: '30,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Top-tier smartphone with premium features.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: phone5,
-      name: 'Tecno Camon 30',
-      ribbon: ribbon,
-      newpri: '8,000,000 đ',
-      oldpri: '10,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Affordable phone with good performance.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: phone6,
-      name: 'Tecno Spark 20 Pro Plus',
-      ribbon: null,
-      newpri: '9,000,000 đ',
-      oldpri: '11,000,000 đ',
-      payway: 'Trả góp 0%',
-      discount: null,
-      desc: 'Stylish design and reliable performance.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-        img: phone7,
-        name: 'Samsung Galaxy M55',
-        ribbon: ribbon,
-        newpri: '10,000,000 đ',
-        oldpri: '12,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'High performance and great camera quality.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-      {
-        img: phone8,
-        name: 'Xiaomi 13T Pro 5G',
-        ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'Perfect for both work and entertainment.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-      {
-        img: phone1,
-        name: 'Oppo X5',
-        ribbon: ribbon,
-        newpri: '10,000,000 đ',
-        oldpri: '12,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'High performance and great camera quality.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-      {
-        img: phone6,
-        name: 'Tecno Spark 20 Pro Plus',
-        ribbon: ribbon,
-        newpri: '9,000,000 đ',
-        oldpri: '11,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '18% OFF',
-        desc: 'Stylish design and reliable performance.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-      {
-        img: phone8,
-        name: 'Xiaomi 13T Pro 5G',
-        ribbon: ribbon,
-        newpri: '15,000,000 đ',
-        oldpri: '18,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'Perfect for both work and entertainment.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: null,
-      },
-      {
-        img: phone9,
-        name: 'Nubia Neo 2',
-        ribbon: ribbon,
-        newpri: '25,000,000 đ',
-        oldpri: '30,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '20% OFF',
-        desc: 'Top-tier smartphone with premium features.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-      {
-        img: phone7,
-        name: 'Samsung Galaxy M55',
-        ribbon: ribbon,
-        newpri: '10,000,000 đ',
-        oldpri: '12,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: '16% OFF',
-        desc: 'High performance and great camera quality.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-      {
-        img: phone5,
-        name: 'Tecno Camon 30',
-        ribbon: null,
-        newpri: '8,000,000 đ',
-        oldpri: '10,000,000 đ',
-        payway: 'Trả góp 0%',
-        discount: null,
-        desc: 'Affordable phone with good performance.',
-        loveIc: <IoMdHeartEmpty />,
-        loveIcFull: <IoMdHeart />,
-        stars: (
-          <>
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-            <TwemojiStar />
-          </>
-        )
-      },
-  ];
+  id: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;
+  oldpri: number;
+  payway: string;
+  discount: string | null;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars: JSX.Element | null;
+}
+
+export const PhoneCarouselData: PhoneCarousel[] = [
+  {
+    id: uuidv4(),
+    img: phone1,
+    name: 'Điện thoại Oppo X5',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone2,
+    name: 'Điện thoại Samsung Galaxy S24 Plus',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Latest model with exceptional features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: null,
+  },
+  {
+    id: uuidv4(),
+    img: phone3,
+    name: 'Điện thoại Samsung Tab S9 FE',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Perfect for both work and entertainment.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone4,
+    name: 'Samsung S24 Ultra',
+    ribbon: ribbon,
+    newpri: 25000000,
+    oldpri: 30000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Top-tier smartphone with premium features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone5,
+    name: 'Tecno Camon 30',
+    ribbon: ribbon,
+    newpri: 8000000,
+    oldpri: 10000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Affordable phone with good performance.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone6,
+    name: 'Tecno Spark 20 Pro Plus',
+    ribbon: null,
+    newpri: 9000000,
+    oldpri: 11000000,
+    payway: 'Trả góp 0%',
+    discount: null,
+    desc: 'Stylish design and reliable performance.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone7,
+    name: 'Samsung Galaxy M55',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone8,
+    name: 'Xiaomi 13T Pro 5G',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Perfect for both work and entertainment.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone1,
+    name: 'Oppo X5',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone6,
+    name: 'Tecno Spark 20 Pro Plus',
+    ribbon: ribbon,
+    newpri: 9000000,
+    oldpri: 11000000,
+    payway: 'Trả góp 0%',
+    discount: '18% OFF',
+    desc: 'Stylish design and reliable performance.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone8,
+    name: 'Xiaomi 13T Pro 5G',
+    ribbon: ribbon,
+    newpri: 15000000,
+    oldpri: 18000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Perfect for both work and entertainment.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),
+    img: phone9,
+    name: 'Nubia Neo 2',
+    ribbon: ribbon,
+    newpri: 25000000,
+    oldpri: 30000000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Top-tier smartphone with premium features.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone7,
+    name: 'Samsung Galaxy M55',
+    ribbon: ribbon,
+    newpri: 10000000,
+    oldpri: 12000000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'High performance and great camera quality.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: phone5,
+    name: 'Tecno Camon 30',
+    ribbon: null,
+    newpri: 8000000,
+    oldpri: 10000000,
+    payway: 'Trả góp 0%',
+    discount: null,
+    desc: 'Affordable phone with good performance.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+];

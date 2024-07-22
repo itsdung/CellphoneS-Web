@@ -1,6 +1,5 @@
 'use client'
 import React, { useEffect, useState } from 'react'
-import { TopBannerCarousel } from './top-banner-carousel/TopBannerCarousel'
 import Header from '../header/Header'
 import MainBannerSection from './main-banner/MainBannerSection'
 import SaleBanner from './sale-banner/SaleBanner'
@@ -21,7 +20,6 @@ import UpsalePaySection from './upsale-pay-section/UpsalePaySection'
 import BrandSection from './brand-section/BrandSection'
 import NewsSection from './news-section/NewsSection'
 import Footer from '../footer/Footer'
-import dynamic from 'next/dynamic';
 import { GoChevronUp } from 'react-icons/go'
 import './style.scss';
 

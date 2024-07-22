@@ -7,6 +7,7 @@ import img6 from '@/assets/images/household/quat-dung-gaabor-gfh-n240a-1.png'
 import img7 from '@/assets/images/household/xiaomi_mi_smart_tower_fan_-1.png'
 import ribbon from '@/assets/icons/wrap.png'
 import { StaticImageData } from "next/image";
+import { v4 as uuidv4 } from 'uuid';
 import { IoMdHeart, IoMdHeartEmpty } from "react-icons/io";
 import React from 'react';
 import type { SVGProps } from 'react';
@@ -16,149 +17,160 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface HouseholdCarousel {
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: string;
-    oldpri: string;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    stars: JSX.Element | null;
+  id: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;
+  oldpri: number;
+  payway: string;
+  discount: string | null;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars: JSX.Element | null;
+}
+
+export const HouseholdCarouselData: HouseholdCarousel[] = [
+  {
+    id: uuidv4(),
+    img: img1,
+    name: 'Bàn chải điện Oral-B Vitality CrossAction D12-513',
+    ribbon: ribbon,
+    newpri: 1000000,
+    oldpri: 1200000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: img2,
+    name: 'Bàn chải điện Xiaomi Mi Smart Electric Toothbrush',
+    ribbon: null,
+    newpri: 1500000,
+    oldpri: 1800000,
+    payway: 'Trả góp 0%',
+    discount: null,
+    desc: 'Mẫu mới nhất với các tính năng vượt trội.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: img3,
+    name: 'Máy tăm nước H2ofloss HF-9P',
+    ribbon: ribbon,
+    newpri: 2000000,
+    oldpri: 2400000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Hoàn hảo cho cả công việc và giải trí.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: img4,
+    name: 'Máy cạo râu Philips PQ206/18',
+    ribbon: ribbon,
+    newpri: 500000,
+    oldpri: 600000,
+    payway: 'Trả góp 0%',
+    discount: '16% OFF',
+    desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: null,
+  },
+  {
+    id: uuidv4(),
+    img: img5,
+    name: 'Nồi chiên không dầu Xiaomi Mi Smart Air Fryer',
+    ribbon: ribbon,
+    newpri: 3000000,
+    oldpri: 3500000,
+    payway: 'Trả góp 0%',
+    discount: '14% OFF',
+    desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    suggest: true,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: img6,
+    name: 'Quạt đứng Gaabor GFH-N240A-1',
+    ribbon: null,
+    newpri: 1200000,
+    oldpri: 1500000,
+    payway: 'Trả góp 0%',
+    discount: null,
+    desc: 'Mẫu mới nhất với các tính năng vượt trội.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: (
+      <>
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+        <TwemojiStar />
+      </>
+    )
+  },
+  {
+    id: uuidv4(),
+    img: img7,
+    name: 'Quạt tháp Xiaomi Mi Smart Tower Fan',
+    ribbon: ribbon,
+    newpri: 2000000,
+    oldpri: 2500000,
+    payway: 'Trả góp 0%',
+    discount: '20% OFF',
+    desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
+    loveIc: <IoMdHeartEmpty />,
+    loveIcFull: <IoMdHeart />,
+    stars: null,
   }
-  
-  export const HouseholdCarouselData: HouseholdCarousel[] = [
-    {
-      img: img1,
-      name: 'Bàn chải điện Oral-B Vitality CrossAction D12-513',
-      ribbon: ribbon,
-      newpri: '1,000,000 đ',
-      oldpri: '1,200,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: img2,
-      name: 'Bàn chải điện Xiaomi Mi Smart Electric Toothbrush',
-      ribbon: null,
-      newpri: '1,500,000 đ',
-      oldpri: '1,800,000 đ',
-      payway: 'Trả góp 0%',
-      discount: null,
-      desc: 'Mẫu mới nhất với các tính năng vượt trội.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: img3,
-      name: 'Máy tăm nước H2ofloss HF-9P',
-      ribbon: ribbon,
-      newpri: '2,000,000 đ',
-      oldpri: '2,400,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Hoàn hảo cho cả công việc và giải trí.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: img4,
-      name: 'Máy cạo râu Philips PQ206/18',
-      ribbon: ribbon,
-      newpri: '500,000 đ',
-      oldpri: '600,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '16% OFF',
-      desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: null,
-    },
-    {
-      img: img5,
-      name: 'Nồi chiên không dầu Xiaomi Mi Smart Air Fryer',
-      ribbon: ribbon,
-      newpri: '3,000,000 đ',
-      oldpri: '3,500,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '14% OFF',
-      desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: img6,
-      name: 'Quạt đứng Gaabor GFH-N240A-1',
-      ribbon: null,
-      newpri: '1,200,000 đ',
-      oldpri: '1,500,000 đ',
-      payway: 'Trả góp 0%',
-      discount: null,
-      desc: 'Mẫu mới nhất với các tính năng vượt trội.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: (
-        <>
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-          <TwemojiStar />
-        </>
-      )
-    },
-    {
-      img: img7,
-      name: 'Quạt tháp Xiaomi Mi Smart Tower Fan',
-      ribbon: ribbon,
-      newpri: '2,000,000 đ',
-      oldpri: '2,500,000 đ',
-      payway: 'Trả góp 0%',
-      discount: '20% OFF',
-      desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
-      loveIc: <IoMdHeartEmpty />,
-      loveIcFull: <IoMdHeart />,
-      stars: null,
-    }
-  ];
+];
