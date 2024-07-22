@@ -31,7 +31,7 @@ export default function SearchModal({searchTerm, onClose} : SearchModalProps) {
                 <div className="search-modal-content">
                     {filteredData.length > 0 ? (
                         filteredData.map((item, index) => (
-                            <Link href='/'>
+                            <Link key={item.id} href='/'>
                                 <div key={index} className="search-modal-item">
                                     <p>{item.name}</p>
                                 </div>
