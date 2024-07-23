@@ -19,12 +19,12 @@ export  const bannerSlideData: Slide[] = [
       description: 'GALAXY Z6 SERIES<br/>Đặt trước ngay',
     },
     {
-      src: banner2,
+      src: banner3,
       alt: 'Hình ảnh 1',
       description: 'RENO 12 SERIES<br/>Giá chỉ từ 9.49 triệu',
     },
     {
-      src: banner3,
+      src: banner2,
       alt: 'Hình ảnh 3',
       description: 'IPHONE 15 PROMAX<br/>Nâng cấp ngay',
     },
@@ -37,5 +37,15 @@ export  const bannerSlideData: Slide[] = [
       src: banner5,
       alt: 'Hình ảnh 3',
       description: 'HUAWEI WATCH GT4<br/>Giá chỉ 4.49 triệu',
+    },
+    {
+      src: banner6,
+      alt: 'Hình ảnh 6',
+      description: 'TAI NGHE SONY<br/>Giá chỉ 4.49 triệu',
+    },
+    {
+      src: banner3,
+      alt: 'Hình ảnh 3',
+      description: 'IPHONE 15 PROMAX<br/>Nâng cấp ngay',
     },
   ];

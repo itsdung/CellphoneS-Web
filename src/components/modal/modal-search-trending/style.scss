@@ -1,25 +1,28 @@
 @use '@/app/globals.scss' as *;
-.search-trending{
+.search-trending {
+    position: fixed; 
+    top: 64px; 
+    left: 0;
     width: 100vw;
-    height: 100vh;
-    margin-top: 64px;
-    position: absolute;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1001;
+    height: calc(100vh - 64px); 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
-
-    .search-trending-wrapper{
+    .search-trending-wrapper {
         background: #fff;
         border-radius: 8px;
-        left: 38%;
         max-width: 500px;
+        width: 90%; 
         position: relative;
-        top: 1px;
-        width: 100vw;
+        left: 1rem;
+        top: -21rem;
         animation: fadeIn 0.1s ease-in forwards;
-        z-index: 1001;
+        z-index: 1002; 
 
-        &::after{
+        &::after {
             content: "";
             position: absolute;
             top: -16px; 
@@ -32,41 +35,41 @@
             transform: scale(1);
         }
 
-        .search-trending-banner{
+        .search-trending-banner {
             padding: 5px;
         }
 
-        .trending-title{
+        .trending-title {
             display: flex;
             align-items: center;
 
-            &-text{
+            &-text {
                 padding: 10px 0 5px 10px;
             }
         }
 
-        .trending-list{
+        .trending-list {
             display: grid;
-            grid-template-columns: repeat(2,1fr);
+            grid-template-columns: repeat(2, 1fr);
             row-gap: 2rem;
             padding: 1rem;
 
-            &-item{
+            &-item {
                 display: flex;
                 align-items: center;
                 gap: 5px;
 
-                &-link{
+                &-link {
                     display: flex;
                     align-items: center;
                     gap: 2px;
 
-                    img{
+                    img {
                         max-width: 40px;
                         max-height: 40px;
                     }
-    
-                    p{
+
+                    p {
                         color: #0c011c;
                         font-size: 14px;
                     }
@@ -78,20 +81,13 @@
 
 @keyframes fadeIn {
     from {
-      opacity: 0;
+        opacity: 0;
     }
     to {
-      opacity: 1;
+        opacity: 1;
     }
 }
 
-@include resBLAP{
-    .search-trending{
-
-        .search-trending-wrapper{
-            left: 34%;
-        }
-    }
-}
+@include resBLAP{}
 
 @include resLAP{}

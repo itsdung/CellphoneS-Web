@@ -1,22 +1,27 @@
 @use '@/app/globals.scss' as *;
 .search-modal{
-    width: 100vw;
-    height: 100vh;
-    margin-top: 64px;
-    position: absolute;
-    background-color: rgba(0,0,0,0.5);
-    z-index: 1001;
+    position: fixed; 
+    top: 64px; 
+    left: 0;
+    width: 100vw; 
+    height: calc(100vh - 64px); 
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1001; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
 
     .search-modal-wrapper{
         background: #fff;
-        border-radius: 8px;
+        top: 2px;
         left: 38%;
+        border-radius: 8px;
         max-width: 500px;
-        position: relative;
-        top: 1px;
-        width: 100vw;
+        height: auto;
+        width: 90%;
+        position: absolute;
         animation: fadeIn 0.1s ease-in forwards;
-        z-index: 1001;
+        z-index: 1002; 
 
         .search-modal-title {
             background-color: #f3f3f3;
@@ -92,11 +97,4 @@
     }
 }
 
-@include resBLAP{
-    .search-modal{
-
-        .search-modal-wrapper{
-            left: 34%;
-        }
-    }
-}
+@include resBLAP{}

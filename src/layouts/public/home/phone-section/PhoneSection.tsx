@@ -10,7 +10,7 @@ export default function PhoneSection() {
   return (
     <div className='wrapper-phone'>
         <div className='phone-header'>
-            <Link href='./'>
+            <Link href='./mobile'>
                 <h2>Điện thoại nổi bật nhất</h2>
             </Link>
             <ul className='phone-list'>
