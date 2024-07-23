@@ -12,7 +12,6 @@ const BannerSlider = () => {
   const [transitionDirection, setTransitionDirection] = useState<string>('');
 
   useEffect(() => {
-    // Khi activeIndex >= 5 thì bắt đầu slide phần mô tả
     const start = activeIndex >= 5 ? activeIndex - 4 : 0;
     setVisibleDescriptions(bannerSlideData.slice(start, start + 5));
   }, [activeIndex]);
