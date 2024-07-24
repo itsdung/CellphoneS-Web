@@ -9,6 +9,9 @@ export interface MobileFilterField {
   label: string;
   icon?: ReactElement; 
   arrow?: ReactElement; 
+  chip?: string;
+  type?: string;
+  special?: string;
   submenu?: MobileFilterField[];
 }
 
@@ -43,6 +46,7 @@ export const mobileFilterFieldData: MobileFilterField[] = [
       id: uuidv4(),
       label: 'Chip xử lý',
       arrow: <FiChevronDown />, 
+      chip: 'chip',
       submenu: [
           { id: uuidv4(), label: 'Snapdragon' },
           { id: uuidv4(), label: 'Apple A' },
@@ -56,6 +60,7 @@ export const mobileFilterFieldData: MobileFilterField[] = [
       id: uuidv4(),
       label: 'Loại điện thoại',
       arrow: <FiChevronDown />,
+      type: 'type',
       submenu: [
           { id: uuidv4(), label: 'Iphone(IOS)' },
           { id: uuidv4(), label: 'Android' },
@@ -88,6 +93,7 @@ export const mobileFilterFieldData: MobileFilterField[] = [
     {
       id: uuidv4(),
       label: 'Tính năng đặc biệt',
+      special: 'special',
       arrow: <FiChevronDown />,
       submenu: [
           { id: uuidv4(), label: 'Sạc không dây' },

@@ -34,6 +34,9 @@ interface PhoneCarousel {
   loveIcFull?: JSX.Element;
   suggest?: boolean;
   stars: JSX.Element | null;
+  chip?: string;
+  type?: string;
+  special?: string;
 }
 
 export const PhoneCarouselData: PhoneCarousel[] = [
@@ -57,7 +60,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Snapdragon',
+    type: 'Android',
+    special: 'Bảo mật vân tay',
   },
   {
     id: uuidv4(),
@@ -73,6 +79,9 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     loveIcFull: <IoMdHeart />,
     suggest: true,
     stars: null,
+    chip: 'Apple A',
+    type: 'Iphone(IOS)',
+    special: 'Điện thoại AI',
   },
   {
     id: uuidv4(),
@@ -94,7 +103,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Apple A',
+    type: 'Iphone(IOS)',
+    special: 'Sạc không dây',
   },
   {
     id: uuidv4(),
@@ -116,7 +128,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Apple A',
+    type: 'Iphone(IOS)',
+    special: 'Nhận diện khuôn mặt',
   },
   {
     id: uuidv4(),
@@ -139,7 +154,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Exynos',
+    type: 'Android',
+    special: 'Bảo mật vân tay',
   },
   {
     id: uuidv4(),
@@ -161,7 +179,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Unisoc',
+    type: 'Android',
+    special: 'Điện thoại AI',
   },
   {
     id: uuidv4(),
@@ -184,7 +205,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Mediatek Helio',
+    type: 'Android',
+    special: 'Nhận diện khuôn mặt',
   },
   {
     id: uuidv4(),
@@ -206,7 +230,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Mediatek Dimensity',
+    type: 'Android',
+    special: 'Nhận diện khuôn mặt',
   },
   {
     id: uuidv4(),
@@ -228,7 +255,10 @@ export const PhoneCarouselData: PhoneCarousel[] = [
         <TwemojiStar />
         <TwemojiStar />
       </>
-    )
+    ),
+    chip: 'Snapdragon',
+    type: 'Android',
+    special: 'Điện thoại AI',
   },
   {
     id: uuidv4(),

@@ -17,6 +17,9 @@ interface Item {
     loveIcFull?: JSX.Element;
     suggest?: boolean;
     stars: JSX.Element | null;
+    chip?: string;
+    type?: string;
+    special?: string;
 }
 
 const PriceDisplay = ({ price }: { price: number }) => {

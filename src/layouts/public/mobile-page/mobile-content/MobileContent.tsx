@@ -5,9 +5,24 @@ import Link from 'next/link';
 import { FilterButtonData, MobileFilterField, mobileFilterFieldData } from '@/constants/mobile-page/MobileFilterConstants';
 import './style.scss';
 import { GoChevronRight } from 'react-icons/go';
+import { PhoneCarouselData } from '@/constants/phone/PhoneCarouselConstants';
+import CardItem from '@/components/Card/Card';
+
+const filterPhoneCarouselData = (values: any[]) => {
+    if (values.length === 0) {
+        return PhoneCarouselData;
+    }
+    return PhoneCarouselData.filter(phone => {
+      return values.some((value: any) => 
+        Object.values(phone).includes(value)
+      );
+    });
+  };
 
 export default function MobileContent() {
   const [openItemId, setOpenItemId] = useState<string | null>(null);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [filteredData, setFilteredData] = useState(PhoneCarouselData);
 
   const handleItemClick = (id: string) => {
     if (openItemId === id) {
@@ -19,6 +34,22 @@ export default function MobileContent() {
 
   const handleClose = () => {
     setOpenItemId(null);
+  };
+
+  const handleSubItemClick = (label: string) => {
+    setSelectedValues(prevValues => {
+      const newValues = prevValues.includes(label)
+        ? prevValues.filter(value => value !== label)
+        : [...prevValues, label];
+      console.log(newValues);
+
+      // Cập nhật: Cập nhật danh sách sản phẩm dựa trên giá trị đã chọn
+      const filteredData = filterPhoneCarouselData(newValues);
+      console.log(filteredData);
+      setFilteredData(filteredData); // Cập nhật: Cập nhật state filteredData
+
+      return newValues;
+    });
   };
     
   return (
@@ -60,7 +91,11 @@ export default function MobileContent() {
                             {item.submenu && (
                             <div className='filter-btn-submenu-children'>
                                 {item.submenu.map((subItem) => (
-                                    <div key={subItem.id} className='filter-submenu-children-item'>
+                                    <div 
+                                        key={subItem.id} 
+                                        className={`filter-submenu-children-item ${selectedValues.includes(subItem.label) ? 'active' : ''}`}
+                                        onClick={() => handleSubItemClick(subItem.label)}
+                                    >
                                     <p className='mobile-submenu-item-label'>{subItem.label}</p>
                                     </div>
                                 ))}
@@ -89,7 +124,11 @@ export default function MobileContent() {
                 <>
                     <div className='mobile-filter-submenu'>
                     {item.submenu.map((subItem, subIndex) => (
-                        <div key={subItem.id} className='mobile-submenu-item'>
+                        <div 
+                            key={subItem.id}
+                            className={`mobile-submenu-item ${selectedValues.includes(subItem.label) ? 'active' : ''}`} 
+                            onClick={() => handleSubItemClick(subItem.label)}
+                        >
                         <p className='mobile-submenu-item-label'>{subItem.label}</p>
                         </div>
                     ))}
@@ -100,6 +139,12 @@ export default function MobileContent() {
             </div>
           ))}
         </div>
+      </div>
+
+      <div className="mobile-category">
+        {filteredData.map((item) => (
+            <CardItem key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );
