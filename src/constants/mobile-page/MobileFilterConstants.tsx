@@ -16,11 +16,6 @@ export interface MobileFilterField {
 export const mobileFilterFieldData: MobileFilterField[] = [
     {
       id: uuidv4(),
-      label: 'Bộ lọc', 
-      icon: <FaFilter />,
-    },
-    {
-      id: uuidv4(),
       label: 'Sẵn sàng',
       icon: <FaShippingFast />,
     },
@@ -164,4 +159,17 @@ export const mobileFilterFieldData: MobileFilterField[] = [
         ],
     },
   ];
+
+  export const FilterButtonData: MobileFilterField = {
+    id: uuidv4(),
+    label: 'Bộ lọc',
+    icon: <FaFilter />,
+    submenu: mobileFilterFieldData
+      .filter(item => item.label !== 'Sẵn sàng' && item.label !== 'Giá') 
+      .map(item => ({
+        id: item.id,
+        label: item.label,
+        submenu: item.submenu
+      })),
+  };
 
