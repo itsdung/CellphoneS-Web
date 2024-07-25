@@ -5,21 +5,23 @@ import Link from 'next/link';
 import { useState } from 'react';
 
 interface Item {
-    img: StaticImageData | string;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: number;
-    oldpri: number;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    suggest?: boolean;
-    stars: JSX.Element | null;
-    chip?: string;
-    type?: string;
-    special?: string;
+  id: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;
+  oldpri: number;
+  payway: string;
+  discount: string | null;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars?: JSX.Element;
+  chip?: string;
+  type?: string;
+  special?: string;
+  manufacturer?: string;
 }
 
 const PriceDisplay = ({ price }: { price: number }) => {

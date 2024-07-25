@@ -22,11 +22,11 @@ export const mobileFilterFieldData: MobileFilterField[] = [
       label: 'Sẵn sàng',
       icon: <FaShippingFast />,
     },
-    {
-      id: uuidv4(),
-      label: 'Giá',
-      icon: <RiCashFill />,
-    },
+    // {
+    //   id: uuidv4(),
+    //   label: 'Giá',
+    //   icon: <RiCashFill />,
+    // },
     {
       id: uuidv4(),
       label: 'Nhu cầu sử dụng',
@@ -165,6 +165,12 @@ export const mobileFilterFieldData: MobileFilterField[] = [
         ],
     },
   ];
+
+  export const FilterPriceData: MobileFilterField = {
+    id: uuidv4(),
+    label: 'Giá',
+    icon: <RiCashFill />,
+  };
 
   export const FilterButtonData: MobileFilterField = {
     id: uuidv4(),

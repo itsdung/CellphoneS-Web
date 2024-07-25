@@ -7,6 +7,7 @@ import { TabletCarouselData } from "../tablet/TabletCarouselConstants";
 import { TVCarouselData } from "../tv/TVCarouselConstants";
 import { WatchCarouselData } from "../watch/WatchCarouselConstants";
 import { HotSaleSliderData } from "../HotSaleSliderConstants";
+import { mobileData } from "../mobile-page/MobileData";
 
 
 
@@ -20,4 +21,5 @@ export const allProductData = [
     ...TabletCarouselData,
     ...PhoneCarouselData,
     ...HotSaleSliderData,
+    ...mobileData,
   ];
