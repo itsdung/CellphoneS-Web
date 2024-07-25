@@ -17,7 +17,7 @@ interface Item {
   loveIc: JSX.Element;
   loveIcFull?: JSX.Element;
   suggest?: boolean;
-  stars?: JSX.Element;
+  stars?: JSX.Element | null;
   chip?: string;
   type?: string;
   special?: string;

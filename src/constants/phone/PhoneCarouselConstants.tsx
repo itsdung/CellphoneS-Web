@@ -33,10 +33,11 @@ interface PhoneCarousel {
   loveIc: JSX.Element;
   loveIcFull?: JSX.Element;
   suggest?: boolean;
-  stars: JSX.Element | null;
+  stars?: JSX.Element | null;
   chip?: string;
   type?: string;
   special?: string;
+  manufacturer?: string;
 }
 
 export const PhoneCarouselData: PhoneCarousel[] = [
@@ -78,7 +79,6 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
     suggest: true,
-    stars: null,
     chip: 'Apple A',
     type: 'Iphone(IOS)',
     special: 'Điện thoại AI',
@@ -294,7 +294,6 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     desc: 'Perfect for both work and entertainment.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
-    stars: null,
   },
   {
     id: uuidv4(),

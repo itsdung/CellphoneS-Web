@@ -18,18 +18,22 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 
 interface HouseholdCarousel {
   id: string;
-  img: StaticImageData;
-  name: string;
-  ribbon: StaticImageData | null;
-  newpri: number;
-  oldpri: number;
-  payway: string;
-  discount: string | null;
-  desc: string;
-  loveIc: JSX.Element;
-  loveIcFull?: JSX.Element;
-  suggest?: boolean;
-  stars: JSX.Element | null;
+    img: StaticImageData;
+    name: string;
+    ribbon: StaticImageData | null;
+    newpri: number;
+    oldpri: number;
+    payway: string;
+    discount: string | null;
+    desc: string;
+    loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
+    suggest?: boolean;
+    stars?: JSX.Element | null;
+    chip?: string;
+    type?: string;
+    special?: string;
+    manufacturer?: string;
 }
 
 export const HouseholdCarouselData: HouseholdCarousel[] = [
@@ -112,7 +116,6 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
-    stars: null,
   },
   {
     id: uuidv4(),
@@ -171,6 +174,5 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
-    stars: null,
   }
 ];

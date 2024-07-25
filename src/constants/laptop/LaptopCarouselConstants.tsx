@@ -20,19 +20,23 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface LaptopCarousel {
-  id: string;
-  img: StaticImageData;
-  name: string;
-  ribbon: StaticImageData | null;
-  newpri: number;
-  oldpri: number;
-  payway: string;
-  discount: string | null;
-  desc: string;
-  loveIc: JSX.Element;
-  loveIcFull?: JSX.Element;
-  suggest?: boolean;
-  stars: JSX.Element | null;
+    id: string;
+    img: StaticImageData;
+    name: string;
+    ribbon: StaticImageData | null;
+    newpri: number;
+    oldpri: number;
+    payway: string;
+    discount: string | null;
+    desc: string;
+    loveIc: JSX.Element;
+    loveIcFull?: JSX.Element;
+    suggest?: boolean;
+    stars?: JSX.Element | null;
+    chip?: string;
+    type?: string;
+    special?: string;
+    manufacturer?: string;
 }
 
 export const LaptopCarouselData: LaptopCarousel[] = [
@@ -70,7 +74,6 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       desc: 'Latest model with exceptional features.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
-      stars: null
   },
   {
       id: uuidv4(),
@@ -107,7 +110,6 @@ export const LaptopCarouselData: LaptopCarousel[] = [
       desc: 'Top-tier laptop with premium features.',
       loveIc: <IoMdHeartEmpty />,
       loveIcFull: <IoMdHeart />,
-      stars: null
   },
   {
       id: uuidv4(),
