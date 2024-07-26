@@ -12,6 +12,8 @@ export interface MobileFilterField {
   chip?: string;
   type?: string;
   special?: string;
+  minprice?: number;
+  maxprice?:number;
   submenu?: MobileFilterField[];
 }
 
@@ -166,7 +168,7 @@ export const mobileFilterFieldData: MobileFilterField[] = [
     },
   ];
 
-  export const FilterPriceData: MobileFilterField = {
+  export const PriceButtonData: MobileFilterField = {
     id: uuidv4(),
     label: 'Giá',
     icon: <RiCashFill />,

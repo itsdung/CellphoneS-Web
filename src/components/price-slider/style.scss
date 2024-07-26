@@ -1,0 +1,41 @@
+.slider {
+    position: relative;
+    width: 100%;
+    height: 24px; /* Adjust height as needed */
+  }
+  
+  /* Track of the slider */
+  .track {
+    position: absolute;
+    height: 8px; /* Adjust thickness of the track */
+    background-color: #ddd; /* Track color */
+    border-radius: 4px; /* Rounded corners */
+  }
+  
+  /* Range between the thumbs */
+  .range {
+    position: absolute;
+    height: 8px; /* Match track thickness */
+    background-color: #3b82f6; /* Color of the range */
+    border-radius: 4px; /* Rounded corners */
+    z-index: 1;
+  }
+  
+  /* Thumb of the slider */
+  .thumb {
+    position: absolute;
+    width: 24px; /* Width of the thumb */
+    height: 24px; /* Height of the thumb */
+    background-color: #3b82f6; /* Thumb color */
+    border-radius: 50%; /* Circular thumb */
+    cursor: pointer; /* Cursor when hovering over thumb */
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #fff; /* Thumb text color */
+  }
+  
+  /* Additional style for thumb text */
+  .thumb span {
+    font-size: 12px; /* Adjust font size */
+  }

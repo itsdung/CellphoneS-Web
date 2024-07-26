@@ -1,34 +1,37 @@
 'use client';
 import React, { useEffect, useState } from 'react';
-import { BiHome } from 'react-icons/bi';
 import Link from 'next/link';
-import { FilterButtonData, MobileFilterField, mobileFilterFieldData } from '@/constants/mobile-page/MobileFilterConstants';
+import { FilterButtonData, MobileFilterField, PriceButtonData, mobileFilterFieldData } from '@/constants/mobile-page/MobileFilterConstants';
 import './style.scss';
 import { GoChevronRight } from 'react-icons/go';
 import CardItem from '@/components/Card/Card';
 import { mobileData } from '@/constants/mobile-page/MobileData';
 import { IoCloseCircleOutline } from 'react-icons/io5';
+import MobileNavigator from './mobile-navigator/MobileNavigator';
+import DoubleRangeSlider from '@/components/price-slider/PriceSlider';
 
-const filtermobileData = (values: any[]) => {
-    if (values.length === 0) {
-        return mobileData;
-    }
-    return mobileData.filter(phone => {
-      return values.some((value: any) => 
-        Object.values(phone).includes(value)
-      );
-    });
-  };
+
+const filtermobileData = (values: string[], priceRange: [number, number]): typeof mobileData => {
+  if (values.length === 0 && priceRange[0] === 0 && priceRange[1] === 100) return mobileData;
+
+  return mobileData.filter(phone => 
+    (values.length === 0 || values.some(value => Object.values(phone).includes(value))) &&
+    phone.newpri >= priceRange[0] &&
+    phone.newpri <= priceRange[1]
+  );
+};
 
 export default function MobileContent() {
   const [openItemId, setOpenItemId] = useState<string | null>(null);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
   const [filteredData, setFilteredData] = useState(mobileData);
-
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
+  
+  
   useEffect(() => {
-    const data = filtermobileData(selectedValues);
-    setFilteredData(data);
-  }, [selectedValues]);
+    setFilteredData(filtermobileData(selectedValues, priceRange));
+  }, [selectedValues, priceRange]);
+
 
   const handleItemClick = (id: string) => {
     if (openItemId === id) {
@@ -62,6 +65,10 @@ export default function MobileContent() {
     }
   };
 
+  const handlePriceRangeChange = (values: [number, number]) => {
+    setPriceRange(values);
+  };
+
   const handleClearAll = () => {
     setSelectedValues([]);
   };
@@ -76,21 +83,7 @@ export default function MobileContent() {
     
   return (
     <div className='mobile-content-wrapper'>
-      <div className="mobile-navigator-container">
-        <div className='mobile-navigator-content'>
-          <div className='home-navigator'>
-            <BiHome className='home-navigator-icon' />
-            <Link href='/'>
-              <p className="home-navigator-text">Trang chủ</p>
-            </Link>
-          </div>
-          <GoChevronRight className='arrow-icon' />
-          <div className='mobile-navigator'>
-            <p className="mobile-navigator-text">Điện thoại</p>
-          </div>
-        </div>
-      </div>
-
+      <MobileNavigator/>
       {/*Filter for phones*/}
       <div className="mobile-filter">
         <p className="mobile-filter-title">Chọn theo tiêu chí</p>
@@ -132,10 +125,27 @@ export default function MobileContent() {
                 )}
           </div>
           
-          {/* Filter By Price */}
-          <div className="filterByPrice">
-
+          
+          <div key={PriceButtonData.id} className={`mobile-filter-item ${openItemId === PriceButtonData.id ? 'active' : ''} ${isParentActive(PriceButtonData.id) ? 'parent-active' : ''}`}>
+            <div className='mobile-filter-item-header' onClick={() => handleItemClick(PriceButtonData.id)}>
+              {PriceButtonData.icon && <div className='filter-item-icon'>{PriceButtonData.icon}</div>}
+              <p className='filter-item-label'>{PriceButtonData.label}</p>
+              {PriceButtonData.arrow && <div className='filter-item-arrow'>{PriceButtonData.arrow}</div>}
+            </div>
+            {openItemId === PriceButtonData.id && (
+              <>
+                <div className='price-slider'>
+                  <DoubleRangeSlider
+                    minValue={0}
+                    maxValue={100}
+                    onChange={handlePriceRangeChange}
+                  />
+                </div>
+                <div className='submenu-overlay' onClick={handleClose}></div>
+              </>
+            )}
           </div>
+
 
           {/* list of filter figures */}
           {mobileFilterFieldData.map((item, index) => (

@@ -1,3 +1,4 @@
+@use '@/app/globals.scss' as *;
 .header-container {
     box-sizing: border-box;
     background-color: var(--color-primary);
@@ -363,3 +364,4 @@
         }
     }
 }
+

@@ -1,61 +1,6 @@
 .mobile-content-wrapper{
     margin-top: 64px;
     width: 100%;
-    
-
-    .mobile-navigator-container{
-        width: 100%;
-        background: #fff;
-        position: fixed;
-        box-shadow: 0 1px 2px 0 rgba(60, 64, 67, .1), 0 2px 6px 2px rgba(60, 64, 67, .15);
-        z-index: 3;
-
-
-        .mobile-navigator-content{
-            width: 1200px;
-            margin: 0 auto;
-            display: flex;
-            align-items: center;
-            padding: 0.5rem 0;
-
-            .home-navigator{
-                display: flex;
-                align-items: center;
-                gap: 1rem;
-
-                &-icon{
-                    font-size: 12px;
-                    color: var(--color-primary);
-                }
-                &-text{
-                    color: #707070;
-                    font-size: 12px;
-                    margin-bottom: 0;
-                    margin-right: 10px;
-                    text-decoration: none;
-                    white-space: nowrap;
-                }
-            }
-
-            .arrow-icon{
-                font-size: 12px;
-            }
-
-            .mobile-navigator{
-                display: flex;
-                align-items: center;
-
-                &-text{
-                    color: #707070;
-                    font-size: 12px;
-                    margin-bottom: 0;
-                    margin-left: 10px;
-                    text-decoration: none;
-                    white-space: nowrap;
-                }
-            }
-        }
-    }
 
     .mobile-filter{
         width: 1200px;
@@ -261,6 +206,51 @@
                     z-index: 1; 
                 }
             }
+
+            .price-filter{
+                position: relative;
+                align-items: center;
+                background: #f3f4f6;
+                border: 1px solid #e5e7eb;
+                border-radius: 10px;
+                color: #444;
+                cursor: pointer;
+                display: flex;
+                font-size: 12px;
+                height: 34px;
+                margin: 0 5px 5px 0;
+                padding: 5px 10px;
+                white-space: nowrap;
+
+                &-button{
+                    display: flex;
+                    align-items: center;
+                    gap: 5px;
+
+                    &-icon{
+                        font-size: 12px;
+                    }
+                    &-label{
+                        font-size: 12px;
+                        color: #444;
+                    }
+                }
+
+                .price-slider-container{
+                    display: flex;
+                    flex-wrap: wrap;
+                    position: absolute;
+                    top: 45px;
+                    background-color: #fff;
+                    border: 1px solid #eee;
+                    border-radius: 8px;
+                    box-shadow: 0 2px 20px rgba(0, 0, 0, 0.5);
+                    padding: 10px 10px 5px 10px;
+                    transition: 0.5s;
+                    width: 350px;
+                    z-index: 2;
+                }
+            }
         }
     }
 
@@ -326,7 +316,7 @@
     .mobile-category{
         width: 1200px;
         margin: 0 auto;
-        padding-top: 3rem;
+        padding-top: 1rem;
         display: grid;
         grid-template-columns: repeat(5,1fr);
     }
