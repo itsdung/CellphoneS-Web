@@ -3,78 +3,77 @@ import React, { useEffect, useState } from 'react';
 import Link from 'next/link';
 import { FilterButtonData, MobileFilterField, PriceButtonData, mobileFilterFieldData } from '@/constants/mobile-page/MobileFilterConstants';
 import './style.scss';
+import { GoChevronRight } from 'react-icons/go';
 import CardItem from '@/components/Card/Card';
 import { mobileData } from '@/constants/mobile-page/MobileData';
 import { IoCloseCircleOutline } from 'react-icons/io5';
-import MobileNavigator from './mobile-navigator/MobileNavigator';
-import PriceSlider from '@/components/price-slider/PriceSlider';
+
+import DoubleRangeSlider from '@/components/price-slider/PriceSlider';
+import MobileNavigator from '../mobile-page/mobile-content/mobile-navigator/MobileNavigator';
 
 
-const filtermobileData = (values: any[], minPrice: number, maxPrice: number) => {
-  if (values.length === 0) {
-    return mobileData.filter(phone => phone.newpri >= minPrice && phone.newpri <= maxPrice);
-  }
-  return mobileData.filter(phone => {
-    return values.some((value: any) => 
-      Object.values(phone).includes(value)
-    ) && phone.newpri >= minPrice && phone.newpri <= maxPrice;
-  });
+const filtermobileData = (values: string[], priceRange: [number, number]): typeof mobileData => {
+  if (values.length === 0 && priceRange[0] === 0 && priceRange[1] === 100) return mobileData;
+
+  return mobileData.filter(phone => 
+    (values.length === 0 || values.some(value => Object.values(phone).includes(value))) &&
+    phone.newpri >= priceRange[0] &&
+    phone.newpri <= priceRange[1]
+  );
 };
 
 export default function MobileContent() {
-const [openItemId, setOpenItemId] = useState<string | null>(null);
-const [selectedValues, setSelectedValues] = useState<string[]>([]);
-const [filteredData, setFilteredData] = useState(mobileData);
-const [minPrice, setMinPrice] = useState(0);
-const [maxPrice, setMaxPrice] = useState(55000000);
+  const [openItemId, setOpenItemId] = useState<string | null>(null);
+  const [selectedValues, setSelectedValues] = useState<string[]>([]);
+  const [filteredData, setFilteredData] = useState(mobileData);
+  const [priceRange, setPriceRange] = useState<[number, number]>([0, 100]);
+  
+  
+  useEffect(() => {
+    setFilteredData(filtermobileData(selectedValues, priceRange));
+  }, [selectedValues, priceRange]);
 
-useEffect(() => {
-  const data = filtermobileData(selectedValues, minPrice, maxPrice);
-  setFilteredData(data);
-}, [selectedValues, minPrice, maxPrice]);
 
-const handleItemClick = (id: string) => {
-  if (openItemId === id) {
+  const handleItemClick = (id: string) => {
+    if (openItemId === id) {
+      setOpenItemId(null);
+    } else {
+      setOpenItemId(id);
+    }
+  };
+
+  const handleClose = () => {
     setOpenItemId(null);
-  } else {
-    setOpenItemId(id);
-  }
-};
+  };
 
-const handleClose = () => {
-  setOpenItemId(null);
-};
+  const handleSubItemClick = (label: string, parentId: string) => {
+    setSelectedValues(prevValues => {
+      const newValues = prevValues.includes(label)
+        ? prevValues.filter(value => value !== label)
+        : [...prevValues, label];
+      return newValues;
+    });
 
-const handleSubItemClick = (label: string, parentId: string) => {
-  setSelectedValues(prevValues => {
-    const newValues = prevValues.includes(label)
-      ? prevValues.filter(value => value !== label)
-      : [...prevValues, label]; // Add label if it's not already selected
+    if (parentId === FilterButtonData.id) {
+      setOpenItemId(prevId => (prevId === FilterButtonData.id ? prevId : FilterButtonData.id));
+    }
+  };
 
-    // Update filtered data when selected values change
-    const data = filtermobileData(newValues, minPrice, maxPrice);
-    setFilteredData(data);
+  const handlePriceRangeChange = (values: [number, number]) => {
+    setPriceRange(values);
+  };
 
-    return newValues;
-  });
+  const handleClearAll = () => {
+    setSelectedValues([]);
+  };
 
-  // Manage the open/close state of the filter panel
-  if (parentId === FilterButtonData.id) {
-    setOpenItemId(prevId => (prevId === FilterButtonData.id ? null : FilterButtonData.id));
-  }
-};
-
-const handleClearAll = () => {
-  setSelectedValues([]);
-};
-
-const isParentActive = (parentId: string) => {
-  return selectedValues.some(value => 
-    mobileFilterFieldData.some(item => 
-      item.submenu?.some(subItem => subItem.label === value && item.id === parentId)
-    )
-  );
-};
+  const isParentActive = (parentId: string) => {
+    return selectedValues.some(value => 
+      mobileFilterFieldData.some(item => 
+        item.submenu?.some(subItem => subItem.label === value && item.id === parentId)
+      )
+    );
+  };
     
   return (
     <div className='mobile-content-wrapper'>
@@ -84,7 +83,7 @@ const isParentActive = (parentId: string) => {
         <p className="mobile-filter-title">Chọn theo tiêu chí</p>
         <div className="mobile-filter-list">
           {/* 'Bộ lọc' button */}
-          <div key={FilterButtonData.id} className={`mobile-filter-item ${openItemId === FilterButtonData.id ? 'active' : ''} ${isParentActive(FilterButtonData.id) ? 'parent-active' : ''}`}>
+          <div key={FilterButtonData.id} className={`filter-btn mobile-filter-item ${openItemId === FilterButtonData.id ? 'active' : ''} ${isParentActive(FilterButtonData.id) ? 'parent-active' : ''}`}>
                 <div 
                     className='mobile-filter-item-header'
                     onClick={() => handleItemClick(FilterButtonData.id)}
@@ -120,29 +119,29 @@ const isParentActive = (parentId: string) => {
                 )}
           </div>
           
+          
           {/* 'Giá' button */}
-          <div key={PriceButtonData.id} className={`mobile-filter-item ${openItemId === PriceButtonData.id ? 'active' : ''} ${isParentActive(PriceButtonData.id) ? 'parent-active' : ''}`}>
-            <div className='mobile-filter-item-header' onClick={() => handleItemClick(PriceButtonData.id)}>
-              {PriceButtonData.icon && <div className='filter-item-icon'>{PriceButtonData.icon}</div>}
-              <p className='filter-item-label'>{PriceButtonData.label}</p>
-              {PriceButtonData.arrow && <div className='filter-item-arrow'>{PriceButtonData.arrow}</div>}
+          {/* <div key={PriceButtonData.id} className={`price-btn ${openItemId === PriceButtonData.id ? 'active' : ''} ${isParentActive(PriceButtonData.id) ? 'parent-active' : ''}`}>
+            <div className='price-btn-container' onClick={() => handleItemClick(PriceButtonData.id)}>
+              {PriceButtonData.icon && <div className='price-btn-icon'>{PriceButtonData.icon}</div>}
+              <p className='price-btn-label'>{PriceButtonData.label}</p>
+              {PriceButtonData.arrow && <div className='price-btn-arrow'>{PriceButtonData.arrow}</div>}
             </div>
             {openItemId === PriceButtonData.id && (
-              <>
-                <div className="mobile-filter-submenu price-container">
-                  <PriceSlider
-                    minPrice={minPrice}
-                    maxPrice={maxPrice}
-                    onPriceChange={(min, max) => {
-                      setMinPrice(min);
-                      setMaxPrice(max);
-                    }}
+            <>
+              <div className='price-btn-submenu'>
+                  <div className='price-slider'>
+                    <DoubleRangeSlider
+                      minValue={0}
+                      maxValue={100}
+                      onChange={handlePriceRangeChange}
                   />
-                  <div className='submenu-overlay' onClick={handleClose}></div>
-                </div>
-              </>
+                  </div>
+              </div>
+              <div className='price-btn-submenu-overlay' onClick={handleClose}></div>
+            </>
             )}
-          </div>
+          </div> */}
 
 
           {/* list of filter figures */}

@@ -1,41 +1,38 @@
-.slider {
-    position: relative;
-    width: 100%;
-    height: 24px; /* Adjust height as needed */
-  }
+.price-slider {
+  margin: 10px 0;
   
-  /* Track of the slider */
-  .track {
-    position: absolute;
-    height: 8px; /* Adjust thickness of the track */
-    background-color: #ddd; /* Track color */
-    border-radius: 4px; /* Rounded corners */
-  }
-  
-  /* Range between the thumbs */
-  .range {
-    position: absolute;
-    height: 8px; /* Match track thickness */
-    background-color: #3b82f6; /* Color of the range */
-    border-radius: 4px; /* Rounded corners */
-    z-index: 1;
-  }
-  
-  /* Thumb of the slider */
-  .thumb {
-    position: absolute;
-    width: 24px; /* Width of the thumb */
-    height: 24px; /* Height of the thumb */
-    background-color: #3b82f6; /* Thumb color */
-    border-radius: 50%; /* Circular thumb */
-    cursor: pointer; /* Cursor when hovering over thumb */
+  .price-range {
     display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #fff; /* Thumb text color */
+    font-size: 16px;
+    justify-content: space-between;
+    margin-bottom: 5px;
   }
-  
-  /* Additional style for thumb text */
-  .thumb span {
-    font-size: 12px; /* Adjust font size */
-  }
+}
+
+.horizontal-slider {
+  width: 300px;
+  height: 10px;
+}
+
+.example-thumb {
+  position: absolute;
+  left: 0;
+  top: -4px;
+  height: 20px;
+  width: 20px;
+  background-color: #fff;
+  cursor: pointer;
+  border-radius: 50%;
+  border: 2px solid var(--color-primary);
+}
+
+.example-thumb-0{
+  z-index: 2 !important;
+}
+
+.example-track {
+  top: 0;
+  bottom: 0;
+  background: #ddd;
+}
+

@@ -1,32 +1,42 @@
 import React from 'react';
 import ReactSlider from 'react-slider';
+import './style.scss';
 
-
-interface DoubleRangeSliderProps {
-  minValue: number;
-  maxValue: number;
-  onChange: (values: [number, number]) => void;
+interface PriceSliderProps {
+  minPrice: number;
+  maxPrice: number;
+  onPriceChange: (min: number, max: number) => void;
 }
 
-const DoubleRangeSlider: React.FC<DoubleRangeSliderProps> = ({ minValue, maxValue, onChange }) => {
-  const [values, setValues] = React.useState<[number, number]>([minValue, maxValue]);
+const PriceSlider: React.FC<PriceSliderProps> = ({ minPrice, maxPrice, onPriceChange }) => {
+  // range values
+  const min = 0;
+  const max = 55000000; 
 
-  const handleChange = (newValues: [number, number]) => {
-    setValues(newValues);
-    onChange(newValues);
+  
+  const handleChange = (values: number[]) => {
+    onPriceChange(values[0], values[1]);
   };
 
   return (
-    <ReactSlider
-      min={0}
-      max={100}
-      value={values}
-      onChange={handleChange}
-      ariaLabel={['Lower thumb', 'Upper thumb']}
-      ariaValuetext={(state) => `Thumb value ${state.valueNow}`}
-      renderThumb={(props, state) => <div {...props}>{state.valueNow}</div>}
-    />
+    <div className="price-slider">
+      <div className="price-range">
+        <span>{minPrice.toLocaleString()}đ</span>
+        <span>{maxPrice.toLocaleString()}đ</span>
+      </div>
+      <ReactSlider
+        className="horizontal-slider"
+        thumbClassName="example-thumb"
+        trackClassName="example-track"
+        ariaLabel={['Lower thumb', 'Upper thumb']}
+        min={min}
+        max={max}
+        value={[minPrice, maxPrice]}
+        onChange={handleChange}
+      />
+      
+    </div>
   );
 };
 
-export default DoubleRangeSlider;
+export default PriceSlider;
