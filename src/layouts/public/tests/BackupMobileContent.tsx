@@ -101,6 +101,11 @@ const handleToggleItem = (item: any) => {
   });
 };
 
+const handleApplyAndClose = () => {
+  handleApplyFilters();
+  handleClose();
+};
+
 
 const isParentActive = (parentId: string) => {
   return selectedValues.some(value => 
@@ -139,7 +144,7 @@ const isParentActive = (parentId: string) => {
                         {item.submenu.map((subItem) => (
                         <div 
                           key={subItem.id} 
-                          className={`filter-submenu-children-item ${selectedValuesTemp.includes(subItem.label) || selectedValues.includes(subItem.label) ? 'active' : ''}`}
+                          className={`filter-submenu-children-item ${selectedValuesTemp.includes(subItem.label) ? 'active' : ''}`}
                           onClick={() => handleSubItemClick(subItem.label, item.id)}
                         >
                           <p className='mobile-submenu-item-label'>{subItem.label}</p>
@@ -153,7 +158,7 @@ const isParentActive = (parentId: string) => {
                   {(selectedValuesTemp.length || selectedValues.length) > 0 && (
                     <div className='submenu-close-group'>
                       <button className='close-btn' onClick={handleClose}>Đóng</button>
-                      <button className='apply-filters-btn' onClick={handleApplyFilters}>
+                      <button className='apply-filters-btn' onClick={handleApplyAndClose}>
                         Áp dụng bộ lọc
                       </button>
                     </div>
@@ -217,7 +222,7 @@ const isParentActive = (parentId: string) => {
                       {(selectedValuesTemp.length || selectedValues.length) > 0 && (
                         <div className='submenu-close-group'>
                           <button className='close-btn' onClick={handleClose}>Đóng</button>
-                          <button className='apply-filters-btn' onClick={handleApplyFilters}>
+                          <button className='apply-filters-btn' onClick={handleApplyAndClose}>
                             Áp dụng bộ lọc
                           </button>
                         </div>
