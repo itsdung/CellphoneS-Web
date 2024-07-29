@@ -31,6 +31,7 @@ const PriceSlider: React.FC<PriceSliderProps> = ({ minPrice, maxPrice, onPriceCh
         ariaLabel={['Lower thumb', 'Upper thumb']}
         min={min}
         max={max}
+        step={500000}
         value={[minPrice, maxPrice]}
         onChange={handleChange}
       />

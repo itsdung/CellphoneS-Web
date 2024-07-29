@@ -57,9 +57,10 @@
         }
     }
 
-    .mobile-filter-submenu{
-        display: flex;
-        flex-wrap: wrap;
+    .filter-btn-submenu{
+        display: grid;
+        grid-template-columns: repeat(3,1fr);
+        gap: 1rem;
         position: absolute;
         top: 45px;
         background-color: #fff;
@@ -68,9 +69,10 @@
         box-shadow: 0 2px 20px rgba(0, 0, 0, .5);
         padding: 10px 10px 5px 10px;
         transition: 0.5s;
-        width: 350px;
-        z-index: 2;
-
+        width: 800px;
+        max-height: 500px;
+        overflow-y: scroll;
+        z-index: 4;
 
         &::after{
             border-bottom: 10px solid #fff;
@@ -82,28 +84,54 @@
             top: -10px;
         }
 
-        .mobile-submenu-item{
-            align-items: center;
-            background: #f3f4f6;
-            border: 1px solid #e5e7eb;
-            border-radius: 10px;
-            color: #444;
-            cursor: pointer;
-            display: flex;
-            font-size: 12px;
-            height: 34px;
-            margin: 0 5px 5px 0;
-            padding: 5px 10px;
-            white-space: nowrap;
+        &-item{
 
-            &.active { 
-                background: #fef2f2;
-                border-color: var(--color-primary);
 
-                .mobile-submenu-item-label{
-                    color: var(--color-primary);
+            .filter-btn-submenu-label{
+                font-size: 15px;
+                font-weight: 700;
+                text-align: start;
+                margin-bottom: 5px;
+            }
+
+            .filter-btn-submenu-children{
+                display: flex;
+                flex-wrap: wrap;
+
+                .filter-submenu-children-item{
+                    align-items: center;
+                    background: #f3f4f6;
+                    border: 1px solid #e5e7eb;
+                    border-radius: 10px;
+                    color: #444;
+                    cursor: pointer;
+                    display: flex;
+                    font-size: 12px;
+                    height: 34px;
+                    margin: 0 10px 10px 0;
+                    padding: 5px 10px;
+                    white-space: nowrap;
+
+                    &.active { 
+                        background: #fef2f2;
+                        border-color: var(--color-primary);
+
+                        .mobile-submenu-item-label{
+                            color: var(--color-primary);
+                        }
+                    }
                 }
             }
         }
+    }
+
+    .submenu-overlay {
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: transparent; 
+        z-index: 1; 
     }
 }

@@ -106,4 +106,16 @@
             }
         }
     }
+
+    .price-container{
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 0;
+        padding-bottom: 1rem;
+
+        &::after{
+            left: 1rem;
+        }
+    }
 }
