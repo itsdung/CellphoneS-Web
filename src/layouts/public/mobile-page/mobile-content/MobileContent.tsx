@@ -50,12 +50,12 @@ const handleSubItemClick = (label: string, parentId: string) => {
   setSelectedValues(prevValues => {
     const newValues = prevValues.includes(label)
       ? prevValues.filter(value => value !== label)
-      : [...prevValues, label]; // Add label if it's not already selected
+      : [...prevValues, label]; 
 
-    // Update filtered data when selected values change
-    const data = filtermobileData(newValues, minPrice, maxPrice);
-    setFilteredData(data);
-    console.log(newValues);
+    console.log("Temporary Selected Values:", newValues);
+
+    // Set selectedValuesTemp before updating selectedValues
+    setSelectedValuesTemp(newValues);
 
     return newValues;
   });

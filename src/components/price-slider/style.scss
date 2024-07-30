@@ -36,3 +36,6 @@
   background: #ddd;
 }
 
+.example-track:nth-child(2) {
+  background: var(--color-primary); /* Màu giữa hai thumb */
+}

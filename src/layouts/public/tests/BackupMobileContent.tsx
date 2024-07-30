@@ -11,6 +11,9 @@ import MobileNavigator from '../mobile-page/mobile-content/mobile-navigator/Mobi
 
 
 const filtermobileData = (values: any[], minPrice: number, maxPrice: number) => {
+  // console.log("Values:", values);
+  // console.log("Min Price:", minPrice);
+  // console.log("Max Price:", maxPrice);
   if (values.length === 0) {
     return mobileData.filter(phone => phone.newpri >= minPrice && phone.newpri <= maxPrice);
   }
@@ -28,10 +31,13 @@ const [selectedValuesTemp, setSelectedValuesTemp] = useState<string[]>([]);
 const [filteredData, setFilteredData] = useState(mobileData);
 const [minPrice, setMinPrice] = useState(0);
 const [maxPrice, setMaxPrice] = useState(55000000);
+const [minPriceTemp, setMinPriceTemp] = useState(0);
+const [maxPriceTemp, setMaxPriceTemp] = useState(55000000);
 
 useEffect(() => {
   const data = filtermobileData(selectedValues, minPrice, maxPrice);
   setFilteredData(data);
+  console.log("Filtered Data after useEffect:", data);
 }, [selectedValues, minPrice, maxPrice]);
 
 const handleItemClick = (id: string) => {
@@ -69,18 +75,29 @@ const handleSubItemClick = (label: string, parentId: string) => {
 
 const handleClearAll = () => {
   setSelectedValues([]);
+  setSelectedValuesTemp([]);
+  setMinPriceTemp(0);
+  setMaxPriceTemp(55000000);
+  setMinPrice(0);
+  setMaxPrice(55000000);
 };
+
 
 const handleApplyFilters = () => {
   // Cập nhật updatedValues từ selectedValuesTemp
   const updatedValues = selectedValuesTemp;
-  console.log("Final Selected Values:", updatedValues);
   setSelectedValues(updatedValues);
+  setMinPrice(minPriceTemp);
+  setMaxPrice(maxPriceTemp); 
 
-  // Thực hiện lọc dữ liệu tại đây
-  const filteredData = filtermobileData(updatedValues, minPrice, maxPrice);
-  setFilteredData(filteredData);
+  console.log("Applied Min Price:", minPriceTemp);
+  console.log("Applied Max Price:", maxPriceTemp);
+  
+  // Thực hiện lọc dữ liệu
+  // const filteredData = filtermobileData(updatedValues, minPrice, maxPrice);
+  // setFilteredData(filteredData);
 };
+
 
 // Hàm xử lý khi chọn hoặc bỏ chọn item
 const handleToggleItem = (item: any) => {
@@ -180,13 +197,21 @@ const isParentActive = (parentId: string) => {
               <>
                 <div className="mobile-filter-submenu price-container">
                   <PriceSlider
-                    minPrice={minPrice}
-                    maxPrice={maxPrice}
+                    minPrice={minPriceTemp}
+                    maxPrice={maxPriceTemp}
                     onPriceChange={(min, max) => {
-                      setMinPrice(min);
-                      setMaxPrice(max);
+                      setMinPriceTemp(min);
+                      setMaxPriceTemp(max);
+                      console.log("Min Price Temp:", min); 
+                      console.log("Max Price Temp:", max);
                     }}
                   />
+                  <div className='submenu-close-group'>
+                    <button className='close-btn' onClick={handleClose}>Đóng</button>
+                    <button className='apply-filters-btn' onClick={handleApplyAndClose}>
+                      Áp dụng bộ lọc
+                    </button>
+                  </div>
                   <div className='submenu-overlay' onClick={handleClose}></div>
                 </div>
               </>
