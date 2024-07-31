@@ -21,16 +21,21 @@ interface ScreenCarousel {
   id: string;
   img: StaticImageData;
   name: string;
-  ribbon: StaticImageData;
+  ribbon: StaticImageData | null;
   newpri: number;
   oldpri: number;
-  payway: string;
-  discount: string;
+  payway?: number;
+  discount?: number;
   desc: string;
   loveIc: JSX.Element;
   loveIcFull?: JSX.Element;
   suggest?: boolean;
-  stars: JSX.Element | null;
+  stars?: JSX.Element | null;
+  chip?: string;
+  type?: string;
+  special?: string[];
+  manufacturer?: string;
+  available?: boolean;
 }
 
 export const ScreenCarouselData: ScreenCarousel[] = [
@@ -41,8 +46,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,
     oldpri: 12000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 15,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -63,8 +68,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Latest model with exceptional features.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -86,8 +91,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Perfect for both work and entertainment.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -108,8 +113,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 25000000,
     oldpri: 30000000,
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Top-tier laptop with premium features.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -122,8 +127,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 8000000,
     oldpri: 10000000,
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Affordable laptop with good performance.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -136,8 +141,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,
     oldpri: 12000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -159,8 +164,8 @@ export const ScreenCarouselData: ScreenCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Latest model with exceptional features.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,

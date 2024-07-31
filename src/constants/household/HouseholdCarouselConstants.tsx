@@ -18,22 +18,23 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 
 interface HouseholdCarousel {
   id: string;
-    img: StaticImageData;
-    name: string;
-    ribbon: StaticImageData | null;
-    newpri: number;
-    oldpri: number;
-    payway: string;
-    discount: string | null;
-    desc: string;
-    loveIc: JSX.Element;
-    loveIcFull?: JSX.Element;
-    suggest?: boolean;
-    stars?: JSX.Element | null;
-    chip?: string;
-    type?: string;
-    special?: string;
-    manufacturer?: string;
+  img: StaticImageData;
+  name: string;
+  ribbon: StaticImageData | null;
+  newpri: number;
+  oldpri: number;
+  payway?: number;
+  discount?: number;
+  desc: string;
+  loveIc: JSX.Element;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars?: JSX.Element | null;
+  chip?: string;
+  type?: string;
+  special?: string[];
+  manufacturer?: string;
+  available?: boolean;
 }
 
 export const HouseholdCarouselData: HouseholdCarousel[] = [
@@ -44,8 +45,8 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: ribbon,
     newpri: 1000000,
     oldpri: 1200000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -66,8 +67,7 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: null,
     newpri: 1500000,
     oldpri: 1800000,
-    payway: 'Trả góp 0%',
-    discount: null,
+    payway: 0,
     desc: 'Mẫu mới nhất với các tính năng vượt trội.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -89,8 +89,8 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: ribbon,
     newpri: 2000000,
     oldpri: 2400000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Hoàn hảo cho cả công việc và giải trí.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -111,8 +111,8 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: ribbon,
     newpri: 500000,
     oldpri: 600000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -124,8 +124,8 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: ribbon,
     newpri: 3000000,
     oldpri: 3500000,
-    payway: 'Trả góp 0%',
-    discount: '14% OFF',
+    payway: 0,
+    discount: 14,
     desc: 'Hiệu suất cao và chất lượng tuyệt vời.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -147,8 +147,7 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: null,
     newpri: 1200000,
     oldpri: 1500000,
-    payway: 'Trả góp 0%',
-    discount: null,
+    payway: 0,
     desc: 'Mẫu mới nhất với các tính năng vượt trội.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -169,8 +168,8 @@ export const HouseholdCarouselData: HouseholdCarousel[] = [
     ribbon: ribbon,
     newpri: 2000000,
     oldpri: 2500000,
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Thiết bị hàng đầu với các tính năng cao cấp.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,

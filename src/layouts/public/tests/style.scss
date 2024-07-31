@@ -347,6 +347,7 @@
 
                 &-remove{
                     font-size: 18px;
+                    outline: none;
                 }
             }
 
@@ -366,6 +367,54 @@
                 margin: 0 5px 5px 0;
                 padding: 5px 10px;
                 white-space: nowrap;
+            }
+        }
+    }
+
+    .sortingby{
+        width: 1200px;
+        margin: 0 auto;
+        padding-top: 1rem;
+        display: flex;
+        flex-direction: column;
+
+        &-title{
+            font-size: 18px;
+            font-weight: 700;
+            padding-bottom: 5px;
+        }
+
+        &-button{
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+
+            &-ascend, &-descend, &-discount{
+                position: relative;
+                align-items: center;
+                background: #f3f4f6;
+                border: 1px solid #e5e7eb;
+                border-radius: 10px;
+                color: #444;
+                cursor: pointer;
+                display: flex;
+                gap: 0.5rem;
+                font-size: 12px;
+                height: 34px;
+                margin: 0 5px 5px 0;
+                padding: 5px 10px;
+                outline: none;
+                white-space: nowrap;
+
+                &.active{
+                    background: #fef2f2;
+                    border-color: var(--color-primary);
+                    color: var(--color-primary);
+                }
+
+                .sort-icon{
+                    font-size: 1.6rem;
+                }
             }
         }
     }

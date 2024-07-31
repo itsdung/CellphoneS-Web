@@ -11,8 +11,8 @@ interface Item {
   ribbon: StaticImageData | null;
   newpri: number;
   oldpri: number;
-  payway: string;
-  discount: string | null;
+  payway?: number;
+  discount?: number;
   desc: string;
   loveIc: JSX.Element;
   loveIcFull?: JSX.Element;
@@ -20,8 +20,9 @@ interface Item {
   stars?: JSX.Element | null;
   chip?: string;
   type?: string;
-  special?: string;
+  special?: string[];
   manufacturer?: string;
+  available?: boolean;
 }
 
 const PriceDisplay = ({ price }: { price: number }) => {
@@ -40,8 +41,8 @@ const CardItem = ({ item }: { item: Item }) => {
       {item.ribbon && (
         <div className='card-item-discount'>
           <Image src={item.ribbon} alt='ribbon'/>
-          <span className='discount-text'>{item.discount}</span>
-          <span className='payway'>{item.payway}</span>
+          <span className='discount-text'>{item.discount}% OFF</span>
+          <span className='payway'>Trả góp {item.payway}%</span>
         </div>
       )}
       <div className='card-item-image'>

@@ -27,8 +27,8 @@ interface PhoneCarousel {
   ribbon: StaticImageData | null;
   newpri: number;
   oldpri: number;
-  payway: string;
-  discount: string | null;
+  payway?: number;
+  discount?: number;
   desc: string;
   loveIc: JSX.Element;
   loveIcFull?: JSX.Element;
@@ -36,8 +36,9 @@ interface PhoneCarousel {
   stars?: JSX.Element | null;
   chip?: string;
   type?: string;
-  special?: string;
+  special?: string[];
   manufacturer?: string;
+  available?: boolean;
 }
 
 export const PhoneCarouselData: PhoneCarousel[] = [
@@ -48,8 +49,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,
     oldpri: 12000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -64,7 +65,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Snapdragon',
     type: 'Android',
-    special: 'Bảo mật vân tay',
+    special: ['Bảo mật vân tay'],
   },
   {
     id: uuidv4(),
@@ -73,15 +74,15 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Latest model with exceptional features.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
     suggest: true,
     chip: 'Apple A',
     type: 'Iphone(IOS)',
-    special: 'Điện thoại AI',
+    special: ['Điện thoại AI'],
   },
   {
     id: uuidv4(),
@@ -90,8 +91,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Perfect for both work and entertainment.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -106,7 +107,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Apple A',
     type: 'Iphone(IOS)',
-    special: 'Sạc không dây',
+    special: ['Sạc không dây'],
   },
   {
     id: uuidv4(),
@@ -115,8 +116,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 25000000,
     oldpri: 30000000,
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Top-tier smartphone with premium features.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -131,7 +132,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Apple A',
     type: 'Iphone(IOS)',
-    special: 'Nhận diện khuôn mặt',
+    special: ['Nhận diện khuôn mặt'],
   },
   {
     id: uuidv4(),
@@ -140,8 +141,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 8000000,
     oldpri: 10000000,
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Affordable phone with good performance.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -157,7 +158,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Exynos',
     type: 'Android',
-    special: 'Bảo mật vân tay',
+    special: ['Bảo mật vân tay'],
   },
   {
     id: uuidv4(),
@@ -166,8 +167,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: null,
     newpri: 9000000,
     oldpri: 11000000,
-    payway: 'Trả góp 0%',
-    discount: null,
+    payway: 0,
     desc: 'Stylish design and reliable performance.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -182,7 +182,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Unisoc',
     type: 'Android',
-    special: 'Điện thoại AI',
+    special: ['Điện thoại AI'],
   },
   {
     id: uuidv4(),
@@ -191,8 +191,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,
     oldpri: 12000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -208,7 +208,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Mediatek Helio',
     type: 'Android',
-    special: 'Nhận diện khuôn mặt',
+    special: ['Nhận diện khuôn mặt'],
   },
   {
     id: uuidv4(),
@@ -217,8 +217,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 15,
     desc: 'Perfect for both work and entertainment.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -233,7 +233,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Mediatek Dimensity',
     type: 'Android',
-    special: 'Nhận diện khuôn mặt',
+    special: ['Nhận diện khuôn mặt'],
   },
   {
     id: uuidv4(),
@@ -242,8 +242,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,
     oldpri: 12000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -258,7 +258,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ),
     chip: 'Snapdragon',
     type: 'Android',
-    special: 'Điện thoại AI',
+    special: ['Điện thoại AI'],
   },
   {
     id: uuidv4(),
@@ -267,8 +267,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 9000000,
     oldpri: 11000000,
-    payway: 'Trả góp 0%',
-    discount: '18% OFF',
+    payway: 0,
+    discount: 18,
     desc: 'Stylish design and reliable performance.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -289,8 +289,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,
     oldpri: 18000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Perfect for both work and entertainment.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -302,8 +302,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 25000000,
     oldpri: 30000000,
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Top-tier smartphone with premium features.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -325,8 +325,8 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,
     oldpri: 12000000,
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 15,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,
@@ -347,8 +347,7 @@ export const PhoneCarouselData: PhoneCarousel[] = [
     ribbon: null,
     newpri: 8000000,
     oldpri: 10000000,
-    payway: 'Trả góp 0%',
-    discount: null,
+    payway: 0,
     desc: 'Affordable phone with good performance.',
     loveIc: <IoMdHeartEmpty />,
     loveIcFull: <IoMdHeart />,

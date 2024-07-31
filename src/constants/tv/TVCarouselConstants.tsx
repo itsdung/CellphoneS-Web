@@ -17,18 +17,24 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface TVCarousel {
-  id: string;  // Trường id mới
+  id: string;
   img: StaticImageData;
   name: string;
   ribbon: StaticImageData | null;
-  newpri: number;  // Thay đổi kiểu thành number
-  oldpri: number;  // Thay đổi kiểu thành number
-  payway: string;
-  discount: string | null;
+  newpri: number;
+  oldpri: number;
+  payway?: number;
+  discount?: number;
   desc: string;
   loveIc: JSX.Element;
-  suggest?: boolean; 
-  stars: JSX.Element | null;
+  loveIcFull?: JSX.Element;
+  suggest?: boolean;
+  stars?: JSX.Element | null;
+  chip?: string;
+  type?: string;
+  special?: string[];
+  manufacturer?: string;
+  available?: boolean;
 }
 
 // Dữ liệu TVCarouselData với trường id mới và giá đã được chuyển đổi
@@ -40,8 +46,8 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: ribbon,
     newpri: 8000000,  // Giá đã chuyển đổi thành số
     oldpri: 10000000, // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'Smart TV với chất lượng hình ảnh tuyệt vời.',
     loveIc: <IoMdHeartEmpty />,
     stars: (
@@ -61,8 +67,8 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: ribbon,
     newpri: 12000000,  // Giá đã chuyển đổi thành số
     oldpri: 14000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '14% OFF',
+    payway: 0,
+    discount: 20,
     desc: 'TV UHD 4K với độ phân giải cao, hình ảnh tuyệt vời.',
     loveIc: <IoMdHeartEmpty />,
     stars: null,
@@ -74,8 +80,8 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,  // Giá đã chuyển đổi thành số
     oldpri: 18000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'TV thông minh với nhiều tính năng cao cấp.',
     loveIc: <IoMdHeartEmpty />,
     suggest: true,
@@ -96,8 +102,8 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,  
     oldpri: 12000000,  
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'TV 4K với chất lượng hình ảnh xuất sắc.',
     loveIc: <IoMdHeartEmpty />,
     stars: null,
@@ -109,8 +115,7 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: null,
     newpri: 7000000,  
     oldpri: 9000000,  
-    payway: 'Trả góp 0%',
-    discount: null,
+    payway: 0,
     desc: 'TV FHD với khả năng kết nối WiFi.',
     loveIc: <IoMdHeartEmpty />,
     stars: (
@@ -130,8 +135,8 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: ribbon,
     newpri: 11000000,  
     oldpri: 13000000,  
-    payway: 'Trả góp 0%',
-    discount: '15% OFF',
+    payway: 0,
+    discount: 15,
     desc: 'TV thông minh với màn hình lớn và sắc nét.',
     loveIc: <IoMdHeartEmpty />,
     stars: (
@@ -151,8 +156,8 @@ export const TVCarouselData: TVCarousel[] = [
     ribbon: ribbon,
     newpri: 10500000,  
     oldpri: 12500000,  
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'TV thông minh với nhiều tính năng hiện đại.',
     loveIc: <IoMdHeartEmpty />,
     stars: null,

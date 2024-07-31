@@ -18,19 +18,24 @@ export function TwemojiStar(props: SVGProps<SVGSVGElement>) {
 }
 
 interface WatchCarousel {
-  id: string;  // Trường id mới
+  id: string;
   img: StaticImageData;
   name: string;
   ribbon: StaticImageData | null;
-  newpri: number;  // Thay đổi kiểu thành number
-  oldpri: number;  // Thay đổi kiểu thành number
-  payway: string;
-  discount: string | null;
+  newpri: number;
+  oldpri: number;
+  payway?: number;
+  discount?: number;
   desc: string;
   loveIc: JSX.Element;
   loveIcFull?: JSX.Element;
   suggest?: boolean;
-  stars: JSX.Element | null;
+  stars?: JSX.Element | null;
+  chip?: string;
+  type?: string;
+  special?: string[];
+  manufacturer?: string;
+  available?: boolean;
 }
 
 // Dữ liệu WatchCarouselData với trường id mới và giá đã được chuyển đổi
@@ -42,8 +47,7 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: null,
     newpri: 10000000,  // Giá đã chuyển đổi thành số
     oldpri: 12000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: null,
+    payway: 0,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     stars: (
@@ -63,8 +67,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,  // Giá đã chuyển đổi thành số
     oldpri: 18000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 15,
     desc: 'Latest model with exceptional features.',
     loveIc: <IoMdHeartEmpty />,
     suggest: true,
@@ -85,8 +89,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,  // Giá đã chuyển đổi thành số
     oldpri: 18000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Perfect for both work and entertainment. Top-tier watch with premium features.',
     loveIc: <IoMdHeartEmpty />,
     stars: (
@@ -106,8 +110,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 25000000,  // Giá đã chuyển đổi thành số
     oldpri: 30000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Top-tier watch with premium features.',
     loveIc: <IoMdHeartEmpty />,
     stars: null,
@@ -119,8 +123,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 8000000,  // Giá đã chuyển đổi thành số
     oldpri: 10000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '20% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Affordable watch with good performance.',
     loveIc: <IoMdHeartEmpty />,
     stars: null,
@@ -132,8 +136,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,  // Giá đã chuyển đổi thành số
     oldpri: 12000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     suggest: true,
@@ -154,8 +158,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 15000000,  // Giá đã chuyển đổi thành số
     oldpri: 18000000,  // Giá đã chuyển đổi thành số
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'Latest model with exceptional features.',
     loveIc: <IoMdHeartEmpty />,
     stars: null,
@@ -167,8 +171,8 @@ export const WatchCarouselData: WatchCarousel[] = [
     ribbon: ribbon,
     newpri: 10000000,  
     oldpri: 12000000,  
-    payway: 'Trả góp 0%',
-    discount: '16% OFF',
+    payway: 0,
+    discount: 16,
     desc: 'High performance and great camera quality.',
     loveIc: <IoMdHeartEmpty />,
     stars: (

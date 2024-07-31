@@ -5,6 +5,7 @@ import {
   FilterButtonData,
   MobileFilterField,
   PriceButtonData,
+  availableButtonData,
   mobileFilterFieldData,
 } from "@/constants/mobile-page/MobileFilterConstants";
 import "./style.scss";
@@ -13,27 +14,38 @@ import { mobileData } from "@/constants/mobile-page/MobileData";
 import { IoCloseCircleOutline } from "react-icons/io5";
 import PriceSlider from "@/components/price-slider/PriceSlider";
 import MobileNavigator from "../mobile-page/mobile-content/mobile-navigator/MobileNavigator";
+import { PiSortAscending, PiSortDescending } from "react-icons/pi";
 
 const filtermobileData = (
-  values: any[],
+  values: string[],
   minPrice: number,
-  maxPrice: number
+  maxPrice: number,
+  sortOrder: 'asc' | 'desc' | 'discount'
 ) => {
-  // console.log("Values:", values);
-  // console.log("Min Price:", minPrice);
-  // console.log("Max Price:", maxPrice);
-  if (values.length === 0) {
-    return mobileData.filter(
-      (phone) => phone.newpri >= minPrice && phone.newpri <= maxPrice
+  let filteredData = mobileData.filter((phone) => {
+    const matchesPrice = phone.newpri >= minPrice && phone.newpri <= maxPrice;
+    const matchesAvailability = !values.includes('Sẵn hàng') || phone.available;
+    const matchesValues = values.length === 0 || values.some((value: string) =>
+      Object.values(phone).flat().includes(value)
     );
-  }
-  return mobileData.filter((phone) => {
-    return (
-      values.some((value: any) => Object.values(phone).includes(value)) &&
-      phone.newpri >= minPrice &&
-      phone.newpri <= maxPrice
-    );
+
+    return matchesPrice && matchesAvailability && matchesValues;
   });
+
+  // Sort the filtered data
+  if (sortOrder === 'asc') {
+    filteredData.sort((a, b) => a.newpri - b.newpri);
+  } else if (sortOrder === 'desc') {
+    filteredData.sort((a, b) => b.newpri - a.newpri);
+  } else if (sortOrder === 'discount') {
+    filteredData.sort((a, b) => {
+      const discountA = a.discount || 0;
+      const discountB = b.discount || 0;
+      return discountB - discountA;
+    });
+  }
+
+  return filteredData;
 };
 
 export default function MobileContent() {
@@ -45,13 +57,16 @@ export default function MobileContent() {
   const [maxPrice, setMaxPrice] = useState(55000000);
   const [minPriceTemp, setMinPriceTemp] = useState(0);
   const [maxPriceTemp, setMaxPriceTemp] = useState(55000000);
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'discount'>('asc');
 
   useEffect(() => {
-    const data = filtermobileData(selectedValues, minPrice, maxPrice);
+    const data = filtermobileData(selectedValues, minPrice, maxPrice, sortOrder);
     setFilteredData(data);
     console.log("Filtered Data after useEffect:", data);
-  }, [selectedValues, minPrice, maxPrice]);
+  }, [selectedValues, minPrice, maxPrice, sortOrder]);
 
+
+  //Khi item parent click 2 lần sẽ đóng
   const handleItemClick = (id: string) => {
     if (openItemId === id) {
       setOpenItemId(null);
@@ -86,6 +101,26 @@ export default function MobileContent() {
     }
   };
 
+  const handleAvailableClick = () => {
+    setSelectedValuesTemp((prevValues) => {
+      const updatedValues = prevValues.includes('Sẵn hàng')
+        ? prevValues.filter(value => value !== 'Sẵn hàng')
+        : [...prevValues, 'Sẵn hàng'];
+        console.log(updatedValues)
+  
+      // Thực hiện lọc dữ liệu ngay lập tức sau khi cập nhật selectedValuesTemp
+      const data = filtermobileData(updatedValues, minPrice, maxPrice, sortOrder);
+      setFilteredData(data);
+      console.log("Filtered Data after applying available filter:", data);
+  
+      return updatedValues;
+    });
+  
+    setOpenItemId(prevId =>
+      prevId === availableButtonData.id ? null : availableButtonData.id
+    );
+  };
+
   const handleClearAll = () => {
     setSelectedValues([]);
     setSelectedValuesTemp([]);
@@ -97,7 +132,6 @@ export default function MobileContent() {
 
   const handleApplyFilters = () => {
     // Cập nhật updatedValues từ selectedValuesTemp
-
     setMinPrice(minPriceTemp);
     setMaxPrice(maxPriceTemp);
     const updatedValues = selectedValuesTemp;
@@ -105,11 +139,6 @@ export default function MobileContent() {
 
     console.log("Applied Min Price:", minPriceTemp);
     console.log("Applied Max Price:", maxPriceTemp);
-    
-
-    // Thực hiện lọc dữ liệu
-    // const filteredData = filtermobileData(updatedValues, minPrice, maxPrice);
-    // setFilteredData(filteredData);
   };
 
   // Hàm xử lý khi chọn hoặc bỏ chọn item
@@ -129,6 +158,16 @@ export default function MobileContent() {
 
       return updatedValues;
     });
+  };
+
+  const handleRemoveFilter = (value: string) => {
+    // Xóa giá trị khỏi selectedValues
+    const updatedSelectedValues = selectedValues.filter((v) => v !== value);
+    setSelectedValues(updatedSelectedValues);
+    
+    // Xóa giá trị khỏi selectedValuesTemp
+    const updatedSelectedValuesTemp = selectedValuesTemp.filter((v) => v !== value);
+    setSelectedValuesTemp(updatedSelectedValuesTemp);
   };
 
   const handleApplyAndClose = () => {
@@ -226,6 +265,25 @@ export default function MobileContent() {
               </>
             )}
           </div>
+
+          {/* Available button */}
+          <div
+            key={availableButtonData.id}
+              className={`mobile-filter-item ${
+              openItemId === availableButtonData.id ? "active" : ""
+            }`}
+          >
+              <div
+                className="mobile-filter-item-header"
+                onClick={() => handleAvailableClick()}
+              >
+                {FilterButtonData.icon && (
+                  <div className="filter-item-icon">{availableButtonData.icon}</div>
+                )}
+                <p className="filter-item-label">{availableButtonData.label}</p>
+              </div>
+            </div>
+
 
           {/* 'Giá' button */}
           <div
@@ -347,19 +405,16 @@ export default function MobileContent() {
           <p className="filteringby-title">Đang lọc theo</p>
           <div className="filteringby-list">
             {selectedValues.map((value, index) => (
-              <div key={index} className="filteringby-list-item">
-                <button
-                  className="filteringby-list-item-remove"
-                  onClick={() =>
-                    setSelectedValues(selectedValues.filter((v) => v !== value))
-                  }
-                >
-                  <IoCloseCircleOutline />
+              <div key={index} className="filteringby-list-item"
+              onClick={() => handleRemoveFilter(value)}
+              >
+                <button className="filteringby-list-item-remove">
+                  <IoCloseCircleOutline className="close-icon-btn" />
                 </button>
                 <span className="filteringby-list-item-label">{value}</span>
               </div>
             ))}
-            {minPrice !== 0 || maxPrice !== 55000000 ? (
+            {(minPrice !== 0 || maxPrice !== 55000000) && (
               <div className="filteringby-list-item">
                 <button
                   className="filteringby-list-item-remove"
@@ -370,13 +425,15 @@ export default function MobileContent() {
                     setMaxPriceTemp(55000000);
                   }}
                 >
-                  <IoCloseCircleOutline />
+                  <IoCloseCircleOutline className="close-icon-btn" />
                 </button>
                 <span className="filteringby-list-item-label">
-                  Giá từ {minPrice.toLocaleString()} đến {maxPrice.toLocaleString()}
+                  {minPrice === 0 && maxPrice === 55000000
+                    ? "Giá: Tất cả"
+                    : `Giá từ ${minPrice.toLocaleString()}đ đến ${maxPrice.toLocaleString()}đ`}
                 </span>
               </div>
-            ) : null}
+            )}
             {/* Clear All Button */}
             <button className="clear-all-btn" onClick={handleClearAll}>
               Xoá tất cả
@@ -385,6 +442,33 @@ export default function MobileContent() {
         </>
       )}
     </div>
+
+      <div className="sortingby">
+        <p className="sortingby-title">Sắp xếp theo</p>
+        <div className="sortingby-button">
+          <button
+            className={`sortingby-button-ascend ${sortOrder === 'asc' ? 'active' : ''}`}
+            onClick={() => setSortOrder('asc')}
+          >
+            <PiSortDescending className="sort-icon" />
+            Thấp đến cao
+          </button>
+          <button
+            className={`sortingby-button-descend ${sortOrder === 'desc' ? 'active' : ''}`}
+            onClick={() => setSortOrder('desc')}
+          >
+            <PiSortAscending className="sort-icon" />
+            Cao đến thấp
+          </button>
+          <button
+            className={`sortingby-button-discount ${sortOrder === 'discount' ? 'active' : ''}`}
+            onClick={() => setSortOrder('discount')}
+          >
+            Khuyến mãi HOT
+          </button>
+        </div>
+      </div>
+
 
       <div className="mobile-category">
         {filteredData.map((item) => (
