@@ -16,38 +16,6 @@ import PriceSlider from "@/components/price-slider/PriceSlider";
 import MobileNavigator from "../mobile-page/mobile-content/mobile-navigator/MobileNavigator";
 import { PiSortAscending, PiSortDescending } from "react-icons/pi";
 
-const filtermobileData = (
-  values: string[],
-  minPrice: number,
-  maxPrice: number,
-  sortOrder: 'asc' | 'desc' | 'discount'
-) => {
-  let filteredData = mobileData.filter((phone) => {
-    const matchesPrice = phone.newpri >= minPrice && phone.newpri <= maxPrice;
-    const matchesAvailability = !values.includes('Sẵn hàng') || phone.available;
-    const matchesValues = values.length === 0 || values.some((value: string) =>
-      Object.values(phone).flat().includes(value)
-    );
-
-    return matchesPrice && matchesAvailability && matchesValues;
-  });
-
-  // Sort the filtered data
-  if (sortOrder === 'asc') {
-    filteredData.sort((a, b) => a.newpri - b.newpri);
-  } else if (sortOrder === 'desc') {
-    filteredData.sort((a, b) => b.newpri - a.newpri);
-  } else if (sortOrder === 'discount') {
-    filteredData.sort((a, b) => {
-      const discountA = a.discount || 0;
-      const discountB = b.discount || 0;
-      return discountB - discountA;
-    });
-  }
-
-  return filteredData;
-};
-
 export default function MobileContent() {
   const [openItemId, setOpenItemId] = useState<string | null>(null);
   const [selectedValues, setSelectedValues] = useState<string[]>([]);
@@ -57,7 +25,39 @@ export default function MobileContent() {
   const [maxPrice, setMaxPrice] = useState(55000000);
   const [minPriceTemp, setMinPriceTemp] = useState(0);
   const [maxPriceTemp, setMaxPriceTemp] = useState(55000000);
-  const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'discount'>('asc');
+  const [sortOrder, setSortOrder] = useState<'asc' | 'desc' | 'discount'>('discount');
+
+
+  const filtermobileData = (
+    values: string[],
+    minPrice: number,
+    maxPrice: number,
+    sortOrder: 'asc' | 'desc' | 'discount'
+  ) => {
+    let filteredData = mobileData.filter((phone) => {
+      const matchesPrice = phone.newpri >= minPrice && phone.newpri <= maxPrice;
+      const matchesValues = values.length === 0 || values.some((value: string) =>
+        Object.values(phone).flat().includes(value)
+      );
+      return matchesPrice && matchesValues;
+    });
+  
+    // Sort the filtered data
+    if (sortOrder === 'asc') {
+      filteredData.sort((a, b) => a.newpri - b.newpri);
+    } else if (sortOrder === 'desc') {
+      filteredData.sort((a, b) => b.newpri - a.newpri);
+    } else if (sortOrder === 'discount') {
+      filteredData.sort((a, b) => {
+        const discountA = a.discount || 0;
+        const discountB = b.discount || 0;
+        return discountB - discountA;
+      });
+    }
+    
+    return filteredData;
+  };
+
 
   useEffect(() => {
     const data = filtermobileData(selectedValues, minPrice, maxPrice, sortOrder);
@@ -85,8 +85,6 @@ export default function MobileContent() {
         ? prevValues.filter((value) => value !== label)
         : [...prevValues, label];
 
-      console.log("Temporary Selected Values:", newValues);
-
       // Set selectedValuesTemp before updating selectedValues
       setSelectedValuesTemp(newValues);
 
@@ -102,17 +100,13 @@ export default function MobileContent() {
   };
 
   const handleAvailableClick = () => {
+    console.log('abc')
     setSelectedValuesTemp((prevValues) => {
       const updatedValues = prevValues.includes('Sẵn hàng')
         ? prevValues.filter(value => value !== 'Sẵn hàng')
         : [...prevValues, 'Sẵn hàng'];
-        console.log(updatedValues)
-  
-      // Thực hiện lọc dữ liệu ngay lập tức sau khi cập nhật selectedValuesTemp
-      const data = filtermobileData(updatedValues, minPrice, maxPrice, sortOrder);
-      setFilteredData(data);
-      console.log("Filtered Data after applying available filter:", data);
-  
+      console.log(updatedValues)
+      
       return updatedValues;
     });
   
