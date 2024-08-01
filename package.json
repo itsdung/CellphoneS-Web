@@ -23,7 +23,7 @@
     "sass": "^1.77.7",
     "slick-carousel": "^1.8.1",
     "styled-components": "^6.1.11",
-    "swiper": "^11.1.4",
+    "swiper": "^11.1.9",
     "uuid": "^10.0.0"
   },
   "devDependencies": {

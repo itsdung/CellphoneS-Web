@@ -1,4 +1,3 @@
-import Header from '@/layouts/public/header/Header';
 import type { Metadata } from 'next';
 
 export const metadata: Metadata = {
