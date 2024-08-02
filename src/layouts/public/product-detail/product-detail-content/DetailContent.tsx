@@ -3,6 +3,9 @@ import Image from 'next/image'
 import React from 'react'
 import './style.scss';
 import { Carousel } from '@/components/carousel/detail-carousel/Carousel';
+import { iphoneData } from '@/constants/mobile-page/Apple/Iphone/IphoneDataConstants';
+import InfoDetail from '@/components/detail-info/InfoDetail';
+import DetailModal from '@/components/modal/modal-detail-info/DetailModal';
 
 
 export default function DetailContent() {
@@ -19,6 +22,11 @@ export default function DetailContent() {
               </div>
             ))}
           </Carousel>
+        </div>
+        <div className="detail-infomation">
+          {iphoneData.map((product) => (
+            <InfoDetail key={product.id} item={product} />
+          ))}
         </div>
     </div>
   )

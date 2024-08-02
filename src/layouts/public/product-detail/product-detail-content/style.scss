@@ -2,6 +2,11 @@
     padding-top: 110px;
     width: 1200px;
     margin: 0 auto;
+    display: flex;
+    align-items: flex-start;
+    gap: 2rem;
+    padding-bottom: 2rem;
+
     .detail-slider{
         width: 700px;
         align-items: center;
@@ -29,10 +34,10 @@
     cursor: pointer;
     
     svg{
-        color: var(--color-grey-500) !important;
-        background: rgba(255, 255, 255, 0.5);
+        color: #fff !important;
+        background: rgba(0, 0, 0, 0.5);
         border-radius: 100px 0 0 100px;
-        box-shadow: -5px 0 4px 0 rgba(0, 0, 0, 0.2);
+        // box-shadow: -5px 0 4px 0 rgba(0, 0, 0, 0.2);
         height: 50px !important;
         width: 40px !important;
     }
@@ -44,10 +49,10 @@
     cursor: pointer;
     
     svg{
-        color: var(--color-grey-500) !important;
-        background: rgba(255, 255, 255, 0.5);
+        color: #fff !important;
+        background: rgba(0, 0, 0, 0.5);
         border-radius: 100px 0 0 100px;
-        box-shadow: -5px 0 4px 0 rgba(0, 0, 0, 0.2);
+        // box-shadow: -5px 0 4px 0 rgba(0, 0, 0, 0.2);
         height: 50px !important;
         width: 40px !important;
     }

@@ -369,7 +369,34 @@ export const mobileData: mobileData[] = [
     {
         id: uuidv4(),
         img: img12,
-        name: 'iPhone 15 Plus 128GB',
+        name: 'iPhone 15 Plus 128GB | Chính hãng VN/A',
+        ribbon: ribbon,
+        newpri: 29000000,
+        oldpri: 32000000,
+        payway: 0,
+        discount: 9,
+        suggest: true,
+        desc: 'Latest features with larger display, high quality.',
+        loveIc: <IoMdHeartEmpty />,
+        loveIcFull: <IoMdHeart />,
+        stars: (
+            <>
+                <TwemojiStar />
+                <TwemojiStar />
+                <TwemojiStar />
+                <TwemojiStar />
+                <TwemojiStar />
+            </>
+        ),
+        chip: 'Apple A',
+        type: 'Iphone(IOS)',
+        special: ['Điện thoại AI', 'Bảo mật vân tay', 'Hỗ trợ 5G', 'Sạc không dây', 'Kháng nước, kháng bụi'],
+        manufacturer: 'Apple',
+    },
+    {
+        id: uuidv4(),
+        img: img12,
+        name: 'iPhone 15 Plus 256GB | Chính hãng VN/A',
         ribbon: ribbon,
         newpri: 29000000,
         oldpri: 32000000,
