@@ -16,46 +16,46 @@ import React from 'react';
 import type { SVGProps } from 'react';
 
 
-interface SubImage {
+interface ImageDetails {
+    main: StaticImageData;
     colorThumb: StaticImageData;
-    detail: StaticImageData[];
+    details: StaticImageData[];
 }
 
-interface SubInfo {
-    productfeatures: string[];
-    boxfeatures: string[];
+interface ProductInfo {
+    features: string[];
+    boxContents: string[];
     warranty: string[];
     vat: string[];
 }
 
-interface SubScreen {
-    screenFeatures?: string[];
-    screenType?: string[];
-    screenSize?: number;
-    screenTech?: string[];
-    screenFrequency?: number;
-    screenResolution?: string[];
+interface Screen {
+    features?: string[];
+    type?: string[];
+    size?: number;
+    technology?: string[];
+    frequency?: number;
+    resolution?: string[];
 }
 
-interface SubRearCamera {
-    rearInfo?: string[];
-    rearVideo?: string[];
-    rearFeatures?: string[];
+interface RearCamera {
+    info?: string[];
+    video?: string[];
+    features?: string[];
 }
 
-interface SubFrontCamera {
-    frontInfo?: string[];
-    frontVideo?: string[];
-    frontFeatures?: string[];
+interface FrontCamera {
+    info?: string[];
+    video?: string[];
 }
 
-interface SubGraphic {
+interface Graphics {
     chipset?: string;
     cpuType?: string;
     gpu?: string;
 }
 
-interface SubConection {
+interface Connection {
     nfc?: string[];
     sim?: string[];
     os?: string[];
@@ -67,183 +67,135 @@ interface SubConection {
     gps?: string[];
 }
 
-interface SubStore {
+interface Storage {
     ram?: number;
     memory?: number;
     memoryCardPort?: boolean;
 }
 
-interface SubCharge {
+interface Charge {
     battery?: number;
-    chargeTech?: string[];
-    chargePort?: string[];
+    tech?: string[];
+    port?: string[];
 }
 
-interface SubDesign {
+interface Design {
     size?: string[];
     weight?: number;
     backMaterial?: string[];
     frameMaterial?: string[];
 }
 
-interface SubSideTech {
+interface SideTech {
     waterproof?: string[];
-    specTech?: string[];
-    anotherTech?: string[];
-    soundTech?: string[];
+    specs?: string[];
+    additional?: string[];
+    sound?: string[];
 }
 
-interface SubHandy {
-    fprintsensor?: boolean;
-    sensor?: string[];
+interface Handy {
+    fingerprintSensor?: boolean;
+    sensors?: string[];
     specialFeatures?: string[];
 }
 
-interface SubGeneral {
+interface General {
     releaseDate?: string[];
 }
 
-interface iphoneData {
-    id: string;
-    img: StaticImageData;
-    subImage?: SubImage[];
+interface Info {
+    productInfo: ProductInfo;
+    usage: string[];
+    productType: string;
+    chip: string;
+    cameraFeatures: string[];
+    manufacturer: string;
+    currentStatus: string[];
+    screen: Screen;
+    rearCamera: RearCamera;
+    frontCamera: FrontCamera;
+    graphics: Graphics;
+    connection: Connection;
+    storage: Storage;
+    charge: Charge;
+    design: Design;
+    sideTech: SideTech;
+    handy: Handy;
+    general: General;
+}
 
+interface IphoneData {
+    id: string;
+    img: ImageDetails;
     name: string;
-    newpri: number;
-    oldpri: number;
+    newPrice: number;
+    oldPrice: number;
     sale?: boolean;
-    payway?: number;
+    payWay?: number;
     discount?: number;
-    desc: string;
+    description: string;
     rating?: number;
     loved?: boolean;
     suggest?: boolean;
     available?: boolean;
-
-    productinfo?: string;
-    subInfo?: SubInfo[];
-
-    use?: string[];
-    productType?: string;
-    chip?: string;
-    cameraFeatures?: string[];
-    manufacturer?: string;
-    currentStatus?: string[];
-
-    screen?: string;
-    subScreen?: SubScreen[];
-
-    rearCamera?: string;
-    subRearCamera?: SubRearCamera[];
-
-    frontCamera?: string;
-    subFrontCamera?: SubFrontCamera[];
-    
-    graphic?: string;
-    subGraphic?: SubGraphic[];
-
-    conection?: string;
-    subConection?: SubConection[];
-
-    store?: string;
-    subStore?: SubStore[];
-
-    charge?: string;
-    subCharge?: SubCharge[];
-
-    design?: string;
-    subDesign?: SubDesign[];
-
-    sideTech?: string;
-    subSideTech?: SubSideTech[];
-
-    handy?: string;
-    subHandy?: SubHandy[];
-
-    general?: string;
-    subGeneral?: SubGeneral[];
+    info: Info;
 }
 
-export const iphoneData: iphoneData[] = [
+export const iphoneData: IphoneData[] = [
     {
         id: uuidv4(),
-        img: img12,
-        subImage: [
-            {
-                colorThumb: img12_blue,
-                detail: [img12_1, img12_2, img12_3, img12_4, img12_5, img12_6, img12_7, img12_8],
-            },
-        ],
+        img: {
+            main: img12,
+            colorThumb: img12_blue,
+            details: [img12_1, img12_2, img12_3, img12_4, img12_5, img12_6, img12_7, img12_8],
+        },
         name: 'iPhone 15 Plus 256GB | Chính hãng VN/A',
-        newpri: 29490000,
-        oldpri: 34990000,
+        newPrice: 29490000,
+        oldPrice: 34990000,
         sale: true,
-        payway: 0,
+        payWay: 0,
         discount: 9,
-        desc: 'Latest features with larger display, high quality.',
+        description: 'Latest features with larger display, high quality.',
         rating: 5,
         loved: true,
         suggest: true,
         available: true,
-
-        productinfo: 'Thông tin sản phẩm',
-        subInfo: [
-            {
-                productfeatures: ['Máy mới 100% , chính hãng Apple Việt Nam. CellphoneS hiện là đại lý bán lẻ uỷ quyền iPhone chính hãng VN/A của Apple Việt Nam'],
-                boxfeatures: ['Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Type C'],
+        info: {
+            productInfo: {
+                features: ['Máy mới 100% , chính hãng Apple Việt Nam. CellphoneS hiện là đại lý bán lẻ uỷ quyền iPhone chính hãng VN/A của Apple Việt Nam'],
+                boxContents: ['Hộp, Sách hướng dẫn, Cây lấy sim, Cáp Type C'],
                 warranty: ['1 ĐỔI 1 trong 30 ngày nếu có lỗi phần cứng nhà sản xuất. Bảo hành 12 tháng tại trung tâm bảo hành chính hãng Apple: CareS.vn'],
                 vat: ['Giá sản phẩm đã bao gồm VAT'],
             },
-        ],
-
-        use: ['Dung lượng lớn', 'Cấu hình cao', 'Pin trâu'],
-        productType: 'Iphone(IOS)',
-        chip:'Apple A',
-        cameraFeatures: ['Chụp xoá phông', 'Chụp góc rộng', 'Quay video 4K'],
-        manufacturer: 'Apple',
-        currentStatus: ['New'],
-
-        screen: 'Màn hình',
-        subScreen: [
-            {
-                screenFeatures: ['Tốc độ làm mới 120Hz','460 ppi', '2000 nits', 'HDR', 'True Tone', 'Dải màu rộng (P3)', 'Haptic Touch', 'Tỷ lệ tương phản 2.000.000:1'],
-                screenType: ['Dynamic Island'],
-                screenSize: 6.7,
-                screenTech: ['Super Retina XDR OLED'],
-                screenFrequency: 120,
-                screenResolution: ['2796 x 1290-pixel'],
+            usage: ['Dung lượng lớn', 'Cấu hình cao', 'Pin trâu'],
+            productType: 'Iphone(IOS)',
+            chip: 'Apple A',
+            cameraFeatures: ['Chụp xoá phông', 'Chụp góc rộng', 'Quay video 4K'],
+            manufacturer: 'Apple',
+            currentStatus: ['New'],
+            screen: {
+                features: ['Tốc độ làm mới 120Hz', '460 ppi', '2000 nits', 'HDR', 'True Tone', 'Dải màu rộng (P3)', 'Haptic Touch', 'Tỷ lệ tương phản 2.000.000:1'],
+                type: ['Dynamic Island'],
+                size: 6.7,
+                technology: ['Super Retina XDR OLED'],
+                frequency: 120,
+                resolution: ['2796 x 1290-pixel'],
             },
-        ],
-
-        rearCamera: 'Camera sau',
-        subRearCamera: [
-            {
-                rearInfo: ['Camera chính: 48MP, 24 mm, ƒ/1.78', 'Camera góc siêu rộng: 12 MP, 13 mm, ƒ/2.2', 'Camera Tele: 12 MP'],
-                rearVideo: ['4K@24/25/30/60 fps', 'HD 1080p@25/30/60 fps', 'HD 720p@30 fps'],
-                rearFeatures: ['Flash True Tone Thích Ứng', 'Photonic Engine', 'Deep Fusion', 'HDR thông minh thế hệ 5', 'Ảnh chân dung thế hệ mới với Focus và Depth Control', 'Hiệu ứng Chiếu Sáng Chân Dung với sáu chế độ', 'Chế độ Ban Đêm'],
+            rearCamera: {
+                info: ['Camera chính: 48MP, 24 mm, ƒ/1.78', 'Camera góc siêu rộng: 12 MP, 13 mm, ƒ/2.2', 'Camera Tele: 12 MP'],
+                video: ['4K@24/25/30/60 fps', 'HD 1080p@25/30/60 fps', 'HD 720p@30 fps'],
+                features: ['Flash True Tone Thích Ứng', 'Photonic Engine', 'Deep Fusion', 'HDR thông minh thế hệ 5', 'Ảnh chân dung thế hệ mới với Focus và Depth Control', 'Hiệu ứng Chiếu Sáng Chân Dung với sáu chế độ', 'Chế độ Ban Đêm'],
             },
-        ],
-
-        frontCamera: 'Camera trước',
-        subFrontCamera: [
-            {
-                frontInfo: ['12MP, ƒ/1.9'],
-                frontVideo: ['4K@24/25/30/60 fps', 'HD 1080p@25/30/60 fps'],
+            frontCamera: {
+                info: ['12MP, ƒ/1.9'],
+                video: ['4K@24/25/30/60 fps', 'HD 1080p@25/30/60 fps'],
             },
-        ],
-
-        graphic: 'Vi xử lý & đồ họa',
-        subGraphic: [
-            {
+            graphics: {
                 chipset: 'Apple A17 Pro 6 nhân',
                 cpuType: 'CPU 6 lõi mới với 2 lõi hiệu năng và 4 lõi hiệu suất',
                 gpu: 'GPU 6 nhân mới',
             },
-        ],
-
-        conection: 'Giao tiếp & kết nối',
-        subConection: [
-            {
+            connection: {
                 nfc: ['Có'],
                 sim: ['2 SIM (nano‑SIM và eSIM)'],
                 os: ['iOS 17'],
@@ -254,60 +206,36 @@ export const iphoneData: iphoneData[] = [
                 network: ['5G'],
                 gps: ['GPS tần số kép chính xác (GPS, GLONASS, Galileo, QZSS, BeiDou và NavIC)'],
             },
-        ],
-
-        store: 'RAM & lưu trữ',
-        subStore: [
-            {
+            storage: {
                 ram: 8,
                 memory: 256,
                 memoryCardPort: false,
             },
-        ],
-
-        charge: 'Pin & công nghệ sạc',
-        subCharge: [
-            {
+            charge: {
                 battery: 4422,
-                chargeTech: ['Sạc nhanh 20 W', 'Sạc không dây 15W', 'Sạc không dây Qi 7.5W'],
-                chargePort: ['USB Type-C'],
+                tech: ['Sạc nhanh 20 W', 'Sạc không dây 15W', 'Sạc không dây Qi 7.5W'],
+                port: ['USB Type-C'],
             },
-        ],
-
-        design: 'Thiết kế & Trọng lượng',
-        subDesign: [
-            {
+            design: {
                 size: ['159,9 x 76,7 x 8,25 mm'],
                 weight: 221,
                 backMaterial: ['Kính'],
                 frameMaterial: ['Titanium'],
             },
-        ],
-
-        sideTech: 'Thông số khác',
-        subSideTech: [
-            {
+            sideTech: {
                 waterproof: ['Đạt mức IP68 (chống nước ở độ sâu tối đa 6 mét trong vòng tối đa 30 phút)'],
-                specTech: ['Camera TrueDepth hỗ trợ nhận diện khuôn mặt'],
-                anotherTech: ['SOS Khẩn Cấp', 'Phát Hiện Va Chạm'],
-                soundTech: ['AAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus và Dolby Atmos'],
+                specs: ['Camera TrueDepth hỗ trợ nhận diện khuôn mặt'],
+                additional: ['SOS Khẩn Cấp', 'Phát Hiện Va Chạm'],
+                sound: ['AAC, MP3, Apple Lossless, FLAC, Dolby Digital, Dolby Digital Plus và Dolby Atmos'],
             },
-        ],
-
-        handy: 'Tiện ích khác',
-        subHandy: [
-            {
-                fprintsensor: false,
-                sensor: ['Cảm biến gia tốc, Cảm biến tiệm cận, Cảm biến ánh sáng, La bàn, Con quay hồi chuyển, Cảm biến áp kế, Cảm biến trọng lực'],
+            handy: {
+                fingerprintSensor: false,
+                sensors: ['Cảm biến gia tốc, Cảm biến tiệm cận, Cảm biến ánh sáng, La bàn, Con quay hồi chuyển, Cảm biến áp kế, Cảm biến trọng lực'],
                 specialFeatures: ['Hỗ trợ 5G', 'Sạc không dây', 'Nhận diện khuôn mặt', 'Kháng nước, kháng bụi'],
             },
-        ],
-
-        general: 'Thông tin chung',
-        subGeneral: [
-            {
+            general: {
                 releaseDate: ['09/2023'],
             },
-        ],
+        },
     },
 ];

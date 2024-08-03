@@ -226,6 +226,10 @@ const DetailModal = ({ item }: { item: Item }) => {
                         <p>Độ phân giải màn hình</p>
                         <span>{screenResolution}</span>
                     </div>
+                    <div className='detail-screen-features detail-item-child'>
+                        <p>Tính năng màn hình</p>
+                        <span>{screenFeatures}</span>
+                    </div>
                     <div className='detail-screen-frequency detail-item-child'>
                         <p>Tần số quét</p>
                         <span>{screenFrequency}</span>
