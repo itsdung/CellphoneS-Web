@@ -129,7 +129,12 @@ interface IphoneData {
   info: Info;
 }
 
-const InfoDetail = ({ item }: { item: IphoneData }) => {
+interface InfoDetailProps {
+  item: IphoneData;
+  onOpenModal: (item: IphoneData) => void; // Thêm prop để mở modal
+}
+
+const InfoDetail = ({ item, onOpenModal }: InfoDetailProps) => {
   const {
     info: {
       rearCamera,
@@ -188,7 +193,7 @@ const InfoDetail = ({ item }: { item: IphoneData }) => {
           <span>{nfc}</span>
         </li>
         <li className="detail-list-item detail-ram">
-          <p>RAM</p>
+          <p>Dung lượng RAM</p>
           <span>{ram} GB</span>
         </li>
         <li className='detail-list-item detail-memory'>
@@ -200,7 +205,7 @@ const InfoDetail = ({ item }: { item: IphoneData }) => {
           <span>{battery} mAh</span>
         </li>
         <li className="detail-list-item detail-sim">
-          <p>Thẻ sim</p>
+          <p>Thẻ SIM</p>
           <span>{sim}</span>
         </li>
         <li className='detail-list-item detail-os'>
@@ -215,12 +220,8 @@ const InfoDetail = ({ item }: { item: IphoneData }) => {
           <p>Tính năng màn hình</p>
           <span>{screenFeatures}</span>
         </li>
-        <li className='detail-list-item detail-weight'>
-          <p>Trọng lượng</p>
-          <span>{weight}</span>
-        </li>
       </ul>
-      <button className='full-detail-btn'>Xem cấu hình chi tiết <GoChevronDown /></button>
+      <button className='full-detail-btn' onClick={() => onOpenModal(item)}>Xem cấu hình chi tiết <GoChevronDown /></button>
     </div>
   );
 }

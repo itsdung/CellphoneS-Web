@@ -29,31 +29,33 @@
 }
 
 .detail-slider .slider-contain .custom-next-arrow{
-    right: 4px !important;
-    top: 47% !important;
+    right: 15px !important;
+    top: 40% !important;
     cursor: pointer;
+    z-index: 2;
     
     svg{
         color: #fff !important;
         background: rgba(0, 0, 0, 0.5);
         border-radius: 100px 0 0 100px;
         // box-shadow: -5px 0 4px 0 rgba(0, 0, 0, 0.2);
-        height: 50px !important;
-        width: 40px !important;
+        height: 60px !important;
+        width: 35px !important;
     }
 }
 
 .detail-slider .slider-contain .custom-prev-arrow{
-    left: -15px !important;
-    top: 47% !important;
+    left: 0px !important;
+    top: 40% !important;
     cursor: pointer;
+    z-index: 2;
     
     svg{
         color: #fff !important;
         background: rgba(0, 0, 0, 0.5);
-        border-radius: 100px 0 0 100px;
+        border-radius: 0 100px 100px 0;
         // box-shadow: -5px 0 4px 0 rgba(0, 0, 0, 0.2);
-        height: 50px !important;
-        width: 40px !important;
+        height: 60px !important;
+        width: 35px !important;
     }
 }

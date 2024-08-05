@@ -2,48 +2,54 @@
 import React from 'react'
 import './style.scss';
 import { StaticImageData } from 'next/image';
-import { IoClose } from 'react-icons/io5';
+import { IoClose, IoCloseCircleOutline } from 'react-icons/io5';
 
-interface SubImage {
+interface ImageDetails {
+    main: StaticImageData;
     colorThumb: StaticImageData;
-    detail: StaticImageData[];
-}
-
-interface SubInfo {
-    productfeatures: string[];
-    boxfeatures: string[];
+    details: StaticImageData[];
+  }
+  
+  // Thông tin sản phẩm
+  interface ProductInfo {
+    features: string[];
+    boxContents: string[];
     warranty: string[];
     vat: string[];
-}
-
-interface SubScreen {
-    screenFeatures?: string[];
-    screenType?: string[];
-    screenSize?: number;
-    screenTech?: string[];
-    screenFrequency?: number;
-    screenResolution?: string[];
-}
-
-interface SubRearCamera {
-    rearInfo?: string[];
-    rearVideo?: string[];
-    rearFeatures?: string[];
-}
-
-interface SubFrontCamera {
-    frontInfo?: string[];
-    frontVideo?: string[];
-    frontFeatures?: string[];
-}
-
-interface SubGraphic {
+  }
+  
+  // Màn hình
+  interface Screen {
+    features?: string[];
+    type?: string[];
+    size?: number;
+    technology?: string[];
+    frequency?: number;
+    resolution?: string[];
+  }
+  
+  // Camera sau
+  interface RearCamera {
+    info?: string[];
+    video?: string[];
+    features?: string[];
+  }
+  
+  // Camera trước
+  interface FrontCamera {
+    info?: string[];
+    video?: string[];
+  }
+  
+  // Đồ họa
+  interface Graphics {
     chipset?: string;
     cpuType?: string;
     gpu?: string;
-}
-
-interface SubConection {
+  }
+  
+  // Kết nối
+  interface Connection {
     nfc?: string[];
     sim?: string[];
     os?: string[];
@@ -53,395 +59,360 @@ interface SubConection {
     bluetooth?: string[];
     network?: string[];
     gps?: string[];
-}
-
-interface SubStore {
+  }
+  
+  // Lưu trữ
+  interface Storage {
     ram?: number;
     memory?: number;
     memoryCardPort?: boolean;
-}
-
-interface SubCharge {
+  }
+  
+  // Pin và sạc
+  interface Charge {
     battery?: number;
-    chargeTech?: string[];
-    chargePort?: string[];
-}
-
-interface SubDesign {
+    tech?: string[];
+    port?: string[];
+  }
+  
+  // Thiết kế
+  interface Design {
     size?: string[];
     weight?: number;
     backMaterial?: string[];
     frameMaterial?: string[];
-}
-
-interface SubSideTech {
+  }
+  
+  // Công nghệ khác
+  interface SideTech {
     waterproof?: string[];
-    specTech?: string[];
-    anotherTech?: string[];
-    soundTech?: string[];
-}
-
-interface SubHandy {
-    fprintsensor?: boolean;
-    sensor?: string[];
+    specs?: string[];
+    additional?: string[];
+    sound?: string[];
+  }
+  
+  // Tính năng đặc biệt
+  interface Handy {
+    fingerprintSensor?: boolean;
+    sensors?: string[];
     specialFeatures?: string[];
-}
-
-interface SubGeneral {
+  }
+  
+  // Thông tin chung
+  interface General {
     releaseDate?: string[];
-}
-
-interface Item {
+  }
+  
+  // Thông tin chi tiết sản phẩm
+  interface Info {
+    productInfo: ProductInfo;
+    usage: string[];
+    productType: string;
+    chip: string;
+    cameraFeatures: string[];
+    manufacturer: string;
+    currentStatus: string[];
+    screen: Screen;
+    rearCamera: RearCamera;
+    frontCamera: FrontCamera;
+    graphics: Graphics;
+    connection: Connection;
+    storage: Storage;
+    charge: Charge;
+    design: Design;
+    sideTech: SideTech;
+    handy: Handy;
+    general: General;
+  }
+  
+  // Dữ liệu iPhone
+  interface IphoneData {
     id: string;
-    img: StaticImageData;
-    subImage?: SubImage[];
-
+    img: ImageDetails;
     name: string;
-    newpri: number;
-    oldpri: number;
+    newPrice: number;
+    oldPrice: number;
     sale?: boolean;
-    payway?: number;
+    payWay?: number;
     discount?: number;
-    desc: string;
+    description: string;
     rating?: number;
     loved?: boolean;
     suggest?: boolean;
     available?: boolean;
-
-    productinfo?: string;
-    subInfo?: SubInfo[];
-
-    use?: string[];
-    productType?: string;
-    chip?: string;
-    cameraFeatures?: string[];
-    manufacturer?: string;
-    currentStatus?: string[];
-
-    screen?: string;
-    subScreen?: SubScreen[];
-
-    rearCamera?: string;
-    subRearCamera?: SubRearCamera[];
-
-    frontCamera?: string;
-    subFrontCamera?: SubFrontCamera[];
-    
-    graphic?: string;
-    subGraphic?: SubGraphic[];
-
-    conection?: string;
-    subConection?: SubConection[];
-
-    store?: string;
-    subStore?: SubStore[];
-
-    charge?: string;
-    subCharge?: SubCharge[];
-
-    design?: string;
-    subDesign?: SubDesign[];
-
-    sideTech?: string;
-    subSideTech?: SubSideTech[];
-
-    handy?: string;
-    subHandy?: SubHandy[];
-
-    general?: string;
-    subGeneral?: SubGeneral[];
+    info: Info;
 }
 
-const DetailModal = ({ item }: { item: Item }) => {
-  const screenResolution = item.subScreen?.[0]?.screenResolution?.join(', ') || 'N/A';
-  const screenFeatures = item.subScreen?.[0]?.screenFeatures?.join(', ') || 'N/A';
-  const screenSize = item.subScreen?.[0]?.screenSize || 'N/A';
-  const screenTech = item.subScreen?.[0]?.screenTech?.join(', ') || 'N/A';
-  const screenType = item.subScreen?.[0]?.screenType?.join(', ') || 'N/A';
-  const screenFrequency = item.subScreen?.[0]?.screenFrequency || 'N/A';
-    
-  const rearInfo = item.subRearCamera?.[0]?.rearInfo?.join(', ') || 'N/A';
-  const rearVideo = item.subRearCamera?.[0]?.rearVideo?.join(', ') || 'N/A';
-  const rearFeatures = item.subRearCamera?.[0]?.rearFeatures?.join(', ') || 'N/A';
-
-  const frontCameraInfo = item.subFrontCamera?.[0]?.frontInfo?.join(', ') || 'N/A';
-  const frontVideo = item.subFrontCamera?.[0]?.frontVideo?.join(', ') || 'N/A';
-
-  const chipset = item.subGraphic?.[0]?.chipset || 'N/A';
-  const cpuType = item.subGraphic?.[0]?.cpuType || 'N/A';
-  const gpu = item.subGraphic?.[0]?.gpu || 'N/A';
-
-  const nfc = item.subConection?.[0]?.nfc?.join(', ') || 'N/A';
-  const sim = item.subConection?.[0]?.sim?.join(', ') || 'N/A';
-  const os = item.subConection?.[0]?.os?.join(', ') || 'N/A';
-  const headphones = item.subConection?.[0]?.headphones?.join(', ') || 'N/A';
-  const infrared = item.subConection?.[0]?.infrared?.join(', ') || 'N/A';
-  const wifi = item.subConection?.[0]?.wifi?.join(', ') || 'N/A';
-  const bluetooth = item.subConection?.[0]?.bluetooth?.join(', ') || 'N/A';
-  const network = item.subConection?.[0]?.network?.join(', ') || 'N/A';
-  const gps = item.subConection?.[0]?.gps?.join(', ') || 'N/A';
-
-  const ram = item.subStore?.[0]?.ram || 'N/A';
-  const memory = item.subStore?.[0]?.memory || 'N/A';
-  const memoryCardPort = item.subStore?.[0]?.memoryCardPort? 'Có' : 'Không';
-
-  const battery = item.subCharge?.[0]?.battery || 'N/A';
-  const chargeTech = item.subCharge?.[0]?.chargeTech?.join(', ') || 'N/A';
-  const chargePort = item.subCharge?.[0]?.chargePort?.join(', ') || 'N/A';
-
-  const size = item.subDesign?.[0]?.size?.join(', ') || 'N/A';
-  const weight = item.subDesign?.[0]?.weight || 'N/A';
-  const backMaterial = item.subDesign?.[0]?.backMaterial?.join(', ') || 'N/A';
-  const frameMaterial = item.subDesign?.[0]?.frameMaterial?.join(', ') || 'N/A';
-
-  const waterproof = item.subSideTech?.[0]?.waterproof?.join(', ') || 'N/A';
-  const specTech = item.subSideTech?.[0]?.specTech?.join(', ') || 'N/A';
-  const anotherTech = item.subSideTech?.[0]?.anotherTech?.join(', ') || 'N/A';
-  const soundTech = item.subSideTech?.[0]?.soundTech?.join(', ') || 'N/A';
-
-  const fprintsensor = item.subHandy?.[0]?.fprintsensor? 'Có' : 'Không';
-  const sensor = item.subHandy?.[0]?.sensor?.join(', ') || 'N/A';
-  const specialFeatures = item.subHandy?.[0]?.specialFeatures?.join(', ') || 'N/A';
-
-  const releaseDate = item.subGeneral?.[0]?.releaseDate?.join(', ') || 'N/A';
-  
-  return (
-    <div className='info-detail'>
-        <div className="detail-header">
-            <p className='info-detail-title'>Thông số kỹ thuật</p>
-        </div>
-        <div className="detail-list">
-            <div className="detail-screen detail-name ">
-                <div className="detail-screen-title item-title">{item.screen}</div>
-                <div className="detail-screen-list detail-item">
-                    <div className='detail-screen-size detail-item-child'>
-                        <p>Kích thước màn hình</p>
-                        <span>{screenSize} inches</span>
-                    </div>
-                    <div className='detail-screen-tech detail-item-child'>
-                        <p>Công nghệ màn hình</p>
-                        <span>{screenTech}</span>
-                    </div>
-                    <div className='detail-screen-resolution detail-item-child'>
-                        <p>Độ phân giải màn hình</p>
-                        <span>{screenResolution}</span>
-                    </div>
-                    <div className='detail-screen-features detail-item-child'>
-                        <p>Tính năng màn hình</p>
-                        <span>{screenFeatures}</span>
-                    </div>
-                    <div className='detail-screen-frequency detail-item-child'>
-                        <p>Tần số quét</p>
-                        <span>{screenFrequency}</span>
-                    </div>
-                    <div className='detail-screen-type detail-item-child'>
-                        <p>Kiểu màn hình</p>
-                        <span>{screenType}</span>
-                    </div>
-                </div>
-            </div>
-            
-            <div className="detail-rear-camera detail-name">
-                <div className="detail-rear-camera-title item-title">{item.rearCamera}</div>
-                    <div className="detail-rear-list detail-item">
-                        <div className="rear-info detail-item-child">
-                            <p>Camera sau</p>
-                            <span>{rearInfo}</span>
-                        </div>
-                        <div className="rear-video detail-item-child">
-                            <p>Quay video</p>
-                            <span>{rearVideo}</span>
-                        </div>
-                        <div className="rear-features detail-item-child">
-                            <p>Tính năng camera</p>
-                            <span>{rearFeatures}</span>
-                        </div>
-                    </div>
-            </div>
-
-            <div className="detail-front-camera detail-name">
-                <div className="detail-front-camera-title item-title">{item.frontCamera}</div>
-                <div className="detail-front-camera-list detail-item">
-                    <div className="front-camera-info detail-item-child">
-                        <p>Camera trước</p>
-                        <span>{frontCameraInfo}</span>
-                    </div>
-                    <div className="front-camera-video detail-item-child">
-                        <p>Quay video</p>
-                        <span>{frontVideo}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="detail-graphic detail-name">
-                <div className="detail-graphic-title item-title">{item.graphic}</div>
-                <div className="detail-graphic-list detail-item">
-                    <div className='detail-chipset detail-item-child'>
-                        <p>Chipset</p>
-                        <span>{chipset}</span>
-                    </div>
-                    <div className='detail-cpu-type detail-item-child'>
-                        <p>CPU</p>
-                        <span>{cpuType}</span>
-                    </div>
-                    <div className='detail-gpu detail-item-child'>
-                        <p>GPU</p>
-                        <span>{gpu}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="detail-connection detail-name">
-                <div className="detail-connection-title item-title">{item.conection}</div>
-                <div className="detail-connection-list detail-item">
-                    <div className='detail-nfc detail-item-child'>
-                        <p>NFC</p>
-                        <span>{nfc}</span>
-                    </div>
-                    <div className='detail-sim detail-item-child'>
-                        <p>Thẻ SIM</p>
-                        <span>{sim}</span>
-                    </div>
-                    <div className='detail-os detail-item-child'>
-                        <p>Hệ điều hành</p>
-                        <span>{os}</span>
-                    </div>
-                    <div className='detail-infrared detail-item-child'>
-                        <p>Hồng ngoại</p>
-                        <span>{infrared}</span>
-                    </div>
-                    <div className='detail-headphones detail-item-child'>
-                        <p>Jack tai nghe 3.5</p>
-                        <span>{headphones}</span>
-                    </div>
-                    <div className='detail-network detail-item-child'>
-                        <p>Hỗ trợ mạng</p>
-                        <span>{network}</span>
-                    </div>
-                    <div className='detail-wifi detail-item-child'>
-                        <p>Wifi</p>
-                        <span>{wifi}</span>
-                    </div>
-                    <div className='detail-bluetooth detail-item-child'>
-                        <p>Bluetooth</p>
-                        <span>{bluetooth}</span>
-                    </div>
-                    <div className='detail-gps detail-item-child'>
-                        <p>GPS</p>
-                        <span>{gps}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="detail-store detail-name">
-                <div className="detail-store-title item-title">{item.store}</div>
-                <div className="detail-store-list detail-item">
-                    <div className="detail-ram detail-item-child">
-                        <p>RAM</p>
-                        <span>{ram} GB</span>
-                    </div>
-                    <div className="detail-memory detail-item-child">
-                        <p>Bộ nhớ trong</p>
-                        <span>{memory} GB</span>
-                    </div>
-                    <div className="detail-memory-card-port detail-item-child">
-                        <p>Khe cắm thẻ nhớ</p>
-                        <span>{memoryCardPort}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className='detail-charge detail-name'>
-                <div className="detail-charge-title item-title">{item.charge}</div>
-                <div className="detail-charge-list detail-item">
-                    <div className='detail-battery detail-item-child'>
-                        <p>Pin</p>
-                        <span>{battery}</span>
-                    </div>
-                    <div className='detail-charge-type detail-item-child'>
-                        <p>Công nghệ sạc</p>
-                        <span>{chargeTech}</span>
-                    </div>
-                    <div className='detail-charge-port detail-item-child'>
-                        <p>Cổng sạc</p>
-                        <span>{chargePort}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="detail-design detail-name">
-                <div className="detail-design-title item-title">{item.design}</div>
-                <div className="detail-design-list detail-item">
-                    <div className='detail-size detail-item-child'>
-                        <p>Kích thước</p>
-                        <span>{size}</span>
-                    </div>
-                    <div className='detail-weight detail-item-child'>
-                        <p>Trọng lượng</p>
-                        <span>{weight}</span>
-                    </div>
-                    <div className='detail-back-material detail-item-child'>
-                        <p>Chất liệu mặt lưng</p>
-                        <span>{backMaterial}</span>
-                    </div>
-                    <div className='detail-frame-material detail-item-child'>
-                        <p>Chất liệu khung viền</p>
-                        <span>{frameMaterial}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className="detail-sidetech detail-name">
-                <div className="detail-sidetech-title item-title">{item.sideTech}</div>
-                <div className="detail-sidetech-list detail-item">
-                    <div className='detail-waterproof detail-item-child'>
-                        <p>Chỉ số kháng nước, bụi</p>
-                        <span>{waterproof}</span>
-                    </div>
-                    <div className='detail-spectech detail-item-child'>
-                        <p>Công nghệ - Tiện ích</p>
-                        <span>{specTech}</span>
-                    </div>
-                    <div className='detail-another-tech detail-item-child'>
-                        <p>Tiện ích khác</p>
-                        <span>{anotherTech}</span>
-                    </div>
-                    <div className='detail-sound-tech detail-item-child'>
-                        <p>Công nghệ âm thanh</p>
-                        <span>{soundTech}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className='detail-handy detail-name'>
-                <div className="detail-handy-title item-title">{item.handy}</div>
-                <div className="detail-handy-list detail-item">
-                    <div className='detail-fprint detail-item-child'>
-                        <p>Cảm biến vân tay</p>
-                        <span>{fprintsensor}</span>
-                    </div>
-                    <div className='detail-sensor detail-item-child'>
-                        <p>Các loại cảm biến</p>
-                        <span>{sensor}</span>
-                    </div>
-                    <div className='detail-special-feature detail-item-child'>
-                        <p>Tính năng đặc biệt</p>
-                        <span>{specialFeatures}</span>
-                    </div>
-                </div>
-            </div>
-
-            <div className='detail-general detail-name'>
-                <div className="detail-general-title item-title">{item.general}</div>
-                <div className="detail-general-list detail-item">
-                    <p className='detail-release-date detail-item-child'>Thời điểm ra mắt</p>
-                    <span>{releaseDate}</span>
-                </div>
-            </div>
-      </div>
-      <button className='close-detail-btn'><IoClose /> Đóng </button>
-    </div>
-  );
+interface DetailModalProps {
+    item: IphoneData;
+    onClose: () => void;
   }
+  
+  const DetailModal = ({ item, onClose }: DetailModalProps) => {
+    const {
+      screen,
+      rearCamera,
+      frontCamera,
+      graphics,
+      connection,
+      storage,
+      charge,
+      design,
+      sideTech,
+      handy,
+      general
+    } = item.info;
+
+    const renderList = (items: string[] | undefined, title: string) => (
+        <div className={`detail-${title.toLowerCase()} detail-item-child`}>
+          <p>{title}</p>
+          <ul className='child-list'>
+            {items && items.length > 0 ? (
+              items.map((item, index) => <li key={index}>{item}</li>)
+            ) : (
+              <li>N/A</li>
+            )}
+          </ul>
+        </div>
+    );
+  
+    // Màn hình
+    const screenSize = screen?.size || 'N/A';
+    const screenTech = screen?.technology?.join(', ') || 'N/A';
+    const screenResolution = screen?.resolution?.join(', ') || 'N/A';
+    const screenFeatures = screen?.features?.join(', ') || 'N/A';
+    const screenFrequency = screen?.frequency || 'N/A';
+    const screenType = screen?.type?.join(', ') || 'N/A';
+    
+    // Camera sau
+    const rearInfo = rearCamera?.info?.join(', ') || 'N/A';
+    const rearVideo = rearCamera?.video?.join(', ') || 'N/A';
+    const rearFeatures = rearCamera?.features?.join(', ') || 'N/A';
+  
+    // Camera trước
+    const frontCameraInfo = frontCamera?.info?.join(', ') || 'N/A';
+    const frontVideo = frontCamera?.video?.join(', ') || 'N/A';
+  
+    // Đồ họa
+    const chipset = graphics?.chipset || 'N/A';
+    const cpuType = graphics?.cpuType || 'N/A';
+    const gpu = graphics?.gpu || 'N/A';
+  
+    // Kết nối
+    const nfc = connection?.nfc?.join(', ') || 'N/A';
+    const sim = connection?.sim?.join(', ') || 'N/A';
+    const os = connection?.os?.join(', ') || 'N/A';
+    const headphones = connection?.headphones?.join(', ') || 'N/A';
+    const infrared = connection?.infrared?.join(', ') || 'N/A';
+    const wifi = connection?.wifi?.join(', ') || 'N/A';
+    const bluetooth = connection?.bluetooth?.join(', ') || 'N/A';
+    const network = connection?.network?.join(', ') || 'N/A';
+    const gps = connection?.gps?.join(', ') || 'N/A';
+  
+    // Lưu trữ
+    const ram = storage?.ram || 'N/A';
+    const memory = storage?.memory || 'N/A';
+    const memoryCardPort = storage?.memoryCardPort ? 'Có' : 'Không';
+  
+    // Pin và sạc
+    const battery = charge?.battery || 'N/A';
+    const chargeTech = charge?.tech?.join(', ') || 'N/A';
+    const chargePort = charge?.port?.join(', ') || 'N/A';
+  
+    // Thiết kế
+    const size = design?.size?.join(', ') || 'N/A';
+    const weight = design?.weight || 'N/A';
+    const backMaterial = design?.backMaterial?.join(', ') || 'N/A';
+    const frameMaterial = design?.frameMaterial?.join(', ') || 'N/A';
+  
+    // Công nghệ khác
+    const waterproof = sideTech?.waterproof?.join(', ') || 'N/A';
+    const specs = sideTech?.specs?.join(', ') || 'N/A';
+    const additional = sideTech?.additional?.join(', ') || 'N/A';
+    const sound = sideTech?.sound?.join(', ') || 'N/A';
+  
+    // Tính năng đặc biệt
+    const fingerprintSensor = handy?.fingerprintSensor ? 'Có' : 'Không';
+    const sensors = handy?.sensors?.join(', ') || 'N/A';
+    const specialFeatures = handy?.specialFeatures?.join(', ') || 'N/A';
+  
+    // Thông tin chung
+    const releaseDate = general?.releaseDate?.join(', ') || 'N/A';
+  
+    return (
+        <div className="modal-container" onClick={onClose}>
+            <div className="detail-header">
+                <p className='detail-header-title'>Thông số kỹ thuật</p>
+                <IoCloseCircleOutline className="detail-header-close-modal" onClick={onClose} />
+            </div>
+            <div className='info-detail-modal' onClick={(e) => e.stopPropagation()}>
+                <div className="detail-list">
+                    {/* Màn hình */}
+                    <div className="detail-screen detail-name">
+                        <div className="detail-screen-title item-title">Màn hình</div>
+                        <div className="detail-screen-list detail-item">
+                            {renderList(screen?.features, 'Tính năng màn hình')}
+                            <div className='detail-screen-size detail-item-child'>
+                                <p>Kích thước màn hình</p>
+                                <span>{screen?.size || 'N/A'} inches</span>
+                            </div>
+                            <div className='detail-screen-tech detail-item-child'>
+                                <p>Công nghệ màn hình</p>
+                                <span>{screen?.technology?.join(', ') || 'N/A'}</span>
+                            </div>
+                            <div className='detail-screen-resolution detail-item-child'>
+                                <p>Độ phân giải màn hình</p>
+                                <span>{screen?.resolution?.join(', ') || 'N/A'}</span>
+                            </div>
+                            <div className='detail-screen-frequency detail-item-child'>
+                                <p>Tần số quét</p>
+                                <span>{screen?.frequency || 'N/A'}</span>
+                            </div>
+                            <div className='detail-screen-type detail-item-child'>
+                                <p>Kiểu màn hình</p>
+                                <span>{screen?.type?.join(', ') || 'N/A'}</span>
+                            </div>
+                        </div>
+                    </div>
+                    
+                    {/* Camera sau */}
+                    <div className="detail-rear-camera detail-name">
+                        <div className="detail-rear-camera-title item-title">Camera Sau</div>
+                        <div className="detail-rear-list detail-item">
+                            {renderList(rearCamera?.info, 'Thông tin camera sau')}
+                            {renderList(rearCamera?.video, 'Quay video')}
+                            {renderList(rearCamera?.features, 'Tính năng camera sau')}
+                        </div>
+                    </div>
+
+                    {/* Camera trước */}
+                    <div className="detail-front-camera detail-name">
+                        <div className="detail-front-camera-title item-title">Camera Trước</div>
+                        <div className="detail-front-camera-list detail-item">
+                            {renderList(frontCamera?.info, 'Thông tin camera trước')}
+                            {renderList(frontCamera?.video, 'Quay video')}
+                        </div>
+                    </div>
+
+                    {/* Đồ họa */}
+                    <div className="detail-graphics detail-name">
+                        <div className="detail-graphics-title item-title">Vi xử lý & Đồ Họa</div>
+                        <div className="detail-graphics-list detail-item">
+                            <div className='detail-chipset detail-item-child'>
+                                <p>Chipset</p>
+                                <span>{graphics?.chipset || 'N/A'}</span>
+                            </div>
+                            <div className='detail-cpu-type detail-item-child'>
+                                <p>Loại CPU</p>
+                                <span>{graphics?.cpuType || 'N/A'}</span>
+                            </div>
+                            <div className='detail-gpu detail-item-child'>
+                                <p>GPU</p>
+                                <span>{graphics?.gpu || 'N/A'}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Kết nối */}
+                    <div className="detail-connection detail-name">
+                        <div className="detail-connection-title item-title">Giao tiếp & Kết nối</div>
+                        <div className="detail-connection-list detail-item">
+                            {renderList(connection?.nfc, 'NFC')}
+                            {renderList(connection?.sim, 'SIM')}
+                            {renderList(connection?.os, 'Hệ điều hành')}
+                            {renderList(connection?.headphones, 'Jack tai nghe')}
+                            {renderList(connection?.infrared, 'Hồng ngoại')}
+                            {renderList(connection?.wifi, 'Wifi')}
+                            {renderList(connection?.bluetooth, 'Bluetooth')}
+                            {renderList(connection?.network, 'Mạng')}
+                            {renderList(connection?.gps, 'GPS')}
+                        </div>
+                    </div>
+
+                    {/* Lưu trữ */}
+                    <div className="detail-storage detail-name">
+                        <div className="detail-storage-title item-title">RAM & Lưu trữ</div>
+                        <div className="detail-storage-list detail-item">
+                            <div className='detail-ram detail-item-child'>
+                                <p>RAM</p>
+                                <span>{storage?.ram || 'N/A'} GB</span>
+                            </div>
+                            <div className='detail-memory detail-item-child'>
+                                <p>Bộ nhớ trong</p>
+                                <span>{storage?.memory || 'N/A'} GB</span>
+                            </div>
+                            <div className='detail-memory-card-port detail-item-child'>
+                                <p>Thẻ nhớ</p>
+                                <span>{storage?.memoryCardPort ? 'Có' : 'Không'}</span>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Pin và sạc */}
+                    <div className="detail-charge detail-name">
+                        <div className="detail-charge-title item-title">Pin và Công nghệ sạc</div>
+                        <div className="detail-charge-list detail-item">
+                            <div className='detail-battery detail-item-child'>
+                                <p>Dung lượng pin</p>
+                                <span>{charge?.battery || 'N/A'} mAh</span>
+                            </div>
+                            {renderList(charge?.tech, 'Công nghệ sạc')}
+                            {renderList(charge?.port, 'Cổng sạc')}
+                        </div>
+                    </div>
+
+                    {/* Thiết kế */}
+                    <div className="detail-design detail-name">
+                        <div className="detail-design-title item-title">Thiết kế và Trọng lượng</div>
+                        <div className="detail-design-list detail-item">
+                            {renderList(design?.size, 'Kích thước')}
+                            <div className='detail-weight detail-item-child'>
+                                <p>Trọng lượng</p>
+                                <span>{design?.weight || 'N/A'} g</span>
+                            </div>
+                            {renderList(design?.backMaterial, 'Chất liệu mặt lưng')}
+                            {renderList(design?.frameMaterial, 'Chất liệu khung viền')}
+                        </div>
+                    </div>
+
+                    {/* Công nghệ khác */}
+                    <div className="detail-side-tech detail-name">
+                        <div className="detail-side-tech-title item-title">Thông số khác</div>
+                        <div className="detail-side-tech-list detail-item">
+                            {renderList(sideTech?.waterproof, 'Chống nước')}
+                            {renderList(sideTech?.specs, 'Thông số kỹ thuật khác')}
+                            {renderList(sideTech?.additional, 'Thêm')}
+                            {renderList(sideTech?.sound, 'Âm thanh')}
+                        </div>
+                    </div>
+
+                    {/* Tính năng đặc biệt */}
+                    <div className="detail-handy detail-name">
+                        <div className="detail-handy-title item-title">Tiện ích khác</div>
+                        <div className="detail-handy-list detail-item">
+                            <div className='detail-fingerprint-sensor detail-item-child'>
+                                <p>Cảm biến vân tay</p>
+                                <span>{handy?.fingerprintSensor ? 'Có' : 'Không'}</span>
+                            </div>
+                            {renderList(handy?.sensors, 'Cảm biến khác')}
+                            {renderList(handy?.specialFeatures, 'Tính năng đặc biệt')}
+                        </div>
+                    </div>
+
+                    {/* Thông tin chung */}
+                    <div className="detail-general detail-name">
+                        <div className="detail-general-title item-title">Thông tin chung</div>
+                        <div className="detail-general-list detail-item">
+                            {renderList(general?.releaseDate, 'Ngày phát hành')}
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div className="modal-footer">
+                    <button className='close-modal-btn' onClick={onClose}><IoClose /> Đóng</button>
+            </div>
+        </div>
+    );
+  };
   
   export default DetailModal;

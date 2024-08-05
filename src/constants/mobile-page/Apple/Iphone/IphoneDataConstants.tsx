@@ -12,50 +12,47 @@ import img12_8 from '@/assets/images/mobile-data/detail/iphone15-promax/iphone-1
 import { StaticImageData } from "next/image";
 import { v4 as uuidv4 } from 'uuid';
 
-import React from 'react';
-import type { SVGProps } from 'react';
-
 
 interface ImageDetails {
     main: StaticImageData;
     colorThumb: StaticImageData;
     details: StaticImageData[];
-}
-
-interface ProductInfo {
+  }
+  
+  interface ProductInfo {
     features: string[];
     boxContents: string[];
     warranty: string[];
     vat: string[];
-}
-
-interface Screen {
+  }
+  
+  interface Screen {
     features?: string[];
     type?: string[];
     size?: number;
     technology?: string[];
     frequency?: number;
     resolution?: string[];
-}
-
-interface RearCamera {
+  }
+  
+  interface RearCamera {
     info?: string[];
     video?: string[];
     features?: string[];
-}
-
-interface FrontCamera {
+  }
+  
+  interface FrontCamera {
     info?: string[];
     video?: string[];
-}
-
-interface Graphics {
+  }
+  
+  interface Graphics {
     chipset?: string;
     cpuType?: string;
     gpu?: string;
-}
-
-interface Connection {
+  }
+  
+  interface Connection {
     nfc?: string[];
     sim?: string[];
     os?: string[];
@@ -65,45 +62,45 @@ interface Connection {
     bluetooth?: string[];
     network?: string[];
     gps?: string[];
-}
-
-interface Storage {
+  }
+  
+  interface Storage {
     ram?: number;
     memory?: number;
     memoryCardPort?: boolean;
-}
-
-interface Charge {
+  }
+  
+  interface Charge {
     battery?: number;
     tech?: string[];
     port?: string[];
-}
-
-interface Design {
+  }
+  
+  interface Design {
     size?: string[];
     weight?: number;
     backMaterial?: string[];
     frameMaterial?: string[];
-}
-
-interface SideTech {
+  }
+  
+  interface SideTech {
     waterproof?: string[];
     specs?: string[];
     additional?: string[];
     sound?: string[];
-}
-
-interface Handy {
+  }
+  
+  interface Handy {
     fingerprintSensor?: boolean;
     sensors?: string[];
     specialFeatures?: string[];
-}
-
-interface General {
+  }
+  
+  interface General {
     releaseDate?: string[];
-}
-
-interface Info {
+  }
+  
+  interface Info {
     productInfo: ProductInfo;
     usage: string[];
     productType: string;
@@ -122,9 +119,9 @@ interface Info {
     sideTech: SideTech;
     handy: Handy;
     general: General;
-}
-
-interface IphoneData {
+  }
+  
+  export interface IphoneData {
     id: string;
     img: ImageDetails;
     name: string;
